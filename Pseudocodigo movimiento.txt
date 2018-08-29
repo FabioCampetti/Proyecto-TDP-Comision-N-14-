@@ -1,0 +1,34 @@
+El mapa está representado por una matriz. PosX y PosY son las posiciones en x e y respectivamente de la entidad que haya llamado al método. Se considera que x e y son ambos 0 en la esquina superior izquierda, incrementándose de izquierda a derecha y de arriba hacia abajo según corresponda.
+
+MoverDerecha(){
+	Si puede mover a la derecha (no está en el borde derecho del mapa)
+		PosX++;	
+	}
+MoverIzquierda(){
+	Si puede mover a la izquierda (no está en el borde izquierdo del mapa)
+		PosX--;
+	}
+Movimiento de enemigos
+MovKamikazAleatorio(){
+	Si puede bajar (no está en el borde inferior del mapa)	
+              PosY++;
+	Sino
+              PosY=0;
+	Random r= Random de 0 a 2;
+	Si r=0
+		MoverIzquierda();
+	Sino si r=1
+		MoverDerecha();
+	}
+MovKamikazeDirigido(int posXJug){	                          //posXJug es la posición en x del jugador
+	Si puede bajar (no está en el borde inferior del mapa)
+     		PosY++;
+        Sino
+		PosY=0;
+        Si (PosX<posXJug)
+		PosX++;
+        Sino si (PosX>posXJug)
+		PosX--;
+            }		
+
+

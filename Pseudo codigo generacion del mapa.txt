@@ -1,0 +1,15 @@
+El mapa es representado por una matriz de 20x50, donde cada personaje ocupa un casillero de esta.
+
+GenerarMapa(){
+	Matriz[][] = nueva matriz de 20x50;
+	Enemigos[] = nuevo arreglo de enemigos; 	// según el nivel, la cantidad de enemigos. 
+	para cada enemigo de Enemigos[]:
+		creo Enemigos[i] con su posición y tipo correspondiente;
+		matriz[posX][posY] = Enemigos[i];
+	Jugador = nuevo jugador con su posición corespondiente;
+	Obstaculos[] = nuevo arreglo de obstaculos;	// de forma aleatoria se da la cantidad de obstaculos y su tipo.
+	para cada obstaculo de Obstaculos[]:		
+		creo el Obstaculos[i] con su posicion y tipo correspondiente;
+		Matriz[posX][posY] = Obstaculos[i];
+	}
+		
