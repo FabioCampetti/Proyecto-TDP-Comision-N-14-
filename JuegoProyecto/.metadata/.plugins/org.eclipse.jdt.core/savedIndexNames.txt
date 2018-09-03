@@ -1,2 +1,2 @@
-INDEX VERSION 1.130+C:\Users\Maria Ester Sack\Desktop\Guido\Uni\2do año 2do cuatrimestre\TdP\Proyecto\Github\JuegoProyecto\.metadata\.plugins\org.eclipse.jdt.core
+INDEX VERSION 1.130+C:\Users\Sandra\Documents\Proyecto-TDP-Comision-N-14-\JuegoProyecto\.metadata\.plugins\org.eclipse.jdt.core
 1414627288.index

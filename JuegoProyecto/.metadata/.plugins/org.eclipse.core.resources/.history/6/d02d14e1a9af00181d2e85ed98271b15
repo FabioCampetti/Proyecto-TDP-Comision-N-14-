@@ -1,0 +1,5 @@
+package Naves;
+
+public abstract class Enemigo {
+
+}

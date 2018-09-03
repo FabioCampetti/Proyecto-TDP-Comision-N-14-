@@ -1,0 +1,18 @@
+package Naves;
+import 
+
+
+public class Jugador extends Entidad{
+		
+		public static final int left = 
+	
+		public Jugador(int vida,Disparo disparo,Casilla pos) {
+			super(3,disparo,pos);
+		}
+		
+		
+		public void mover() {
+			
+		}
+		
+}

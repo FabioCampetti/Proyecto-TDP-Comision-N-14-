@@ -1,0 +1,19 @@
+package Naves;
+
+public abstract class Entidad {
+
+	protected int vida;
+	//protected Disparo disparo;
+	//protected Casilla pos;
+	
+	public abstract void mover();
+	public abstract void mover(int dir);
+	
+	public int getVida() {
+		return vida;
+	}
+	public void setVida(int vida) {
+		this.vida = vida;
+	}
+	
+}
