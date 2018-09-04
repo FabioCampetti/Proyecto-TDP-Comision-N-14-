@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Delete 5 resources" deleteContents="false" description="Delete 5 resources" element1="/FileOpen" element2="/Gravity_test" element3="/GUI_test" element4="/GUI_test_basic" element5="/TDP" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="5" stamp="1536004801722"/>&#x0A;<refactoring comment="Delete 5 resources" deleteContents="false" description="Delete 5 resources" element1="/FileOpen" element2="/Gravity_test" element3="/GUI_test" element4="/GUI_test_basic" element5="/TDP" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="5" stamp="1536005523858"/>
-</session>
