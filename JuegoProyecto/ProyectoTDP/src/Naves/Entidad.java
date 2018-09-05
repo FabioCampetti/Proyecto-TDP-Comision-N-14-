@@ -21,7 +21,6 @@ public abstract class Entidad {
 		}
 		
 	}
-	
 	public int getVida() {
 		return vida;
 	}
@@ -29,7 +28,6 @@ public abstract class Entidad {
 		this.vida = vida;
 	}
 	public boolean isDead() {
-		return (vida <= 0);
+		return (vida<=0);
 	}
-		
 }
