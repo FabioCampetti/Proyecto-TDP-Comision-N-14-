@@ -4,6 +4,8 @@ import java.util.LinkedList;
 import java.util.Random;
 import javax.swing.JPanel;
 
+import Naves.*;
+
 public abstract class Mapa extends JPanel{
 	protected LinkedList<Entidad> entidades;
 	protected Jugador jug;
@@ -11,6 +13,10 @@ public abstract class Mapa extends JPanel{
 	protected Mapa() {
 		super();
 		this.setSize(800, 600);
-		jug= new Jugador(400,500);
+		jug= new Jugador();
+		this.add(jug.getPosicion());
+	}
+	public void movePlayer(int dir) {
+		jug.mover(dir);
 	}
 }
