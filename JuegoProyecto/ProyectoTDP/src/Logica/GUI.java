@@ -2,6 +2,8 @@ package Logica;
 import Mapas.*;
 
 import java.awt.Color;
+import java.awt.Container;
+import java.awt.EventQueue;
 
 import javax.swing.*;
 import javax.swing.JFrame;
@@ -11,38 +13,69 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 
-public class GUI extends JPanel {
-	protected static Mapa mapa;
+public class GUI extends JFrame {
+	protected Mapa mapa;
 	
 	/**
 	 * Inicializacion de GUI con listeners para las flechitas.
 	 * @param mapa JPanel que almacenara jugadores,enemigos, obstaculos,etc.
 	 * 
 	 */
-	public GUI(Mapa mapa) {
-		this.mapa = mapa;
-		addKeyListener (new KeyListener() {
-			public void keyTyped(KeyEvent e) {
-				
-			}
-			public void keyReleased(KeyEvent e) {
-			//
-			}
-			public void keyPressed(KeyEvent e) {
-				final int aux = e.KEY_TYPED;
-				mapa.movePlayer(aux);
-			}
-		});
-		setFocusable(true);
-	}
 	/**
 	 * Inicializacion del juego en si. Se crea frame principal y se le pega el JPanel del mapa.
 	 */
-	public static void main(String[] args) {
+	public GUI() {
+		
+		mapa = new Mapa1();
+		this.add(mapa);
+
+		this.addKeyListener(new KeyListener() {
+			public void keyPressed(KeyEvent e) {
+				
+				final int aux = e.getKeyCode();
+				mapa.movePlayer(aux);
+			}
+			public void keyReleased(KeyEvent e) { }
+			public void keyTyped(KeyEvent e) { }
+		});
+		this.setSize(720,1080);
+		this.setVisible(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+	/*
+		mapa = new Mapa1();
+		GUI aux = new GUI();
 		JFrame frame = new JFrame("GameTest");
 		frame.setSize(800,600);
 		frame.setVisible(true);
-		frame.add(mapa);
+		frame.getContentPane().add(mapa);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	*/
+	
+	/**
+	 * Lanza la interfaz gráfica
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GUI frame = new GUI();
+					frame.setTitle("TEST");
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
+	
+	
 }

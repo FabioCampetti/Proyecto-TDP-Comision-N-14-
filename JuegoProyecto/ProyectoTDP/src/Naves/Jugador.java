@@ -1,4 +1,6 @@
 package Naves;
+
+import java.awt.Color;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.net.MalformedURLException;
@@ -9,33 +11,39 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import Disparos.*;
 
+public class Jugador extends Entidad {
 
-public class Jugador extends Entidad{
-		
-		public static final int left = KeyEvent.KEY_LOCATION_LEFT;
-		public static final int right = KeyEvent.KEY_LOCATION_RIGHT;
-	
-		public Jugador() {
-			super();
-			pos.setLocation(400, 500);
-			disparo = new DisparoJugador();
-			
-			try {
-				URL direccion=new URL("C:\\\\Users\\\\Maria Ester Sack\\\\Downloads\\\\pikachu-clipart-png-icon-13.png");
-				ImageIcon image=new ImageIcon(direccion);
-				pos.setIcon(image);
-			} catch (MalformedURLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
+	public static final int left = KeyEvent.VK_LEFT;
+	public static final int right = KeyEvent.VK_RIGHT;
+
+	public Jugador() {
+		super();
+		Rectangle aux = pos.getBounds();
+		aux.setSize(150,200);
+		//disparo = new DisparoJugador();
+		pos.setVisible(true);
+
+		ImageIcon imagen = new ImageIcon();
+		try {
+			//URL direccion = new URL("file:///C:/Users/Sandra/Desktop/123asd/Tennis/src/Juego/perdiste.png");
+			URL direccion = new URL("file:///C:/Users/Sandra/Documents/Proyecto-TDP-Comision-N-14-/JuegoProyecto/ProyectoTDP/src/Naves/foto.png");
+			imagen = new ImageIcon(direccion);
 		}
-		public void mover(int x) {
-			if(x==left)
-				pos.setLocation(pos.getX()-10, pos.getY());
-			else 
-				if (x==right)
-					pos.setLocation(pos.getX()+10, pos.getY());
+		catch(MalformedURLException p ) {
 		}
-		
+		pos.setIcon(imagen);
+		pos.setSize(50, 50);
+	}
+
+	public void mover(int x) {
+		if (x == left) {
+			{if(pos.getX()>0)
+			pos.setLocation(pos.getX() - 20, pos.getY());}
+		}
+		else 
+			if(pos.getX()<720)
+				if (x == right)
+					pos.setLocation(pos.getX() + 20, pos.getY());
+	}
+
 }

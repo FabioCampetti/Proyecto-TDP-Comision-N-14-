@@ -11,16 +11,13 @@ public abstract class Entidad {
 	protected JLabel pos;
 	
 	public Entidad() {
+		pos = new JLabel();
+		pos.setSize(500, 500);
 		vida=100;
 	}
 	public void mover(int x) {
 		}
 		
-<<<<<<< HEAD
-	}
-=======
-	
->>>>>>> 0aba0ea151bba359dfa704e8b8c5486da3f40fa0
 	public int getVida() {
 		return vida;
 	}
@@ -30,12 +27,7 @@ public abstract class Entidad {
 	public boolean isDead() {
 		return (vida<=0);
 	}
-<<<<<<< HEAD
-=======
-	
 	public JLabel getPosicion() {
 		return pos;
 	}
-		
->>>>>>> 0aba0ea151bba359dfa704e8b8c5486da3f40fa0
 }
