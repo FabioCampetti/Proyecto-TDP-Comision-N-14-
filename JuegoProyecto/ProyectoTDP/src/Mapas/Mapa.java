@@ -14,15 +14,19 @@ import Naves.*;
 public abstract class Mapa extends JPanel{
 	protected LinkedList<Entidad> entidades;
 	protected Jugador jug;
+	public static final int ANCHO = 720;
+	public static final int LARGO = 1080;
 	
 	protected Mapa() {
 		super();
 		this.setSize(720,1080);
 		jug= new Jugador();
-		this.setLayout(new GridLayout(6,6));
+		this.setLayout(null);
 		this.add(jug.getPosicion());
 		this.setVisible(true);
 		this.setBackground(new Color(0,125,255));
+		
+	
 	}
 	public void movePlayer(int dir) {
 		jug.mover(dir);

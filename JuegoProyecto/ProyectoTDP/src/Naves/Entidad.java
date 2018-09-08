@@ -12,7 +12,7 @@ public abstract class Entidad {
 	
 	public Entidad() {
 		pos = new JLabel();
-		pos.setSize(500, 500);
+		//pos.setSize(500, 500);
 		vida=100;
 	}
 	public void mover(int x) {

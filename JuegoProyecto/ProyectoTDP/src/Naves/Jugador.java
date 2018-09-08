@@ -10,16 +10,18 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import Disparos.*;
+import Mapas.Mapa;
 
 public class Jugador extends Entidad {
 
-	public static final int left = KeyEvent.VK_LEFT;
-	public static final int right = KeyEvent.VK_RIGHT;
+	private static final int left = KeyEvent.VK_LEFT;
+	private static final int right = KeyEvent.VK_RIGHT;
 
 	public Jugador() {
 		super();
-		Rectangle aux = pos.getBounds();
-		aux.setSize(150,200);
+		//Rectangle aux = pos.getBounds();
+		//aux.setSize(150,200);
+		pos.setBounds(700,240,350,350);
 		//disparo = new DisparoJugador();
 		pos.setVisible(true);
 
@@ -32,18 +34,19 @@ public class Jugador extends Entidad {
 		catch(MalformedURLException p ) {
 		}
 		pos.setIcon(imagen);
-		pos.setSize(50, 50);
+		//pos.setSize(50, 50);
 	}
 
 	public void mover(int x) {
 		if (x == left) {
-			{if(pos.getX()>0)
+			{if(pos.getX()> - 60)
 			pos.setLocation(pos.getX() - 20, pos.getY());}
 		}
 		else 
-			if(pos.getX()<720)
+			if(pos.getX()< Mapa.ANCHO)
 				if (x == right)
 					pos.setLocation(pos.getX() + 20, pos.getY());
+
 	}
 
 }
