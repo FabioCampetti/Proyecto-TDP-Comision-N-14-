@@ -12,12 +12,9 @@ public abstract class Entidad {
 	
 	public Entidad() {
 		pos = new JLabel();
-		//pos.setSize(500, 500);
 		vida=100;
 	}
-	public void mover(int x) {
-		}
-		
+	public abstract void mover(int x);
 	public int getVida() {
 		return vida;
 	}
@@ -29,5 +26,16 @@ public abstract class Entidad {
 	}
 	public JLabel getPosicion() {
 		return pos;
+	}
+	/**
+	 * IMPLEMENTAR ESTE METODO
+	 */
+	public void colision() {
+	}
+	/**
+	 * Este metodo generaliza la idea de "desaparecer" del mapa.
+	 */
+	public void morir() {
+		vida = 0;
 	}
 }

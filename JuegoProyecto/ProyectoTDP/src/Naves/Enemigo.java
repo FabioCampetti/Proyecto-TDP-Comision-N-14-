@@ -7,10 +7,9 @@ package Naves;
  * Clase encargada de modelar a todos los tipos de enemigos del juego.	
  *
  */
-public abstract class Enemigo {
+public abstract class Enemigo extends Entidad{
 
 	protected boolean tiene_arma;
-	
 	
 	
 	

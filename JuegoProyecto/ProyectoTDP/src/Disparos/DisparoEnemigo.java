@@ -1,5 +1,4 @@
 package Disparos;
 
-public class DisparoEnemigo extends Disparo {
-
+public class DisparoEnemigo{
 }

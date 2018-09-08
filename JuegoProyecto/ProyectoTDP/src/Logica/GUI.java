@@ -1,26 +1,17 @@
 package Logica;
 import Mapas.*;
-
-import java.awt.Color;
-import java.awt.Container;
 import java.awt.EventQueue;
 
-import javax.swing.*;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-
 public class GUI extends JFrame {
 	protected Mapa mapa;
-	
+	private ContadorTiempo cont;
 	/**
 	 * Inicializacion de GUI con listeners para las flechitas.
 	 * @param mapa JPanel que almacenara jugadores,enemigos, obstaculos,etc.
-	 * 
-	 */
 	/**
 	 * Inicializacion del juego en si. Se crea frame principal y se le pega el JPanel del mapa.
 	 */
@@ -31,23 +22,25 @@ public class GUI extends JFrame {
 
 		this.addKeyListener(new KeyListener() {
 			public void keyPressed(KeyEvent e) {
-				
-				final int aux = e.getKeyCode();
-				mapa.movePlayer(aux);
+				int aux = e.getKeyCode();  
+				if(aux == KeyEvent.VK_SPACE) {
+					mapa.disparoPlayer();
+				}
+				else
+					mapa.movePlayer(aux);
 			}
 			public void keyReleased(KeyEvent e) { }
 			public void keyTyped(KeyEvent e) { }
 		});
-		this.setSize(720,1080);
+		
+		this.setSize(1920,1080);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
-		
-		
-		
-		
-		
-		
+		///////////////////ACA VA EL TREAT QUE NO SABEMOS USAR
+		//cont = new ContadorTiempo(mapa,this);
+		//cont.start();
+
 		
 	}
 	/*
