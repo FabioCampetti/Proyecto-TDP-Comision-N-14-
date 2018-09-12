@@ -1,4 +1,4 @@
-package Logica;
+package gui;
 
 import Mapas.*;
 
