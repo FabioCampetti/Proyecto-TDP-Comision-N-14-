@@ -1,7 +1,6 @@
 package gui;
 import Mapas.*;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -26,8 +25,12 @@ public class GUI extends JFrame {
 				if(aux == KeyEvent.VK_SPACE) {
 					mapa.disparoPlayer();
 				}
-				else
+				else if(aux == KeyEvent.VK_P) {
+					mapa.killEnemigos();
+				}
+				else {
 					mapa.movePlayer(aux);
+					}
 			}
 			public void keyReleased(KeyEvent e) { }
 			public void keyTyped(KeyEvent e) { }

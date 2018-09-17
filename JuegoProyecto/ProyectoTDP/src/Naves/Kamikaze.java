@@ -19,4 +19,9 @@ public class Kamikaze extends Enemigo {
 	public void mover(int x) {
 		IA.mover(pos);
 	}
+	
+	public void morir() {
+		this.pos.setVisible(false);
+		this.pos.setIcon(null);
+	}
 }

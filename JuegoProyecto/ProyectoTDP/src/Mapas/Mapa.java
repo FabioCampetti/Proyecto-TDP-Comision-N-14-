@@ -26,8 +26,10 @@ public abstract class Mapa extends JPanel {
 		this.setLayout(null);
 		this.add(jug.getPosicion());
 		enemigos = new LinkedList<Enemigo>();
+		//Esto es para agregar un solo enemigo para testear, va a cambiar
 		enemigos.add(new Kamikaze());
 		this.add(enemigos.getFirst().getPosicion());
+		
 		this.setVisible(true);
 
 		JLabel fondoAux = new JLabel();
@@ -44,10 +46,9 @@ public abstract class Mapa extends JPanel {
 	 * VER ESTE METODO
 	 */
 	public void moveEnemigos() {
-		for (Enemigo e: enemigos) {
+		for (Enemigo e : enemigos) {
 			e.mover(0);
 		}
-		
 	}
 
 	/**
@@ -65,6 +66,20 @@ public abstract class Mapa extends JPanel {
 		// fondo del mapa.
 		// this.add(aux.getPosicion());
 		// aux.mover(0);
+	}
+
+	public void killEnemigos() {
+		if (!enemigos.isEmpty()) {
+			Enemigo e1 = enemigos.getFirst();
+			e1.setVida(0);
+		}
+		for (Enemigo e : enemigos) {
+			if (e.isDead()) {
+				e.morir();
+				this.remove(e.getPosicion());
+				enemigos.remove(e);
+			}
+		}
 	}
 
 }

@@ -47,7 +47,6 @@ public class Jugador extends Entidad {
 	public void morir() {
 		this.pos.setVisible(false);
 		this.pos.setIcon(null);
-		this.pos = null;
 	}
 	/**
 	 * TODO
