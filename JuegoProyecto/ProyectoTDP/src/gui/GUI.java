@@ -38,8 +38,8 @@ public class GUI extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 		///////////////////ACA VA EL TREAT QUE NO SABEMOS USAR
-		//cont = new ContadorTiempo(mapa,this);
-		//cont.start();
+		cont = new ContadorTiempo(mapa,this);
+		cont.start();
 
 		
 	}
