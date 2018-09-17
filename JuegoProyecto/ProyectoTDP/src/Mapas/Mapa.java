@@ -18,7 +18,7 @@ public abstract class Mapa extends JPanel{
 	protected JLabel fondo;
 	public static final int ANCHO = 1920;
 	public static final int LARGO = 1080;
-	
+	private ImageIcon background = new ImageIcon(this.getClass().getResource("/Mapas/fondo.jpg"));
 	protected Mapa() {
 		super();
 		this.setSize(1920,1080);
@@ -27,17 +27,9 @@ public abstract class Mapa extends JPanel{
 		this.add(jug.getPosicion());
 		this.setVisible(true);
 		
-		ImageIcon aux = new ImageIcon();
-		try {
-			URL direccion = new URL("file:///C://Users//Sandra//Documents//Proyecto-TDP-Comision-N-14-//JuegoProyecto//ProyectoTDP//src//Mapas/xD.gif");
-			aux = new ImageIcon(direccion);
-		}
-		catch(MalformedURLException w) {
-			w.printStackTrace();
-		}
 		JLabel fondoAux = new JLabel();
 		fondoAux.setBounds(0,0,1920,1080);
-		fondoAux.setIcon(aux);
+		fondoAux.setIcon(background);
 		this.add(fondoAux);
 	}
 	public void movePlayer(int dir) {
@@ -54,8 +46,13 @@ public abstract class Mapa extends JPanel{
 	/**
 	 * DISPARO QUEDA ABAJO DEL FONDO DEL MAPA.
 	 */
+	public void killJugador() {
+		jug.morir();
+		this.remove(jug.getPosicion());
+		jug = null;
+	}
 	public void disparoPlayer() {
-		Disparo aux = jug.disparar();
+		//Disparo aux = jug.disparar();
 		//Cuando metemos el disparo en el mapa, la imagen del disparo queda abajo del fondo del mapa.
 		//this.add(aux.getPosicion());	
 		//aux.mover(0);
