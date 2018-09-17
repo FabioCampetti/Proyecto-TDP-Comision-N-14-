@@ -6,7 +6,7 @@ import java.net.URL;
 import javax.swing.ImageIcon;
 
 public class DisparoJugador extends Disparo {
-	
+	private ImageIcon imagenDisparo = new ImageIcon(this.getClass().getResource("/Disparos/imagenDisparo.png"));
 	/**
 	 * DISPARO IMPLEMENTADO CON POCOS DETALLES - ICONO DE BOLA AZUL.
 	 * PROBLEMA: EL DISPARO QUEDA ABAJO DEL FONDO DEL MAPA - PREGUNTAR
@@ -14,15 +14,7 @@ public class DisparoJugador extends Disparo {
 	
 	public DisparoJugador(int x,int y) {
 		super(x,y);
-		ImageIcon imagen = new ImageIcon();
-		try {
-			URL direccion = new URL("file:///C://Users//Sandra//Documents//Proyecto-TDP-Comision-N-14-//JuegoProyecto//ProyectoTDP//src//Disparos/kameha2.png");
-			imagen = new ImageIcon(direccion);
-		}
-		catch(MalformedURLException w) {
-			w.printStackTrace();
-		}
-		this.pos.setIcon(imagen);
+		this.pos.setIcon(imagenDisparo);
 	}
 	/**
 	 * ACOMODAR TODO - PREGUNTAR SOBRE TREAD PARA VER MOVIMIENTO MÁS REAL.

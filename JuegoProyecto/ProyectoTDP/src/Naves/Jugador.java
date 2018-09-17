@@ -12,20 +12,13 @@ public class Jugador extends Entidad {
 
 	private static final int left = KeyEvent.VK_LEFT;
 	private static final int right = KeyEvent.VK_RIGHT;
-
+	private ImageIcon foto = new ImageIcon(this.getClass().getResource("/Naves/imagenJugador.gif"));
+	
 	public Jugador() {
 		super();
 		pos.setBounds(720,700,350,350);
 		pos.setVisible(true);
-
-		ImageIcon imagen = new ImageIcon();
-		try {
-			URL direccion = new URL("file:///C:/Users/Sandra/Documents/Proyecto-TDP-Comision-N-14-/JuegoProyecto/ProyectoTDP/src/Naves/aux10.gif");
-			imagen = new ImageIcon(direccion);
-		}
-		catch(MalformedURLException p ) {
-		}
-		pos.setIcon(imagen);
+		pos.setIcon(foto);
 	}
 	public void mover(int x) {
 		if (x == left) {
@@ -52,6 +45,9 @@ public class Jugador extends Entidad {
 	 * Meter explosion de la nave o un mensaje que diga "game over" aca.
 	 */
 	public void morir() {
+		this.pos.setVisible(false);
+		this.pos.setIcon(null);
+		this.pos = null;
 	}
 	/**
 	 * TODO
