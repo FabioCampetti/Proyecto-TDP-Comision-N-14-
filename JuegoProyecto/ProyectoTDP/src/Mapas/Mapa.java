@@ -11,15 +11,18 @@ import javax.swing.JPanel;
 import Disparos.*;
 import Naves.*;
 
-public abstract class Mapa extends JPanel {
+public class Mapa extends JPanel {
 	protected LinkedList<Enemigo> enemigos;
 	protected Jugador jug;
 	protected JLabel fondo;
 	public static final int ANCHO = 1920;
 	public static final int LARGO = 1080;
 	private ImageIcon background = new ImageIcon(this.getClass().getResource("/Mapas/fondo.jpg"));
-
-	protected Mapa() {
+	private enemiesFactory factory;
+	
+	
+	
+	public Mapa() {
 		super();
 		this.setSize(1920, 1080);
 		jug = new Jugador();
@@ -30,6 +33,11 @@ public abstract class Mapa extends JPanel {
 		enemigos.add(new Kamikaze());
 		this.add(enemigos.getFirst().getPosicion());
 		
+		//FACTORY 
+		factory = new factoryLevelOne();
+		//	this.startLevel();
+		
+		
 		this.setVisible(true);
 
 		JLabel fondoAux = new JLabel();
@@ -37,7 +45,21 @@ public abstract class Mapa extends JPanel {
 		fondoAux.setIcon(background);
 		this.add(fondoAux);
 	}
-
+	private void startLevel() {
+		while(!factory.isEmpty()) {
+			Enemigo e = factory.createEnemy();
+			enemigos.add(e);
+			this.add(e.getPosicion());
+		}
+	}
+	private void nextLevel() {
+		factory = factory.getNextFactory();
+		this.startLevel();
+	}
+	/*
+	private boolean levelOver() {
+	}
+	*/
 	public void movePlayer(int dir) {
 		jug.mover(dir);
 	}

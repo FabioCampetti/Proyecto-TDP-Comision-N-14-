@@ -1,12 +1,10 @@
 package Naves;
 
 import java.awt.event.KeyEvent;
-import java.net.MalformedURLException;
-import java.net.URL;
-
 import javax.swing.ImageIcon;
 import Disparos.*;
 import Mapas.Mapa;
+import colliders.JugadorCollider;
 
 public class Jugador extends Entidad {
 
@@ -19,6 +17,7 @@ public class Jugador extends Entidad {
 		pos.setBounds(720,700,350,350);
 		pos.setVisible(true);
 		pos.setIcon(foto);
+		coll = new JugadorCollider(); 
 	}
 	public void mover(int x) {
 		if (x == left) {

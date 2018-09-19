@@ -16,7 +16,7 @@ public class GUI extends JFrame {
 	 */
 	public GUI() {
 		
-		mapa = new Mapa1();
+		mapa = new Mapa();
 		this.add(mapa);
 
 		this.addKeyListener(new KeyListener() {

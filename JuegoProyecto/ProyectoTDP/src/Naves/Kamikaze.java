@@ -2,6 +2,7 @@ package Naves;
 
 import javax.swing.ImageIcon;
 
+import colliders.EnemigoCollider;
 import inteligencias.IKamikazeAleatorio;
 
 public class Kamikaze extends Enemigo {
@@ -13,6 +14,7 @@ public class Kamikaze extends Enemigo {
 		pos.setBounds(50,50,200,144);
 		pos.setVisible(true);
 		pos.setIcon(foto);
+		coll=new EnemigoCollider();
 		IA= new IKamikazeAleatorio();
 		
 	}

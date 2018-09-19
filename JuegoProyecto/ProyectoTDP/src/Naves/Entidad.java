@@ -2,13 +2,15 @@ package Naves;
 import javax.swing.JLabel;
 
 import Disparos.*;
+import colliders.DefaultCollider;
 
 
 public abstract class Entidad {
-
+	
 	protected int vida;
 	protected Disparo disparo;
 	protected JLabel pos;
+	protected DefaultCollider coll;
 	
 	public Entidad() {
 		pos = new JLabel();
@@ -30,7 +32,8 @@ public abstract class Entidad {
 	/**
 	 * IMPLEMENTAR ESTE METODO
 	 */
-	public void colision() {
+	public DefaultCollider colision(Entidad e) {
+		return coll;
 	}
 	/**
 	 * Este metodo generaliza la idea de "desaparecer" del mapa.
