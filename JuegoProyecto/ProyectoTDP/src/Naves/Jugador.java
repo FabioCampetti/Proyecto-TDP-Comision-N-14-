@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import Disparos.*;
 import Mapas.Mapa;
+import colliders.DefaultCollider;
 import colliders.JugadorCollider;
 
 public class Jugador extends Entidad {
@@ -17,7 +18,7 @@ public class Jugador extends Entidad {
 		pos.setBounds(720,700,350,350);
 		pos.setVisible(true);
 		pos.setIcon(foto);
-		coll = new JugadorCollider(); 
+		myCollider = new JugadorCollider(); 
 	}
 	public void mover(int x) {
 		if (x == left) {
@@ -51,6 +52,14 @@ public class Jugador extends Entidad {
 	 * TODO
 	 */
 	public void recibirDaño(int daño) {
+	}
+	@Override
+	public void colision(Entidad e) {
+		e.aceptar(myCollider);
+	}
+	
+	public void aceptar(DefaultCollider c) {
+		c.collideJugador(this);
 	}
 	
 }
