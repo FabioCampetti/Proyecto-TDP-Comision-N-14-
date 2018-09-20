@@ -15,13 +15,11 @@ public class Kamikaze extends Enemigo {
 		pos.setVisible(true);
 		pos.setIcon(foto);
 		coll=new EnemigoCollider();
-		IA= new IKamikazeAleatorio();
-		
+		IA= new IKamikazeAleatorio();		
 	}
 	public void mover(int x) {
 		IA.mover(pos);
 	}
-	
 	public void morir() {
 		this.pos.setVisible(false);
 		this.pos.setIcon(null);

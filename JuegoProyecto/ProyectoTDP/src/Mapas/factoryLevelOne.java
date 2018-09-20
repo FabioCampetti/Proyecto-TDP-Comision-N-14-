@@ -8,8 +8,8 @@ import Naves.Kamikaze;
 public class factoryLevelOne extends enemiesFactory {
 	
 	public factoryLevelOne() {
-		kamikazeAmount = 20;
-		armadoAmount = 10;
+		kamikazeAmount = 10;
+		armadoAmount = 20;
 		size = 30;
 	}
 	public enemiesFactory getNextFactory() {

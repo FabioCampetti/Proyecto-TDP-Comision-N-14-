@@ -24,32 +24,45 @@ public class Mapa extends JPanel {
 	
 	public Mapa() {
 		super();
-		this.setSize(1920, 1080);
+		this.setSize(ANCHO,LARGO);
 		jug = new Jugador();
 		this.setLayout(null);
 		this.add(jug.getPosicion());
 		enemigos = new LinkedList<Enemigo>();
 		//Esto es para agregar un solo enemigo para testear, va a cambiar
-		enemigos.add(new Kamikaze());
-		this.add(enemigos.getFirst().getPosicion());
+		//enemigos.add(new Kamikaze());
+		//this.add(enemigos.getFirst().getPosicion());
 		
 		//FACTORY 
 		factory = new factoryLevelOne();
-		//	this.startLevel();
+		this.startLevel();
 		
 		
 		this.setVisible(true);
 
 		JLabel fondoAux = new JLabel();
-		fondoAux.setBounds(0, 0, 1920, 1080);
+		fondoAux.setBounds(0, 0,ANCHO,LARGO);
 		fondoAux.setIcon(background);
 		this.add(fondoAux);
 	}
 	private void startLevel() {
+		int xInicial = 40;
+		int yInicial = 40;
 		while(!factory.isEmpty()) {
 			Enemigo e = factory.createEnemy();
 			enemigos.add(e);
+			e.getPosicion().setLocation(xInicial,yInicial);
 			this.add(e.getPosicion());
+			xInicial+=100;
+			if(xInicial > ANCHO - 100) {
+				xInicial = 40;
+				yInicial+= 350;
+			}
+			if(yInicial > LARGO) {
+				yInicial = 40;
+				xInicial = 50;
+			}
+			//yInicial+=15;
 		}
 	}
 	private void nextLevel() {
@@ -83,11 +96,11 @@ public class Mapa extends JPanel {
 	}
 
 	public void disparoPlayer() {
-		// Disparo aux = jug.disparar();
+		 Disparo aux = jug.disparar();
 		// Cuando metemos el disparo en el mapa, la imagen del disparo queda abajo del
 		// fondo del mapa.
 		// this.add(aux.getPosicion());
-		// aux.mover(0);
+		//aux.mover(0);
 	}
 
 	public void killEnemigos() {
