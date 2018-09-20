@@ -10,31 +10,35 @@ public abstract class Entidad {
 	protected int vida;
 	protected Disparo disparo;
 	protected JLabel pos;
-	protected DefaultCollider coll;
+	protected DefaultCollider myCollider;
 	
 	public Entidad() {
 		pos = new JLabel();
 		vida=100;
 	}
+	
 	public abstract void mover(int x);
+	
 	public int getVida() {
 		return vida;
 	}
+	
 	public void setVida(int vida) {
 		this.vida = vida;
 	}
+	
 	public boolean isDead() {
 		return (vida<=0);
 	}
+	
 	public JLabel getPosicion() {
 		return pos;
 	}
-	/**
-	 * IMPLEMENTAR ESTE METODO
-	 */
-	public DefaultCollider colision(Entidad e) {
-		return coll;
-	}
+	
+	public abstract void colision(Entidad e) ;
+	
+	public abstract void aceptar(DefaultCollider c);
+	
 	/**
 	 * Este metodo generaliza la idea de "desaparecer" del mapa.
 	 */

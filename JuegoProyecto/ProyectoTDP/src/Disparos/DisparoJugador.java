@@ -1,9 +1,8 @@
 package Disparos;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-
 import javax.swing.ImageIcon;
+import Naves.Entidad;
+import colliders.DefaultCollider;
 
 public class DisparoJugador extends Disparo {
 	private ImageIcon imagenDisparo = new ImageIcon(this.getClass().getResource("/Disparos/imagenDisparo.png"));
@@ -27,6 +26,14 @@ public class DisparoJugador extends Disparo {
 		}
 		
 		
+	}
+	
+	public void colision(Entidad e) {
+		e.aceptar(myCollider);
+	}
+	
+	public void aceptar(DefaultCollider c) {
+		c.collideDisparoJugador(this);
 	}
 	
 }

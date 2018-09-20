@@ -7,7 +7,7 @@ public class EnemigoCollider extends DefaultCollider {
 	public void collideJugador(Jugador j) {
 		//Hay que modelar que pasa cuando un enemigo choca al jugador
 	}
-	public void collideDisparo(DisparoJugador d) {
+	public void collideDisparoJugador(DisparoJugador d) {
 		//Hay que modelar que pasa cuando un enemigo recibe un disparo del jugador
 	}
 	public void collideObstaculoTodos(ObstaculoTodos o) {
