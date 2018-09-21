@@ -4,7 +4,7 @@ import javax.swing.ImageIcon;
 
 import colliders.DefaultCollider;
 import colliders.EnemigoCollider;
-import inteligencias.IKamikazeAleatorio;
+import inteligencias.*;
 
 public class Kamikaze extends Enemigo {
 	
@@ -15,14 +15,9 @@ public class Kamikaze extends Enemigo {
 		pos.setBounds(50,50,200,144);
 		pos.setVisible(true);
 		pos.setIcon(foto);
-<<<<<<< HEAD
-		coll=new EnemigoCollider();
-		IA= new IKamikazeAleatorio();		
-=======
-		myCollider=new EnemigoCollider();
-		IA= new IKamikazeAleatorio();
+		myCollider = new EnemigoCollider();
 		
->>>>>>> f685a433d6c851c9fbf5d24465a1aaf9e91ebff8
+		IA= new IKamikazeAleatorio();		
 	}
 	public void mover(int x) {
 		IA.mover(pos);
@@ -31,12 +26,19 @@ public class Kamikaze extends Enemigo {
 		this.pos.setVisible(false);
 		this.pos.setIcon(null);
 	}
-	
+	public void convertirAleatorio() {
+		IA = new IKamikazeAleatorio();
+	}
+	public void convertirDirigido() {
+		IA = new IKamikazeDirigido();
+	}
 	public void colision(Entidad e) {
 		e.aceptar(myCollider);
 	}
-	
 	public void aceptar(DefaultCollider c) {
 		c.collideEnemigo(this);
+	}
+	public int getScore() {
+		return 30;
 	}
 }

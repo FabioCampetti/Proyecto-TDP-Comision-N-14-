@@ -15,10 +15,11 @@ public class GUI extends JFrame {
 	 * Inicializacion del juego en si. Se crea frame principal y se le pega el JPanel del mapa.
 	 */
 	public GUI() {
-		
+	
 		mapa = new Mapa();
 		this.add(mapa);
-
+		
+		
 		this.addKeyListener(new KeyListener() {
 			public void keyPressed(KeyEvent e) {
 				int aux = e.getKeyCode();  
