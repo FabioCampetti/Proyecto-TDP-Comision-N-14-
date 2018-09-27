@@ -41,21 +41,11 @@ public class GUI extends JFrame {
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
-		///////////////////ACA VA EL TREAT QUE NO SABEMOS USAR
 		cont = new ContadorTiempo(mapa,this);
 		cont.start();
 
 		
 	}
-	/*
-		mapa = new Mapa1();
-		GUI aux = new GUI();
-		JFrame frame = new JFrame("GameTest");
-		frame.setSize(800,600);
-		frame.setVisible(true);
-		frame.getContentPane().add(mapa);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	*/
 	
 	/**
 	 * Lanza la interfaz gráfica

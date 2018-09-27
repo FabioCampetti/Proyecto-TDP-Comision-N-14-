@@ -1,7 +1,9 @@
 package Mapas;
 
+import java.awt.Color;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Random;
 
@@ -29,26 +31,24 @@ public class Mapa extends JPanel {
 		jug = new Jugador();
 		this.setLayout(null);
 		this.add(jug.getPosicion());
-		scoreLabel.setBounds(0,0,150,150);
+		
+		scoreLabel.setBounds(25,25,150,50);
 		scoreLabel.setText("Puntuacion: 0");
+		scoreLabel.setForeground(Color.WHITE);
 		this.add(scoreLabel);
 		enemigos = new LinkedList<Enemigo>();
-		//Esto es para agregar un solo enemigo para testear, va a cambiar
-		//enemigos.add(new Kamikaze());
-		//this.add(enemigos.getFirst().getPosicion());
 		this.setVisible(true);
 
-		//FACTORY 
 		factory = new factoryLevelOne();
 		this.startLevel();
 		
 		JLabel fondoAux = new JLabel();
 		fondoAux.setBounds(0, 0,ANCHO,LARGO);
-		//fondoAux.setIcon(background);
-		//this.add(fondoAux);
-		
-		//this.setComponentZOrder(fondoAux,30);
-
+		fondoAux.setIcon(background);
+		this.add(fondoAux);
+		this.setComponentZOrder(scoreLabel,15);
+		this.setComponentZOrder(jug.getPosicion(),3);
+		this.setComponentZOrder(fondoAux,30);
 		
 	}
 	private void startLevel() {
@@ -59,6 +59,7 @@ public class Mapa extends JPanel {
 			enemigos.add(e);
 			e.getPosicion().setLocation(xInicial,yInicial);
 			this.add(e.getPosicion());
+			this.setComponentZOrder(e.getPosicion(),2);
 			xInicial+=100;
 			if(xInicial > ANCHO - 100) {
 				xInicial = 40;
@@ -73,7 +74,8 @@ public class Mapa extends JPanel {
 	}
 	private void nextLevel() {
 		factory = factory.getNextFactory();
-		this.startLevel();
+		if (factory!=null)
+			this.startLevel();
 	}
 	/*
 	private boolean levelOver() {
@@ -117,6 +119,7 @@ public class Mapa extends JPanel {
 		else {
 			Enemigo e1 = enemigos.getFirst();
 			e1.setVida(0);
+			try {
 			for (Enemigo e : enemigos) {
 				if (e.isDead()) {
 					e.morir();
@@ -124,7 +127,9 @@ public class Mapa extends JPanel {
 					enemigos.remove(e);
 					this.updateScore(e);
 				}
+				}
 			}
+			catch (java.util.ConcurrentModificationException e) {}
 		}
 	}
 	private void updateScore(Enemigo e) {
