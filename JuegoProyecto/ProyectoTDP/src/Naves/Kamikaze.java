@@ -30,7 +30,7 @@ public class Kamikaze extends Enemigo {
 		IA = new IKamikazeAleatorio();
 	}
 	public void convertirDirigido() {
-		IA = new IKamikazeDirigido();
+		//IA = new IKamikazeDirigido();
 	}
 	public void colision(Entidad e) {
 		e.aceptar(myCollider);

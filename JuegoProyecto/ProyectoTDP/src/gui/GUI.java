@@ -19,7 +19,7 @@ public class GUI extends JFrame {
 		mapa = new Mapa();
 		this.add(mapa);
 		
-		
+
 		this.addKeyListener(new KeyListener() {
 			public void keyPressed(KeyEvent e) {
 				int aux = e.getKeyCode();  

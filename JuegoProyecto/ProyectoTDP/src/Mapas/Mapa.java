@@ -113,7 +113,6 @@ public class Mapa extends JPanel {
 
 	public void killEnemigos() {
 		if(enemigos.isEmpty()) {
-			//Cuando inicializa nivel 2 los enemigos se meten abajo del label.
 			this.nextLevel();
 		}
 		else {

@@ -11,11 +11,10 @@ public class ContadorTiempo extends Thread {
 		this.mapa = j;
 		this.gui = gui;
 	}
-
 	public void run() {
 		while(true){
 			try {
-				Thread.sleep(500);
+				sleep(500);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

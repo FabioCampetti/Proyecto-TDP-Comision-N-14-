@@ -7,7 +7,7 @@ import colliders.DefaultCollider;
 
 public abstract class Entidad {
 	
-	protected int vida;
+	protected int vida, velocidad;
 	protected Disparo disparo;
 	protected JLabel pos;
 	protected DefaultCollider myCollider;
@@ -15,6 +15,7 @@ public abstract class Entidad {
 	public Entidad() {
 		pos = new JLabel();
 		vida=100;
+		velocidad=0;
 	}
 	
 	public abstract void mover(int x);
