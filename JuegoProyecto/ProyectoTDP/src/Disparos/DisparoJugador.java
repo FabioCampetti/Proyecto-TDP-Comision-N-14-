@@ -3,6 +3,7 @@ package Disparos;
 import javax.swing.ImageIcon;
 import Naves.Entidad;
 import colliders.DefaultCollider;
+import colliders.DisparoCollider;
 
 public class DisparoJugador extends Disparo {
 	private ImageIcon imagenDisparo = new ImageIcon(this.getClass().getResource("/Disparos/imagenDisparo.png"));
@@ -14,6 +15,7 @@ public class DisparoJugador extends Disparo {
 	public DisparoJugador(int x,int y) {
 		super(x,y);
 		this.pos.setIcon(imagenDisparo);
+		myCollider=new DisparoCollider(this);
 	}
 	/**
 	 * ACOMODAR TODO - PREGUNTAR SOBRE TREAD PARA VER MOVIMIENTO MÁS REAL.

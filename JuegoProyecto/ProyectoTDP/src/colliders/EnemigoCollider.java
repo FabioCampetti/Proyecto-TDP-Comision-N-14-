@@ -4,6 +4,10 @@ import Disparos.*;
 import obstaculos.*;
 
 public class EnemigoCollider extends DefaultCollider {
+	public EnemigoCollider(Entidad e) {
+		super(e);
+	}
+	
 	public void collideJugador(Jugador j) {
 		//Hay que modelar que pasa cuando un enemigo choca al jugador
 	}

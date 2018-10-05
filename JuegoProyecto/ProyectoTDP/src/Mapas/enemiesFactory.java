@@ -1,5 +1,7 @@
 package Mapas;
 
+import javax.swing.JLabel;
+
 import Naves.Enemigo;
 
 /**
@@ -8,6 +10,7 @@ public abstract class enemiesFactory {
 	protected int size;
 	protected int armadoAmount;
 	protected int kamikazeAmount;
+	protected JLabel posJugador;
 	/**
 	 * Todos los niveles comenzarán con 30 enemigos de distinto tipos.
 	 */

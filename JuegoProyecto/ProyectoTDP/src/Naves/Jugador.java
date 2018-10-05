@@ -11,24 +11,39 @@ public class Jugador extends Entidad {
 
 	private static final int left = KeyEvent.VK_LEFT;
 	private static final int right = KeyEvent.VK_RIGHT;
+	private static final int up = KeyEvent.VK_UP;
+	private static final int down = KeyEvent.VK_DOWN;
+	private static final int ancho = 190;
+	private static final int largo= 150;
+	
+	
 	private ImageIcon foto = new ImageIcon(this.getClass().getResource("/Naves/imagenJugador.gif"));
 	
 	public Jugador() {
 		super();
-		pos.setBounds(720,700,350,350);
+		velocidad=20;
+		pos.setBounds(720,700,ancho,largo);
 		pos.setVisible(true);
 		pos.setIcon(foto);
-		myCollider = new JugadorCollider(); 
+		myCollider = new JugadorCollider(this); 
 	}
 	public void mover(int x) {
 		if (x == left) {
-			{if(pos.getX()> - 55)
-			pos.setLocation(pos.getX() - 20, pos.getY());}
+			if(pos.getX()> 0)
+			pos.setLocation(pos.getX() - velocidad, pos.getY());
 		}
-		else 
-			if (x == right)
-				if(pos.getX()< Mapa.ANCHO - 250)
-					pos.setLocation(pos.getX() + 20, pos.getY());
+		else if (x == right) {
+			if(pos.getX()< Mapa.ANCHO - ancho)
+				pos.setLocation(pos.getX() + velocidad, pos.getY());
+		}
+		else if(x == up) {
+			if (pos.getY()>0)
+				pos.setLocation(pos.getX(), pos.getY() - velocidad);
+		}
+		else if(x == down) {
+			if (pos.getY()< Mapa.LARGO - largo)
+				pos.setLocation(pos.getX(), pos.getY() + velocidad);
+		}
 	}
 	/**
 	 * TODO
@@ -45,8 +60,7 @@ public class Jugador extends Entidad {
 	 * Meter explosion de la nave o un mensaje que diga "game over" aca.
 	 */
 	public void morir() {
-		this.pos.setVisible(false);
-		this.pos.setIcon(null);
+		vida=0;
 	}
 	/**
 	 * TODO

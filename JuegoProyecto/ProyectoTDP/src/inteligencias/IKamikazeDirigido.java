@@ -2,21 +2,32 @@ package inteligencias;
 
 import javax.swing.JLabel;
 
+import Mapas.Mapa;
+
 public class IKamikazeDirigido extends Inteligencia {
-	//720 700
-	private static final int posX = 720;
-	private static final int posY = 700;
 	
-	public IKamikazeDirigido() {
-		super();
+	JLabel pos_player;
+	
+	public IKamikazeDirigido(JLabel p, int velocidad) {
+		super(velocidad);
+		pos_player=p;
 	}
-	/**
-	 * INTELIGENCIAS CONOZCAN A JUGADOR PARA DIRIGIRSE HACIA EL? O QUE TODOS LOS ENEMIGOS SEPAN DONDE ESTA
-	 * JUGADOR Y SE LO PASEN COMO PARAMETRO A LA INTELIGENCIA CADA VEZ QUE SE MUEVE.
-	 */
+	
 	public void mover(JLabel pos) {
-		while(pos.getX() != posX && pos.getY() != posY) {
-			pos.setLocation(pos.getX() + 15, pos.getY() + 15);
+		int xJug,xEnem;
+		xJug=pos_player.getX();
+		xEnem=pos.getX();
+		
+		if (xEnem<xJug){ //Jugador esta mas a la derecha
+			int x = (xEnem + velocidad) % Mapa.ANCHO;
+			int y = (pos.getY() + velocidad) % Mapa.LARGO;
+			pos.setLocation(x,y);
+		}
+		else if(xEnem>xJug) { //Jugador esta mas a la izquierda
+			int x = (xEnem - velocidad) % Mapa.ANCHO;
+			int y = (pos.getY() + velocidad) % Mapa.LARGO;
+			pos.setLocation(x,y);
+			
 		}
 	}
 }

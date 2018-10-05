@@ -4,6 +4,7 @@ import javax.swing.ImageIcon;
 
 import colliders.DefaultCollider;
 import colliders.EnemigoCollider;
+import inteligencias.IEnemigoBasico;
 
 public class EnemigoArmado extends Enemigo {
 
@@ -11,20 +12,20 @@ public class EnemigoArmado extends Enemigo {
 
 	public EnemigoArmado() {
 		super();
+		
 		pos.setBounds(50,50,200,200);
 		pos.setVisible(true);
 		pos.setIcon(foto);
-		myCollider = new EnemigoCollider();	
+		IA=new IEnemigoBasico(velocidad);
+		myCollider = new EnemigoCollider(this);	
 	}
-	/**
-	 * TODO
-	 */
+	
 	public void mover(int x) {
+		IA.mover(pos);
 	}
 	
 	public void morir() {
-		this.pos.setVisible(false);
-		this.pos.setIcon(null);
+		vida=0;
 	}
 	
 	public void colision(Entidad e) {

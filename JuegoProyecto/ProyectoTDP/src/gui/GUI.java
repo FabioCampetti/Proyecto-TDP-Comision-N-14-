@@ -26,9 +26,6 @@ public class GUI extends JFrame {
 				if(aux == KeyEvent.VK_SPACE) {
 					mapa.disparoPlayer();
 				}
-				else if(aux == KeyEvent.VK_P) {
-					mapa.killEnemigos();
-				}
 				else {
 					mapa.movePlayer(aux);
 					}

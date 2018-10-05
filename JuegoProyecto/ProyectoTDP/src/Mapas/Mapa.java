@@ -5,6 +5,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Collections;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
@@ -14,7 +15,7 @@ import Disparos.*;
 import Naves.*;
 
 public class Mapa extends JPanel {
-	private LinkedList<Enemigo> enemigos;
+	private List<Entidad> entidades;
 	private Jugador jug;
 	private JLabel fondo;
 	public static final int ANCHO = 1920;
@@ -36,19 +37,19 @@ public class Mapa extends JPanel {
 		scoreLabel.setText("Puntuacion: 0");
 		scoreLabel.setForeground(Color.WHITE);
 		this.add(scoreLabel);
-		enemigos = new LinkedList<Enemigo>();
+		entidades = new LinkedList<Entidad>();
 		this.setVisible(true);
 
-		factory = new factoryLevelOne();
+		factory = new factoryLevelOne(jug.getPosicion());
 		this.startLevel();
 		
-		JLabel fondoAux = new JLabel();
-		fondoAux.setBounds(0, 0,ANCHO,LARGO);
-		fondoAux.setIcon(background);
-		this.add(fondoAux);
+		//JLabel fondoAux = new JLabel();
+		//fondoAux.setBounds(0, 0,ANCHO,LARGO);
+		//fondoAux.setIcon(background);
+		//this.add(fondoAux);
 		this.setComponentZOrder(scoreLabel,15);
 		this.setComponentZOrder(jug.getPosicion(),3);
-		this.setComponentZOrder(fondoAux,30);
+		//this.setComponentZOrder(fondoAux,30);
 		
 	}
 	private void startLevel() {
@@ -56,7 +57,7 @@ public class Mapa extends JPanel {
 		int yInicial = 40;
 		while(!factory.isEmpty()) {
 			Enemigo e = factory.createEnemy();
-			enemigos.add(e);
+			entidades.add(e);
 			e.getPosicion().setLocation(xInicial,yInicial);
 			this.add(e.getPosicion());
 			this.setComponentZOrder(e.getPosicion(),2);
@@ -69,7 +70,7 @@ public class Mapa extends JPanel {
 				yInicial = 40;
 				xInicial = 50;
 			}
-			//yInicial+=15;
+			
 		}
 	}
 	private void nextLevel() {
@@ -77,63 +78,57 @@ public class Mapa extends JPanel {
 		if (factory!=null)
 			this.startLevel();
 	}
-	/*
-	private boolean levelOver() {
-	}
-	*/
+	
 	public void movePlayer(int dir) {
 		jug.mover(dir);
 	}
 
-	/**
-	 * VER ESTE METODO
-	 */
-	public void moveEnemigos() {
-		for (Enemigo e : enemigos) {
+	public void moveEntidades() {
+		for (Entidad e : entidades) {
 			e.mover(0);
 		}
-	}
-
-	/**
-	 * DISPARO QUEDA ABAJO DEL FONDO DEL MAPA.
-	 */
-	public void killJugador() {
-		jug.morir();
-		this.remove(jug.getPosicion());
-		jug = null;
 	}
 
 	public void disparoPlayer() {
 		 Disparo aux = jug.disparar();
 		// Cuando metemos el disparo en el mapa, la imagen del disparo queda abajo del
 		// fondo del mapa.
+		entidades.add(aux);
 		this.add(aux.getPosicion());
 		aux.mover(0);
 	}
 
-	public void killEnemigos() {
-		if(enemigos.isEmpty()) {
-			this.nextLevel();
-		}
-		else {
-			Enemigo e1 = enemigos.getFirst();
-			e1.setVida(0);
-			try {
-			for (Enemigo e : enemigos) {
-				if (e.isDead()) {
-					e.morir();
-					this.remove(e.getPosicion());
-					enemigos.remove(e);
-					this.updateScore(e);
-				}
-				}
-			}
-			catch (java.util.ConcurrentModificationException e) {}
-		}
-	}
-	private void updateScore(Enemigo e) {
+	
+	private void updateScore(Entidad e) {
 		score+=e.getScore();
 		scoreLabel.setText("Puntuacion: "+score);
 	}
-
+	
+	public void checkCollisions() {
+		if (entidades.isEmpty()) {
+			this.nextLevel();
+		}
+		List<Entidad> listaMuertos=new LinkedList<Entidad>();
+		for (Entidad e1: entidades) {
+			for (Entidad e2: entidades) {
+				if (e1.getPosicion().getBounds().intersects(e2.getPosicion().getBounds()))
+					e1.colision(e2);
+			}
+			if (e1.getPosicion().getBounds().intersects(jug.getPosicion().getBounds()))
+				jug.colision(e1);
+			if (e1.isDead()) {
+				listaMuertos.add(e1);
+			}
+		}
+		
+		for (Entidad e1: listaMuertos) {
+			entidades.remove(e1);
+			this.remove(e1.getPosicion());
+			updateScore(e1);
+		}
+		
+		if (jug.isDead()) {
+			//Termino el juego
+		}
+	}
 }

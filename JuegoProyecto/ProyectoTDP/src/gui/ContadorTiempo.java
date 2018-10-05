@@ -18,8 +18,8 @@ public class ContadorTiempo extends Thread {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			mapa.moveEnemigos();
-			
+			mapa.moveEntidades();
+			mapa.checkCollisions();
 		}
 	}
 }
