@@ -15,25 +15,17 @@ public class DisparoJugador extends Disparo {
 	public DisparoJugador(int x,int y) {
 		super(x,y);
 		this.pos.setIcon(imagenDisparo);
+		velocidad = 50;
+		daño = 35;
 		myCollider=new DisparoCollider(this);
 	}
-	/**
-	 * ACOMODAR TODO - PREGUNTAR SOBRE TREAD PARA VER MOVIMIENTO MÁS REAL.
-	 */
 	public void mover(int x) {
-		//pos.setLocation(pos.getX(),pos.getY() - 350);
-		
-		while(pos.getY() >	0) {
-			pos.setLocation(pos.getX(),pos.getY() - 10);
-		}
-		
-		
+		pos.setLocation(pos.getX(),pos.getY() - velocidad);
 	}
 	
 	public void colision(Entidad e) {
 		e.aceptar(myCollider);
 	}
-	
 	public void aceptar(DefaultCollider c) {
 		c.collideDisparoJugador(this);
 	}

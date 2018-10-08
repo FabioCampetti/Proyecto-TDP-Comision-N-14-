@@ -13,6 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import Disparos.*;
 import Naves.*;
+import obstaculos.Obstaculo;
+import obstaculos.ObstaculoJugador;
 
 public class Mapa extends JPanel {
 	private List<Entidad> entidades;
@@ -35,7 +37,7 @@ public class Mapa extends JPanel {
 		
 		scoreLabel.setBounds(25,25,150,50);
 		scoreLabel.setText("Puntuacion: 0");
-		scoreLabel.setForeground(Color.WHITE);
+		scoreLabel.setForeground(Color.BLACK);
 		this.add(scoreLabel);
 		entidades = new LinkedList<Entidad>();
 		this.setVisible(true);
@@ -53,6 +55,9 @@ public class Mapa extends JPanel {
 		
 	}
 	private void startLevel() {
+		Obstaculo ob1 = new  ObstaculoJugador();
+		this.add(ob1.getPosicion());
+		
 		int xInicial = 40;
 		int yInicial = 40;
 		while(!factory.isEmpty()) {
@@ -90,14 +95,10 @@ public class Mapa extends JPanel {
 	}
 
 	public void disparoPlayer() {
-		 Disparo aux = jug.disparar();
-		// Cuando metemos el disparo en el mapa, la imagen del disparo queda abajo del
-		// fondo del mapa.
+		Disparo aux = jug.disparar();
 		entidades.add(aux);
 		this.add(aux.getPosicion());
-		aux.mover(0);
 	}
-
 	
 	private void updateScore(Entidad e) {
 		score+=e.getScore();

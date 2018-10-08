@@ -3,7 +3,7 @@ package obstaculos;
 import Naves.Entidad;
 import colliders.DefaultCollider;
 
-public class ObstaculoTodos extends Entidad{
+public class ObstaculoTodos extends Obstaculo{
 	public ObstaculoTodos() {
 		super();
 		//Hay que setear vida y esas cosas del obstaculo todos.

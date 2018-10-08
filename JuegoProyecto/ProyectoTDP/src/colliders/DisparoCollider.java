@@ -2,6 +2,7 @@ package colliders;
 
 import Naves.Enemigo;
 import Naves.Entidad;
+import obstaculos.Obstaculo;
 
 public class DisparoCollider extends DefaultCollider {
 	public DisparoCollider(Entidad e) {
@@ -13,5 +14,10 @@ public class DisparoCollider extends DefaultCollider {
 		e.morir();
 		visitor.morir();
 	}
+	public void collideObstaculo(Obstaculo o) {
+		o.morir();
+		visitor.morir();
+	}
+
 
 }
