@@ -3,8 +3,8 @@ import Naves.Entidad;
 
 public abstract class Disparo extends Entidad {
 	int daño;
-	private static final int ancho = 250;
-	private static final int largo= 250;
+	private static final int ancho = 82;
+	private static final int largo= 84;
 	/**
 	 * FALTAN DETALLES DE IMPLEMENTACION ETC.
 	 */

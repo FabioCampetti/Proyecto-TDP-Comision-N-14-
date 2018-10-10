@@ -1,16 +1,22 @@
 package Mapas;
 
+import java.util.Random;
+
 import javax.swing.JLabel;
 
 import Naves.Enemigo;
 import Naves.EnemigoArmado;
 import Naves.Kamikaze;
+import obstaculos.Obstaculo;
+import obstaculos.ObstaculoJugador;
+import obstaculos.ObstaculoTodos;
 
 public class factoryLevelTwo extends enemiesFactory {
 	public factoryLevelTwo(JLabel p) {
 		kamikazeAmount = 20;
 		armadoAmount = 20;
-		size = 40;
+		obstaclesAmount=5;
+		size = 45;
 		posJugador=p;
 	}
 	public enemiesFactory getNextFactory() {
@@ -32,4 +38,20 @@ public class factoryLevelTwo extends enemiesFactory {
 		else
 			return null;
 	}
+	
+	public Obstaculo createObstacle() {
+		Random ran=new Random();
+		int a=ran.nextInt(3);
+		if (obstaclesAmount!=0) {
+			size--;
+			obstaclesAmount--;
+			if (a<=1) {
+				return new ObstaculoJugador();
+			}
+			else {
+				return new ObstaculoTodos();
+			}
+		}
+		else return null;
+		}
 }

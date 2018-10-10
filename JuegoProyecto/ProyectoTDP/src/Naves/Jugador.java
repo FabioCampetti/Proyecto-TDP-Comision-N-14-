@@ -51,7 +51,8 @@ public class Jugador extends Entidad {
 	 * EL DISPARO QUEDA DEBAJO DEL FONDO DEL MAPA CUANDO SE DISPARA.
 	 */
 	public Disparo disparar() {
-		DisparoJugador disparo = new DisparoJugador(this.pos.getX(),this.pos.getY());
+		int val=(int) (ancho*0.5);
+		DisparoJugador disparo = new DisparoJugador(this.pos.getX()+val,this.pos.getY());
 		return disparo;
 	}
 	/**

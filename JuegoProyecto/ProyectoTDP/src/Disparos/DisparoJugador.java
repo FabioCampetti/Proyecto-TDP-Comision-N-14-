@@ -15,12 +15,14 @@ public class DisparoJugador extends Disparo {
 	public DisparoJugador(int x,int y) {
 		super(x,y);
 		this.pos.setIcon(imagenDisparo);
-		velocidad = 50;
+		velocidad = 20;
 		daño = 35;
 		myCollider=new DisparoCollider(this);
 	}
 	public void mover(int x) {
 		pos.setLocation(pos.getX(),pos.getY() - velocidad);
+		if (pos.getY()<0)
+			this.morir();
 	}
 	
 	public void colision(Entidad e) {

@@ -1,12 +1,9 @@
 package Mapas;
 
 import java.awt.Color;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Random;
+
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -18,6 +15,7 @@ import obstaculos.ObstaculoJugador;
 
 public class Mapa extends JPanel {
 	private List<Entidad> entidades;
+	private List<Disparo> disparos;
 	private Jugador jug;
 	private JLabel fondo;
 	public static final int ANCHO = 1920;
@@ -40,6 +38,7 @@ public class Mapa extends JPanel {
 		scoreLabel.setForeground(Color.BLACK);
 		this.add(scoreLabel);
 		entidades = new LinkedList<Entidad>();
+		disparos= new LinkedList<Disparo>();
 		this.setVisible(true);
 
 		factory = new factoryLevelOne(jug.getPosicion());
@@ -55,12 +54,19 @@ public class Mapa extends JPanel {
 		
 	}
 	private void startLevel() {
-		Obstaculo ob1 = new  ObstaculoJugador();
-		this.add(ob1.getPosicion());
-		
-		int xInicial = 40;
-		int yInicial = 40;
-		while(!factory.isEmpty()) {
+		int xInicial = 100;
+		int yInicial = (LARGO/2)+100;	
+		while (!factory.noObstacles()) {
+			Obstaculo o = factory.createObstacle();
+			entidades.add(o);
+			o.getPosicion().setLocation(xInicial, yInicial);
+			this.add(o.getPosicion());
+			this.setComponentZOrder(o.getPosicion(),2);
+			xInicial+=280;
+		}
+		 xInicial = 40;
+		 yInicial = 40;
+		while(!factory.noEnemies()) {
 			Enemigo e = factory.createEnemy();
 			entidades.add(e);
 			e.getPosicion().setLocation(xInicial,yInicial);
@@ -75,7 +81,6 @@ public class Mapa extends JPanel {
 				yInicial = 40;
 				xInicial = 50;
 			}
-			
 		}
 	}
 	private void nextLevel() {
@@ -96,13 +101,19 @@ public class Mapa extends JPanel {
 
 	public void disparoPlayer() {
 		Disparo aux = jug.disparar();
-		entidades.add(aux);
+		disparos.add(aux);
 		this.add(aux.getPosicion());
 	}
 	
 	private void updateScore(Entidad e) {
 		score+=e.getScore();
 		scoreLabel.setText("Puntuacion: "+score);
+	}
+	
+	public void checkDisparos() {
+		for (Disparo d: disparos)
+			entidades.add(d);
+		disparos.clear();
 	}
 	
 	public void checkCollisions() {
