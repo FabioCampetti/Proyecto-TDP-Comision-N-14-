@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 import Mapas.Mapa;
 
 public class IEnemigoBasico extends Inteligencia{
+	
 	public IEnemigoBasico(int velocidad) {
 		super(velocidad);
 	}
@@ -18,7 +19,7 @@ public class IEnemigoBasico extends Inteligencia{
 				pos.setLocation(pos.getX()-velocidad, pos.getY());
 		}
 		else {
-			if(pos.getX()<Mapa.ANCHO-30)
+			if(pos.getX()<Mapa.ANCHO-anchoJugadores)
 				pos.setLocation(pos.getX()+velocidad, pos.getY());
 		}
 	}

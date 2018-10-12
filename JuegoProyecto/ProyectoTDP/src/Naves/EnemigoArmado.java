@@ -9,14 +9,14 @@ import inteligencias.IEnemigoBasico;
 
 public class EnemigoArmado extends Enemigo {
 	
-	private static final int ancho = 200;
-	private static final int largo= 200;
-	private ImageIcon foto = new ImageIcon(this.getClass().getResource("/Naves/armado.gif"));
+	private static final int ancho = 132;
+	private static final int alto= 135;
+	private ImageIcon foto = new ImageIcon(this.getClass().getResource("/Naves/EnemigoArmado (1).gif"));
 	
 	public EnemigoArmado() {
 		super();
 		velocidad=20;
-		pos.setBounds(50,50,ancho,largo);
+		pos.setBounds(50,50,ancho,alto);
 		pos.setVisible(true);
 		pos.setIcon(foto);
 		IA=new IEnemigoBasico(velocidad);

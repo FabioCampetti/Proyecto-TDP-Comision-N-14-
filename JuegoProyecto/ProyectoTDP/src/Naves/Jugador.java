@@ -14,7 +14,7 @@ public class Jugador extends Entidad {
 	private static final int up = KeyEvent.VK_UP;
 	private static final int down = KeyEvent.VK_DOWN;
 	private static final int ancho = 190;
-	private static final int largo= 150;
+	private static final int alto= 150;
 	
 	
 	private ImageIcon frontIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorFront.gif"));
@@ -24,7 +24,7 @@ public class Jugador extends Entidad {
 	public Jugador() {
 		super();
 		velocidad=20;
-		pos.setBounds(720,900,ancho,largo);
+		pos.setBounds(720,900,ancho,alto);
 		pos.setVisible(true);
 		pos.setIcon(frontIcon);
 		myCollider = new JugadorCollider(); 
@@ -45,7 +45,7 @@ public class Jugador extends Entidad {
 				pos.setLocation(pos.getX(), pos.getY() - velocidad);
 		}
 		else if(x == down) {
-			if (pos.getY()< Mapa.LARGO - largo)
+			if (pos.getY()< Mapa.ALTO - alto-35)
 				pos.setLocation(pos.getX(), pos.getY() + velocidad);
 		}
 	}

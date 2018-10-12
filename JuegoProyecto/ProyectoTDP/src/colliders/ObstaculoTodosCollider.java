@@ -20,6 +20,6 @@ public class ObstaculoTodosCollider extends DefaultCollider {
 		
 	}
 	public void collideJugador(Jugador j) {
-		j.setVida(j.getVida()-10);
+		j.recibirDaño(10);
 	}
 }

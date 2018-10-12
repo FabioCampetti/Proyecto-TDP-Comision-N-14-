@@ -15,7 +15,7 @@ public class Mapa extends JLayeredPane {
 	private List<Disparo> disparos;
 	private Jugador jug;
 	public static final int ANCHO = 1920;
-	public static final int LARGO = 1080;
+	public static final int ALTO = 1080;
 	private ImageIcon background = new ImageIcon(this.getClass().getResource("/Mapas/fondo.jpg"));
 	private enemiesFactory factory;
 	private Puntaje score;
@@ -29,16 +29,17 @@ public class Mapa extends JLayeredPane {
 		JLabel fondoAux = new JLabel();
 		score=new Puntaje();
 		
-		this.setSize(ANCHO, LARGO);
+		this.setSize(ANCHO, ALTO);
 		this.setLayout(null);
 		this.setVisible(true);
 		
 		this.add(jug.getPosicion(), 0);
 		this.add(score.getLabelScore(), 0);
+		this.add(score.getLabelVida(), 0);
 		
 		this.startLevel();
 
-		fondoAux.setBounds(0, 0, ANCHO, LARGO);
+		fondoAux.setBounds(0, 0, ANCHO, ALTO);
 		fondoAux.setIcon(background);
 		this.add(fondoAux, 0);
 		this.moveToBack(fondoAux);
@@ -46,7 +47,7 @@ public class Mapa extends JLayeredPane {
 
 	private void startLevel() {
 		int xInicial = 100;
-		int yInicial = (LARGO / 2) + 100;
+		int yInicial = (ALTO / 2) + 100;
 		while (!factory.noObstacles()) {
 			Obstaculo o = factory.createObstacle();
 			entidades.add(o);
@@ -68,7 +69,7 @@ public class Mapa extends JLayeredPane {
 				xInicial = 40;
 				yInicial += 200;
 			}
-			if (yInicial > LARGO) {
+			if (yInicial > ALTO) {
 				yInicial = 40;
 				xInicial = 50;
 			}
@@ -106,6 +107,10 @@ public class Mapa extends JLayeredPane {
 	private void updateScore(Entidad e) {
 		score.actualizarPuntaje(e.getScore());
 	}
+	
+	private void updateVida(int v) {
+		score.actualizarVida(v);
+	}
 
 	public void checkDisparos() {
 		for (Disparo d : disparos)
@@ -125,8 +130,12 @@ public class Mapa extends JLayeredPane {
 				if (e1.getPosicion().getBounds().intersects(e2.getPosicion().getBounds()))
 					e1.colision(e2);
 			}
-			if (e1.getPosicion().getBounds().intersects(jug.getPosicion().getBounds()))
+			if (e1.getPosicion().getBounds().intersects(jug.getPosicion().getBounds())) {
 				jug.colision(e1);
+				e1.colision(jug);
+				updateVida(jug.getVida());
+				
+			}
 			if (e1.isDead()) {
 				listaMuertos.add(e1);
 			}

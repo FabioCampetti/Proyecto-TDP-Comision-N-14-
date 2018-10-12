@@ -7,6 +7,8 @@ import java.util.Random;
 
 public class IKamikazeAleatorio extends Inteligencia {
 	
+	
+	
 	public IKamikazeAleatorio(int velocidad) {
 		super(velocidad);
 	}
@@ -15,15 +17,15 @@ public class IKamikazeAleatorio extends Inteligencia {
 		int dir=r.nextInt(4);
 		switch(dir){
 		case 0 : //Arriba
-			if(pos.getY()>25)
+			if(pos.getY()>altoJugadores)
 			pos.setLocation(pos.getX(), pos.getY()-velocidad);
 			break;
 		case 1 : //Abajo
-			int posY = (pos.getY() + velocidad) % Mapa.LARGO;
+			int posY = (pos.getY() + velocidad) % Mapa.ALTO;
 			pos.setLocation(pos.getX(), posY);
 			break;
 		case 2 : //Izquierda
-			if(pos.getX()>25)
+			if(pos.getX()>anchoJugadores)
 			pos.setLocation(pos.getX()-velocidad, pos.getY());
 			break;
 		case 3 : //Derecha

@@ -6,14 +6,18 @@ import colliders.DefaultCollider;
 import colliders.DisparoCollider;
 
 public class DisparoJugador extends Disparo {
-	private ImageIcon imagenDisparo = new ImageIcon(this.getClass().getResource("/Disparos/imagenDisparo.png"));
+	public static final int ancho=47;
+	public static final int alto=88;
+	
+	private ImageIcon imagenDisparo = new ImageIcon(this.getClass().getResource("/Disparos/imagenDisparoJugador.png"));
 	/**
 	 * DISPARO IMPLEMENTADO CON POCOS DETALLES - ICONO DE BOLA AZUL.
 	 * PROBLEMA: EL DISPARO QUEDA ABAJO DEL FONDO DEL MAPA - PREGUNTAR
 	 */
 	
 	public DisparoJugador(int x,int y) {
-		super(x,y);
+		super();
+		this.pos.setBounds(x,y,ancho,alto);
 		this.pos.setIcon(imagenDisparo);
 		velocidad = 30;
 		daño = 35;

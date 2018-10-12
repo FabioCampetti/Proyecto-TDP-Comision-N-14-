@@ -10,14 +10,16 @@ import colliders.EnemigoCollider;
 import inteligencias.*;
 
 public class Kamikaze extends Enemigo {
+	private static final int ancho = 85;
+	private static final int alto= 130;
 	
-	private ImageIcon foto = new ImageIcon(this.getClass().getResource("/Naves/enemigo.gif"));
+	private ImageIcon foto = new ImageIcon(this.getClass().getResource("/Naves/EnemigoKamikaze.png"));
 	private JLabel posJugador;
 	
 	public Kamikaze(JLabel p) {
 		super();
 		velocidad=10;
-		pos.setBounds(50,50,200,144);
+		pos.setBounds(50,50,ancho,alto);
 		pos.setVisible(true);
 		pos.setIcon(foto);
 		myCollider = new EnemigoCollider();

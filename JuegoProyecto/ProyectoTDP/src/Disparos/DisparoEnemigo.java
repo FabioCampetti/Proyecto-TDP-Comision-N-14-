@@ -11,7 +11,7 @@ public class DisparoEnemigo extends Disparo{
 	private ImageIcon imagenDisparo = new ImageIcon(this.getClass().getResource("/Disparos/imagenDisparoEnemigo.png"));
 	
 	public DisparoEnemigo(int x,int y) {
-		super(x,y);
+		super();
 		this.pos.setIcon(imagenDisparo);
 		velocidad = 30;
 		daño = 15;
