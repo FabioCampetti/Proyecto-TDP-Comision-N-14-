@@ -62,7 +62,7 @@ public class Mapa extends JPanel {
 			o.getPosicion().setLocation(xInicial, yInicial);
 			this.add(o.getPosicion());
 			this.setComponentZOrder(o.getPosicion(),2);
-			xInicial+=280;
+			xInicial+=460;
 		}
 		 xInicial = 40;
 		 yInicial = 40;
@@ -72,10 +72,10 @@ public class Mapa extends JPanel {
 			e.getPosicion().setLocation(xInicial,yInicial);
 			this.add(e.getPosicion());
 			this.setComponentZOrder(e.getPosicion(),2);
-			xInicial+=100;
+			xInicial+=150;
 			if(xInicial > ANCHO - 100) {
 				xInicial = 40;
-				yInicial+= 350;
+				yInicial+= 200;
 			}
 			if(yInicial > LARGO) {
 				yInicial = 40;
@@ -100,9 +100,11 @@ public class Mapa extends JPanel {
 	}
 
 	public void disparoPlayer() {
-		Disparo aux = jug.disparar();
-		disparos.add(aux);
-		this.add(aux.getPosicion());
+		if (!jug.isDead()) {
+			Disparo aux = jug.disparar();
+			disparos.add(aux);
+			this.add(aux.getPosicion());
+		}
 	}
 	
 	private void updateScore(Entidad e) {
@@ -116,7 +118,9 @@ public class Mapa extends JPanel {
 		disparos.clear();
 	}
 	
-	public void checkCollisions() {
+	public boolean checkCollisions() {
+		boolean murioJugador= false;
+		
 		if (entidades.isEmpty()) {
 			this.nextLevel();
 		}
@@ -140,7 +144,10 @@ public class Mapa extends JPanel {
 		}
 		
 		if (jug.isDead()) {
-			//Termino el juego
+			this.remove(jug.getPosicion());
+			murioJugador=true;
 		}
+		this.repaint();
+		return murioJugador;
 	}
 }

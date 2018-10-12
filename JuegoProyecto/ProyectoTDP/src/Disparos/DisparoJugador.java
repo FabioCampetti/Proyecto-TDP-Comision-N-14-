@@ -15,7 +15,7 @@ public class DisparoJugador extends Disparo {
 	public DisparoJugador(int x,int y) {
 		super(x,y);
 		this.pos.setIcon(imagenDisparo);
-		velocidad = 20;
+		velocidad = 30;
 		daño = 35;
 		myCollider=new DisparoCollider(this);
 	}

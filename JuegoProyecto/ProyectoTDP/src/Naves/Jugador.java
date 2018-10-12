@@ -22,7 +22,7 @@ public class Jugador extends Entidad {
 	public Jugador() {
 		super();
 		velocidad=20;
-		pos.setBounds(720,700,ancho,largo);
+		pos.setBounds(720,900,ancho,largo);
 		pos.setVisible(true);
 		pos.setIcon(foto);
 		myCollider = new JugadorCollider(this); 

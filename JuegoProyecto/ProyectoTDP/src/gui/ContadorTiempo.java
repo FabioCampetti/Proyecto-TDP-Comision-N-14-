@@ -20,7 +20,11 @@ public class ContadorTiempo extends Thread {
 			}
 			mapa.checkDisparos();
 			mapa.moveEntidades();
-			mapa.checkCollisions();
+			if (mapa.checkCollisions()) {
+				mapa.removeAll();
+				mapa.repaint();
+				break;
+			}
 		}
 	}
 }

@@ -22,6 +22,6 @@ public class ObstaculoJugador extends Obstaculo {
 	@Override
 	public void aceptar(DefaultCollider c) {
 		// TODO Auto-generated method stub
-		
+		c.collideObstaculoJugador(this);
 	}
 }
