@@ -7,13 +7,12 @@ import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.JLayeredPane;
 import Disparos.*;
 import Naves.*;
 import obstaculos.Obstaculo;
-import obstaculos.ObstaculoJugador;
 
-public class Mapa extends JPanel {
+public class Mapa extends JLayeredPane {
 	private List<Entidad> entidades;
 	private List<Disparo> disparos;
 	private Jugador jug;
@@ -31,12 +30,13 @@ public class Mapa extends JPanel {
 		this.setSize(ANCHO,LARGO);
 		jug = new Jugador();
 		this.setLayout(null);
-		this.add(jug.getPosicion());
+		this.add(jug.getPosicion(),0);
 		
 		scoreLabel.setBounds(25,25,150,50);
 		scoreLabel.setText("Puntuacion: 0");
 		scoreLabel.setForeground(Color.BLACK);
-		this.add(scoreLabel);
+		this.add(scoreLabel,0);
+		
 		entidades = new LinkedList<Entidad>();
 		disparos= new LinkedList<Disparo>();
 		this.setVisible(true);
@@ -44,13 +44,12 @@ public class Mapa extends JPanel {
 		factory = new factoryLevelOne(jug.getPosicion());
 		this.startLevel();
 		
-		//JLabel fondoAux = new JLabel();
-		//fondoAux.setBounds(0, 0,ANCHO,LARGO);
-		//fondoAux.setIcon(background);
-		//this.add(fondoAux);
-		this.setComponentZOrder(scoreLabel,15);
-		this.setComponentZOrder(jug.getPosicion(),3);
-		//this.setComponentZOrder(fondoAux,30);
+		JLabel fondoAux = new JLabel();
+		fondoAux.setBounds(0, 0,ANCHO,LARGO);
+		fondoAux.setIcon(background);
+		this.add(fondoAux,0);
+		this.moveToBack(fondoAux);
+		
 		
 	}
 	private void startLevel() {
@@ -60,8 +59,8 @@ public class Mapa extends JPanel {
 			Obstaculo o = factory.createObstacle();
 			entidades.add(o);
 			o.getPosicion().setLocation(xInicial, yInicial);
-			this.add(o.getPosicion());
-			this.setComponentZOrder(o.getPosicion(),2);
+			this.add(o.getPosicion(),0);
+		
 			xInicial+=460;
 		}
 		 xInicial = 40;
@@ -70,8 +69,8 @@ public class Mapa extends JPanel {
 			Enemigo e = factory.createEnemy();
 			entidades.add(e);
 			e.getPosicion().setLocation(xInicial,yInicial);
-			this.add(e.getPosicion());
-			this.setComponentZOrder(e.getPosicion(),2);
+			this.add(e.getPosicion(),0);
+	
 			xInicial+=150;
 			if(xInicial > ANCHO - 100) {
 				xInicial = 40;
@@ -103,7 +102,7 @@ public class Mapa extends JPanel {
 		if (!jug.isDead()) {
 			Disparo aux = jug.disparar();
 			disparos.add(aux);
-			this.add(aux.getPosicion());
+			this.add(aux.getPosicion(),0);
 		}
 	}
 	
