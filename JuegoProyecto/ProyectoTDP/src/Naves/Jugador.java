@@ -17,24 +17,28 @@ public class Jugador extends Entidad {
 	private static final int largo= 150;
 	
 	
-	private ImageIcon foto = new ImageIcon(this.getClass().getResource("/Naves/imagenJugador.gif"));
+	private ImageIcon frontIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorFront.gif"));
+	private ImageIcon leftIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorLeft.gif"));
+	private ImageIcon rightIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorRight.gif"));
 	
 	public Jugador() {
 		super();
 		velocidad=20;
 		pos.setBounds(720,900,ancho,largo);
 		pos.setVisible(true);
-		pos.setIcon(foto);
-		myCollider = new JugadorCollider(this); 
+		pos.setIcon(frontIcon);
+		myCollider = new JugadorCollider(); 
 	}
 	public void mover(int x) {
 		if (x == left) {
 			if(pos.getX()> 0)
-			pos.setLocation(pos.getX() - velocidad, pos.getY());
+				pos.setLocation(pos.getX() - velocidad, pos.getY());
+			pos.setIcon(leftIcon);
 		}
 		else if (x == right) {
 			if(pos.getX()< Mapa.ANCHO - ancho)
 				pos.setLocation(pos.getX() + velocidad, pos.getY());
+			pos.setIcon(rightIcon);
 		}
 		else if(x == up) {
 			if (pos.getY()>0)
@@ -45,11 +49,7 @@ public class Jugador extends Entidad {
 				pos.setLocation(pos.getX(), pos.getY() + velocidad);
 		}
 	}
-	/**
-	 * TODO
-	 * Falta saber cómo hacerlo.
-	 * EL DISPARO QUEDA DEBAJO DEL FONDO DEL MAPA CUANDO SE DISPARA.
-	 */
+	
 	public Disparo disparar() {
 		int val=(int) (ancho*0.5);
 		DisparoJugador disparo = new DisparoJugador(this.pos.getX()+val,this.pos.getY());
@@ -67,6 +67,7 @@ public class Jugador extends Entidad {
 	 * TODO
 	 */
 	public void recibirDaño(int daño) {
+		vida-=daño;
 	}
 	@Override
 	public void colision(Entidad e) {
@@ -77,4 +78,7 @@ public class Jugador extends Entidad {
 		c.collideJugador(this);
 	}
 	
+	public void defaultIcon() {
+		pos.setIcon(frontIcon);
+	}
 }

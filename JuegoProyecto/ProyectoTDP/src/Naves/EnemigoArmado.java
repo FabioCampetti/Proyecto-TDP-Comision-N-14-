@@ -2,35 +2,33 @@ package Naves;
 
 import javax.swing.ImageIcon;
 
+import Disparos.DisparoEnemigo;
 import colliders.DefaultCollider;
 import colliders.EnemigoCollider;
 import inteligencias.IEnemigoBasico;
 
 public class EnemigoArmado extends Enemigo {
-
+	
+	private static final int ancho = 200;
+	private static final int largo= 200;
 	private ImageIcon foto = new ImageIcon(this.getClass().getResource("/Naves/armado.gif"));
-
+	
 	public EnemigoArmado() {
 		super();
-		
-		pos.setBounds(50,50,200,200);
+		velocidad=20;
+		pos.setBounds(50,50,ancho,largo);
 		pos.setVisible(true);
 		pos.setIcon(foto);
 		IA=new IEnemigoBasico(velocidad);
-		myCollider = new EnemigoCollider(this);	
+		myCollider = new EnemigoCollider();	
 	}
 	
 	public void mover(int x) {
 		IA.mover(pos);
 	}
 	
-	public void morir() {
-		vida=0;
-	}
-	
 	public void colision(Entidad e) {
 		e.aceptar(myCollider);
-		
 	}
 	
 	public void aceptar(DefaultCollider c) {
@@ -40,4 +38,9 @@ public class EnemigoArmado extends Enemigo {
 		return 75;
 	}
 	
+	public DisparoEnemigo disparar() {
+		int val=(int) (ancho*0.5);
+		DisparoEnemigo disparo = new DisparoEnemigo(this.pos.getX()+val,this.pos.getY()+200);
+		return disparo;
+	}
 }

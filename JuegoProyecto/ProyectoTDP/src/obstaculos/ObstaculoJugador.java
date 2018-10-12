@@ -11,13 +11,13 @@ public class ObstaculoJugador extends Obstaculo {
 		super();
 		foto=new ImageIcon(this.getClass().getResource("/obstaculos/black hole.png"));
 		pos.setIcon(foto);
-		myCollider = new ObstaculoJugadorCollider(this);
+		myCollider = new ObstaculoJugadorCollider();
 	}
 	public void mover(int x) {}
 	@Override
 	public void colision(Entidad e) {
 		// TODO Auto-generated method stub
-		
+		e.aceptar(myCollider);
 	}
 	@Override
 	public void aceptar(DefaultCollider c) {

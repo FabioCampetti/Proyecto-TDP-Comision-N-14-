@@ -5,11 +5,6 @@ import buffs.*;
 import obstaculos.*;
 
 public abstract class DefaultCollider {
-	Entidad visitor;
-	
-	public DefaultCollider(Entidad e) {
-		visitor=e;
-	}
 	
 	public void collideEnemigo(Enemigo e) {}
 	public void collideJugador(Jugador j) {}

@@ -17,17 +17,18 @@ public class IKamikazeDirigido extends Inteligencia {
 		int xJug,xEnem;
 		xJug=pos_player.getX();
 		xEnem=pos.getX();
+		int y = (pos.getY() + velocidad) % Mapa.LARGO;
 		
 		if (xEnem<xJug){ //Jugador esta mas a la derecha
 			int x = (xEnem + velocidad) % Mapa.ANCHO;
-			int y = (pos.getY() + velocidad) % Mapa.LARGO;
 			pos.setLocation(x,y);
 		}
 		else if(xEnem>xJug) { //Jugador esta mas a la izquierda
 			int x = (xEnem - velocidad) % Mapa.ANCHO;
-			int y = (pos.getY() + velocidad) % Mapa.LARGO;
 			pos.setLocation(x,y);
-			
+		}
+		else { //Jugador esta a la misma altura en x
+			pos.setLocation(xEnem, y);
 		}
 	}
 }

@@ -11,13 +11,13 @@ public class ObstaculoTodos extends Obstaculo{
 		super();
 		foto=new ImageIcon(this.getClass().getResource("/obstaculos/Muro_de_Ladrillos.png"));
 		pos.setIcon(foto);
-		myCollider = new ObstaculoTodosCollider(this);
+		myCollider = new ObstaculoTodosCollider();
 	}
 	public void mover(int x) {}
 	@Override
 	public void colision(Entidad e) {
 		// TODO Auto-generated method stub
-		
+		e.aceptar(myCollider);
 	}
 	@Override
 	public void aceptar(DefaultCollider c) {

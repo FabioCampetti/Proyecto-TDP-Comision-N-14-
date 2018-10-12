@@ -12,7 +12,7 @@ public class Puntaje {
 		labelPuntaje=new JLabel();
 		labelPuntaje.setBounds(25, 25, 150, 50);
 		labelPuntaje.setText("Puntuacion: 0");
-		labelPuntaje.setForeground(Color.BLACK);
+		labelPuntaje.setForeground(Color.WHITE);
 		puntaje=0;
 	}
 	

@@ -1,22 +1,23 @@
 package colliders;
 
 import Naves.Enemigo;
-import Naves.Entidad;
-import obstaculos.Obstaculo;
+import obstaculos.*;
 
 public class DisparoCollider extends DefaultCollider {
-	public DisparoCollider(Entidad e) {
-		super(e);
+	public DisparoCollider() {
+		super();
 	}
 	
 	public void collideEnemigo(Enemigo e) {
 		//Hay que afectar al jugador cuando choca al enemigo
 		e.morir();
-		visitor.morir();
 	}
-	public void collideObstaculo(Obstaculo o) {
+	public void collideObstaculoTodos(ObstaculoTodos o) {
 		o.morir();
-		visitor.morir();
+	}
+	
+	public void collideObstaculoJugador(ObstaculoJugador o) {
+		o.morir();
 	}
 
 

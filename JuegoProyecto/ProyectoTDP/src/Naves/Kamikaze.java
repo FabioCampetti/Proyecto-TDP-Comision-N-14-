@@ -20,7 +20,7 @@ public class Kamikaze extends Enemigo {
 		pos.setBounds(50,50,200,144);
 		pos.setVisible(true);
 		pos.setIcon(foto);
-		myCollider = new EnemigoCollider(this);
+		myCollider = new EnemigoCollider();
 		posJugador=p;
 		
 		Random r=new Random();
@@ -35,11 +35,9 @@ public class Kamikaze extends Enemigo {
 	public void mover(int x) {
 		IA.mover(pos);
 	}
-	public void morir() {
-		vida=0;
-	}
+	
 	public void convertirAleatorio() {
-		IA = new IKamikazeAleatorio(velocidad);
+		IA = new IKamikazeAleatorio(velocidad*2);
 	}
 	public void convertirDirigido() {
 		IA = new IKamikazeDirigido(posJugador,velocidad);

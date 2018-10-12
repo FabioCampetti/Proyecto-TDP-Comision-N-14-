@@ -30,7 +30,9 @@ public class GUI extends JFrame {
 					mapa.movePlayer(aux);
 					}
 			}
-			public void keyReleased(KeyEvent e) { }
+			public void keyReleased(KeyEvent e) { 
+				mapa.setDefaultPlayerIcon();
+			}
 			public void keyTyped(KeyEvent e) { }
 		});
 		
