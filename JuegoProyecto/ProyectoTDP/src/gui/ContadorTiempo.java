@@ -23,6 +23,7 @@ public class ContadorTiempo extends Thread {
 			if (mapa.checkCollisions()) {
 				mapa.removeAll();
 				mapa.repaint();
+				/**Display que perdiste. */
 				break;
 			}
 		}

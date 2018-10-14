@@ -9,7 +9,7 @@ import colliders.ObstaculoJugadorCollider;
 public class ObstaculoJugador extends Obstaculo {
 	public ObstaculoJugador() {
 		super();
-		foto=new ImageIcon(this.getClass().getResource("/obstaculos/black hole.png"));
+		foto = new ImageIcon(this.getClass().getResource("/obstaculos/black hole.png"));
 		pos.setIcon(foto);
 		myCollider = new ObstaculoJugadorCollider();
 	}
@@ -24,4 +24,5 @@ public class ObstaculoJugador extends Obstaculo {
 		// TODO Auto-generated method stub
 		c.collideObstaculoJugador(this);
 	}
+
 }

@@ -2,6 +2,8 @@ package Mapas;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
@@ -63,6 +65,8 @@ public class Mapa extends JLayeredPane {
 			entidades.add(e);
 			e.getPosicion().setLocation(xInicial, yInicial);
 			this.add(e.getPosicion(), 0);
+			
+			
 
 			xInicial += 150;
 			if (xInicial > ANCHO - 100) {
@@ -80,8 +84,10 @@ public class Mapa extends JLayeredPane {
 		factory = factory.getNextFactory();
 		if (factory != null)
 			this.startLevel();
+		else {
+			/**Display cartel de ganaste.*/
+		}
 	}
-
 	public void movePlayer(int dir) {
 		jug.mover(dir);
 	}
@@ -95,7 +101,6 @@ public class Mapa extends JLayeredPane {
 			e.mover(0);
 		}
 	}
-
 	public void disparoPlayer() {
 		if (!jug.isDead()) {
 			Disparo aux = jug.disparar();
@@ -103,7 +108,6 @@ public class Mapa extends JLayeredPane {
 			this.add(aux.getPosicion(), 0);
 		}
 	}
-
 	private void updateScore(Entidad e) {
 		score.actualizarPuntaje(e.getScore());
 	}
@@ -117,7 +121,6 @@ public class Mapa extends JLayeredPane {
 			entidades.add(d);
 		disparos.clear();
 	}
-
 	public boolean checkCollisions() {
 		boolean murioJugador = false;
 

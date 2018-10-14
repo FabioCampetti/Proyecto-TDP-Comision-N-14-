@@ -9,7 +9,7 @@ import colliders.ObstaculoTodosCollider;
 public class ObstaculoTodos extends Obstaculo{
 	public ObstaculoTodos() {
 		super();
-		foto=new ImageIcon(this.getClass().getResource("/obstaculos/Muro_de_Ladrillos.png"));
+		foto = new ImageIcon(this.getClass().getResource("/obstaculos/Muro_de_Ladrillos.png"));
 		pos.setIcon(foto);
 		myCollider = new ObstaculoTodosCollider();
 	}
@@ -24,4 +24,5 @@ public class ObstaculoTodos extends Obstaculo{
 		// TODO Auto-generated method stub
 		c.collideObstaculoTodos(this);
 	}
+
 }

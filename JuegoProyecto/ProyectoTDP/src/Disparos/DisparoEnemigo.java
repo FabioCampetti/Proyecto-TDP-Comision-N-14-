@@ -19,7 +19,7 @@ public class DisparoEnemigo extends Disparo{
 	}
 	public void mover(int x) {
 		pos.setLocation(pos.getX(),pos.getY() + velocidad);
-		if (pos.getY()>Mapa.ANCHO)
+		if (pos.getY() > Mapa.ANCHO)
 			this.morir();
 	}
 	

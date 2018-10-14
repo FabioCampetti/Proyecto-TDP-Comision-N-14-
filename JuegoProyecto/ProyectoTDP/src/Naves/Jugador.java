@@ -66,9 +66,6 @@ public class Jugador extends Entidad {
 	/**
 	 * TODO
 	 */
-	public void recibirDaño(int daño) {
-		vida-=daño;
-	}
 	@Override
 	public void colision(Entidad e) {
 		e.aceptar(myCollider);
