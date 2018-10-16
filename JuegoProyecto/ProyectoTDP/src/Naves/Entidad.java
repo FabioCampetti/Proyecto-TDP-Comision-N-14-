@@ -14,7 +14,7 @@ public abstract class Entidad {
 	
 	public Entidad() {
 		pos = new JLabel();
-		vida=100;
+		vida=11100;
 		velocidad=0;
 	}
 	

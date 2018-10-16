@@ -9,7 +9,7 @@ public class Puntaje {
 	private int puntaje;
 	private int vida;
 	
-	public Puntaje () {
+	public Puntaje (int vida) {
 		labelPuntaje=new JLabel();
 		labelPuntaje.setBounds(25, 25, 150, 50);
 		labelPuntaje.setText("Puntuacion: 0");
@@ -17,7 +17,7 @@ public class Puntaje {
 		
 		labelVida=new JLabel();
 		labelVida.setBounds(25, 50, 150, 50);
-		labelVida.setText("Vida actual: 100");
+		labelVida.setText("Vida actual: "+vida);
 		labelVida.setForeground(Color.WHITE); 
 	
 		puntaje=0;
@@ -36,7 +36,9 @@ public class Puntaje {
 	public JLabel getLabelScore() {
 		return labelPuntaje;
 	}
-	
+	public int getPuntaje() {
+		return puntaje;
+	}
 	public JLabel getLabelVida() {
 		return labelVida;
 	}
