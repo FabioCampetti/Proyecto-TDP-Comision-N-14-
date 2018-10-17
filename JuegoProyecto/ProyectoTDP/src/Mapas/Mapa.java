@@ -2,15 +2,21 @@ package Mapas;
 
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
+import javax.swing.JPanel;
+
 import Disparos.*;
 import Naves.*;
+import gui.GUI;
 import gui.Puntaje;
 import obstaculos.Obstaculo;
 
@@ -62,6 +68,7 @@ public class Mapa extends JLayeredPane {
 		this.add(jug.getPosicion(), 0);
 		this.add(score.getLabelScore(), 0);
 		this.add(score.getLabelVida(), 0);
+		this.add(score.getLabelMaximo(),0);
 	}
 	
 	private void startLevel() {
@@ -98,10 +105,11 @@ public class Mapa extends JLayeredPane {
 	}
 
 	private void nextLevel() {
-		/**Null pointer exception aca. */
-		factory = factory.getNextFactory();
-		if (factory != null)
+		/**Null pointer exception aca.*/
+		if (factory.getNextFactory()!=null) {
+			factory = factory.getNextFactory();
 			this.startLevel();
+		}
 		else 
 			this.ganarGame();
 	}
@@ -181,11 +189,12 @@ public class Mapa extends JLayeredPane {
 		textDisplay.setText("<html>¡Felicitaciones, ganaste!<br>Puntuación: "+score.getPuntaje()+"</html>");
 		textDisplay.setForeground(Color.WHITE); 
 		textDisplay.setVerticalTextPosition(JLabel.BOTTOM);
-		textDisplay.setHorizontalTextPosition(JLabel.CENTER);
-		
+		textDisplay.setHorizontalTextPosition(JLabel.CENTER);		
 		this.add(textDisplay,0);
+		
+		//score.checkUpdate();
 	}
-	public void perderGame() {
-		//puntaje display.
+	public int getScore() {
+		return score.getPuntaje();
 	}
 }

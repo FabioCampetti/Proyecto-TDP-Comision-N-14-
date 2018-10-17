@@ -57,7 +57,7 @@ public class GUI extends JFrame {
 	private void menu() {
 		
 	/**Inicialización de los botones. */
-    JButton botonComienzo = new JButton("Comenzar");
+    JButton botonComienzo = new JButton("Jugar");
     JButton instrucciones = new JButton("Cómo jugar");
     JButton salir = new JButton("Salir");
     /**Inicialización del fondo del menú. */
@@ -97,6 +97,65 @@ public class GUI extends JFrame {
             }
          });
         
+	}
+	
+	private void menuDos(int x) {
+		
+	/**Inicialización de los botones. */
+	JLabel displayPerdiste = new JLabel();
+	displayPerdiste.setText("<html>¡Perdiste!<br>Puntuación: "+x+"</html>");	
+	displayPerdiste.setForeground(Color.BLACK);
+	
+    JButton botonComienzo = new JButton("Jugar");
+    JButton salir = new JButton("Salir");
+    /**Inicialización del fondo del menú. */
+    JLabel fondo = new JLabel();
+    fondo.setIcon(fondoMenu);
+    
+    /**Creacion del panel y se le agrega el fondo */
+    JPanel panel = new JPanel();
+    
+    
+    
+    /**Agregación de todos los botones al panel. */
+    panel.setComponentZOrder(fondo,0);
+    panel.add(botonComienzo);
+    panel.setComponentZOrder(botonComienzo,0);
+    panel.add(salir);
+    panel.setComponentZOrder(salir,0);
+    panel.add(displayPerdiste);
+    panel.setComponentZOrder(displayPerdiste,0);
+    
+    
+    this.add(panel);
+    
+    	/** Listener del boton comienzo. Básicamente se encarga de inicializar el juego en el segundo constructor de la GUI.
+    	*/
+        botonComienzo.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e){
+        	  remove(panel);
+        	  remove(botonComienzo);
+        	  new GUI(2);
+        	  
+          }
+        });
+        /** Listener del boton salir. Cierra el juego/menú.
+         */
+        salir.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+            	close();
+            }
+         });
+        	
+	}
+	public void seguirJugando(int x) {
+		this.setTitle("Space Game");
+		menuDos(x);
+		this.setSize(500,500);
+		this.setVisible(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setResizable(false);
+		
 	}
 	private void close() {
 		this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
