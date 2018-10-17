@@ -1,11 +1,7 @@
 package Mapas;
 
-<<<<<<< HEAD
 import java.util.Collection;
-=======
-
 import java.awt.Color;
->>>>>>> 8c9f530c5f57879f99a6348e158468f681241926
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -195,7 +191,6 @@ public class Mapa extends JLayeredPane {
 		this.repaint();
 		return murioJugador;
 	}
-<<<<<<< HEAD
 	
 	private Buff buffRandom(JLabel pos) {
 		int x,y;
@@ -216,7 +211,7 @@ public class Mapa extends JLayeredPane {
 		else if(tipoBuff<40) {}
 		else {}
 		return res;
-=======
+	}
 	public void ganarGame() {
 		JLabel textDisplay = new JLabel();
 		
@@ -230,6 +225,5 @@ public class Mapa extends JLayeredPane {
 	}
 	public void perderGame() {
 		//puntaje display.
->>>>>>> 8c9f530c5f57879f99a6348e158468f681241926
 	}
 }

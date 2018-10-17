@@ -60,18 +60,11 @@ public class Jugador extends Entidad {
 	public void morir() {
 		vida=0;
 	}
-<<<<<<< HEAD
 	
 	public void recibirDaño(int daño) {
 		vida-=daño;
 	}
 
-=======
-	/**
-	 * TODO
-	 */
-	@Override
->>>>>>> 8c9f530c5f57879f99a6348e158468f681241926
 	public void colision(Entidad e) {
 		e.aceptar(myCollider);
 	}
