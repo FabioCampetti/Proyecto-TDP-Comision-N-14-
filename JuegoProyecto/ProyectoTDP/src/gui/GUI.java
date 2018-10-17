@@ -94,10 +94,6 @@ public class GUI extends JFrame {
 				remove(panel);
 				remove(botonComienzo);
 				new GUI(2);
-<<<<<<< HEAD
-
-=======
->>>>>>> 4472266eecc84e77bc7efb68bf89943f18641dfc
 			}
 		});
 		/**
