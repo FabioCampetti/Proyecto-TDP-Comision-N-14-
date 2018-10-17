@@ -38,7 +38,9 @@ public class GUI extends JFrame {
 				int aux = e.getKeyCode();
 				if (aux == KeyEvent.VK_SPACE) {
 					mapa.disparoPlayer();
-				} else {
+				} else if (aux == KeyEvent.VK_R){
+					mapa.recargar();}
+				else {
 					mapa.movePlayer(aux);
 				}
 			}

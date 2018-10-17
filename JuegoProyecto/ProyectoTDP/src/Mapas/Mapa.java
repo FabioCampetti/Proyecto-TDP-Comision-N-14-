@@ -13,9 +13,6 @@ import Naves.*;
 import buffs.Buff;
 import buffs.BuffArma;
 import buffs.BuffVida;
-import gui.GUI;
-import buffs.Buff;
-import buffs.BuffArma;
 import gui.Puntaje;
 import obstaculos.Obstaculo;
 
@@ -68,6 +65,7 @@ public class Mapa extends JLayeredPane {
 		this.add(score.getLabelScore(), 0);
 		this.add(score.getLabelVida(), 0);
 		this.add(score.getLabelMaximo(),0);
+		
 	}
 	
 	private void startLevel() {
@@ -238,7 +236,9 @@ public class Mapa extends JLayeredPane {
 		return score.getPuntaje();
 	}
 	
-	
+	public void recargar() {
+		jug.recargar();
+	}
 	
 	public Jugador getJugador() {
 		return jug;

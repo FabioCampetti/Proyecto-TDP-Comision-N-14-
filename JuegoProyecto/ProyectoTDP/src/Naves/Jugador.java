@@ -102,4 +102,8 @@ public class Jugador extends Entidad {
 	public void defaultIcon() {
 		pos.setIcon(frontIcon);
 	}
+	
+	public void recargar() {
+		armaJugador.recargar();
+	}
 }
