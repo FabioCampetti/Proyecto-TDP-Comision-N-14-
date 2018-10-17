@@ -2,26 +2,17 @@ package Mapas;
 
 import java.util.Collection;
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
-
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
-import javax.swing.JPanel;
-
 import Disparos.*;
 import Naves.*;
-<<<<<<< HEAD
-import gui.GUI;
-=======
 import buffs.Buff;
 import buffs.BuffArma;
->>>>>>> d84338e27e456ac16bd9bb7c1a748a27f8649a01
+import buffs.BuffVida;
 import gui.Puntaje;
 import obstaculos.Obstaculo;
 
@@ -144,7 +135,7 @@ public class Mapa extends JLayeredPane {
 		score.actualizarPuntaje(e.getScore());
 	}
 	
-	private void updateVida(int v) {
+	public void updateVida(int v) {
 		score.actualizarVida(v);
 	}
 
@@ -169,7 +160,6 @@ public class Mapa extends JLayeredPane {
 			if (e1.getPosicion().getBounds().intersects(jug.getPosicion().getBounds())) {
 				jug.colision(e1);
 				e1.colision(jug);
-				updateVida(jug.getVida());
 				
 			}
 			if (e1.isDead()) {
@@ -203,6 +193,10 @@ public class Mapa extends JLayeredPane {
 		return murioJugador;
 	}
 	
+	public void updateBuffs(){
+		jug.updateBuffs(this);
+	}
+	
 	private Buff buffRandom(JLabel pos) {
 		int x,y;
 		Buff res;
@@ -217,7 +211,9 @@ public class Mapa extends JLayeredPane {
 		//Se define que buff cae aleatoriamente
 		if (tipoBuff<10)
 			res=new BuffArma(x,y);
-		else if(tipoBuff<20) {}
+		else if(tipoBuff<20) {
+			res= new BuffVida(x,y);
+		}
 		else if(tipoBuff<30) {}
 		else if(tipoBuff<40) {}
 		else {}
@@ -237,5 +233,11 @@ public class Mapa extends JLayeredPane {
 	}
 	public int getScore() {
 		return score.getPuntaje();
+	}
+	
+	
+	
+	public Jugador getJugador() {
+		return jug;
 	}
 }

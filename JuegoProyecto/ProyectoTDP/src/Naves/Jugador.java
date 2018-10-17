@@ -2,10 +2,12 @@ package Naves;
 
 import java.awt.event.KeyEvent;
 import java.util.Collection;
+import java.util.LinkedList;
 
 import javax.swing.ImageIcon;
 import Disparos.*;
 import Mapas.Mapa;
+import buffs.Buff;
 import colliders.DefaultCollider;
 import colliders.JugadorCollider;
 
@@ -18,6 +20,7 @@ public class Jugador extends Entidad {
 	public static final int ancho = 190;
 	public static final int alto= 150;
 	private Arma armaJugador;
+	private Collection<Buff> buffsActivos;
 	
 	private ImageIcon frontIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorFront.gif"));
 	private ImageIcon leftIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorLeft.gif"));
@@ -29,6 +32,7 @@ public class Jugador extends Entidad {
 		pos.setBounds(720,900,ancho,alto);
 		pos.setVisible(true);
 		pos.setIcon(frontIcon);
+		buffsActivos = new LinkedList<Buff>();
 		armaJugador= new ArmaJugadorEstandar(this);
 		myCollider = new JugadorCollider(); 
 	}
@@ -53,6 +57,19 @@ public class Jugador extends Entidad {
 		}
 	}
 	
+	public void updateBuffs(Mapa m) {
+		Collection<Buff> buffsTerminados = new LinkedList<Buff>();
+		for (Buff b: buffsActivos) {
+			b.updateBuff(m);
+			if (b.isDead())
+				buffsTerminados.add(b);
+		}
+		
+		for (Buff b: buffsTerminados) {
+			buffsActivos.remove(b);
+		}
+	}
+	
 	public Collection<Disparo> disparar() {
 		return armaJugador.disparar();
 	}
@@ -71,6 +88,10 @@ public class Jugador extends Entidad {
 	
 	public void cambiarArma(Arma a) {
 		armaJugador=a;
+	}
+	
+	public void addBuff(Buff b) {
+		buffsActivos.add(b);
 	}
 	
 	public void aceptar(DefaultCollider c) {

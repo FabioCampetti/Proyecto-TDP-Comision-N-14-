@@ -26,6 +26,8 @@ public class ContadorTiempo extends Thread {
 				gui.seguirJugando(mapa.getScore());
 				break;
 			}
+			mapa.updateVida(mapa.getJugador().getVida());
+			mapa.updateBuffs();
 		}
 	}
 }

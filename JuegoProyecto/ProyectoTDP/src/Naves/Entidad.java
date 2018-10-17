@@ -26,6 +26,8 @@ public abstract class Entidad {
 	
 	public void setVida(int vida) {
 		this.vida = vida;
+		if(this.vida > 100)
+			this.vida = 100;
 	}
 	
 	public boolean isDead() {
