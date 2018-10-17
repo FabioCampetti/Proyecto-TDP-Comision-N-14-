@@ -16,12 +16,9 @@ import javax.swing.JPanel;
 
 import Disparos.*;
 import Naves.*;
-<<<<<<< HEAD
 import gui.GUI;
-=======
 import buffs.Buff;
 import buffs.BuffArma;
->>>>>>> d84338e27e456ac16bd9bb7c1a748a27f8649a01
 import gui.Puntaje;
 import obstaculos.Obstaculo;
 

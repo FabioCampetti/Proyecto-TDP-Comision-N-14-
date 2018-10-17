@@ -5,6 +5,10 @@ import buffs.*;
 import obstaculos.*;
 
 public abstract class DefaultCollider {
+	protected int daño;
+	public DefaultCollider(int daño) {
+		this.daño=daño;
+	}
 	
 	public void collideEnemigo(Enemigo e) {}
 	public void collideJugador(Jugador j) {}

@@ -14,7 +14,8 @@ public class BuffArma extends Buff {
 		this.pos.setIcon(imagenBuff);
 		velocidad=20;
 		pos.setIcon(imagenBuff);
-		myCollider= new BuffArmaCollider();
+		daño=1;
+		myCollider= new BuffArmaCollider(daño);
 	}
 	
 	//public void activarEscudo

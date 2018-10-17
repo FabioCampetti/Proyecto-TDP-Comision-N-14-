@@ -30,7 +30,8 @@ public class Jugador extends Entidad {
 		pos.setVisible(true);
 		pos.setIcon(frontIcon);
 		armaJugador= new ArmaJugadorEstandar(this);
-		myCollider = new JugadorCollider(); 
+		daño=50;
+		myCollider = new JugadorCollider(daño); 
 	}
 	public void mover(int x) {
 		if (x == left) {

@@ -6,8 +6,8 @@ import Naves.Enemigo;
 import Naves.Jugador;
 
 public class ObstaculoTodosCollider extends DefaultCollider {
-	public ObstaculoTodosCollider() {
-		super();
+	public ObstaculoTodosCollider(int daño) {
+		super(daño);
 	}
 	public void collideEnemigo(Enemigo e) {
 		//Hay que modelar que le sucede al obstaculo cuando choca con un enemigo
@@ -20,6 +20,6 @@ public class ObstaculoTodosCollider extends DefaultCollider {
 		
 	}
 	public void collideJugador(Jugador j) {
-		j.recibirDaño(10);
+		j.recibirDaño(daño);
 	}
 }

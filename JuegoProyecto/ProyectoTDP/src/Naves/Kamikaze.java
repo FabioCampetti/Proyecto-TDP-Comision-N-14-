@@ -6,7 +6,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import colliders.DefaultCollider;
-import colliders.EnemigoCollider;
+import colliders.KamikazeCollider;
 import inteligencias.*;
 
 public class Kamikaze extends Enemigo {
@@ -22,7 +22,8 @@ public class Kamikaze extends Enemigo {
 		pos.setBounds(50,50,ancho,alto);
 		pos.setVisible(true);
 		pos.setIcon(foto);
-		myCollider = new EnemigoCollider();
+		daño=10;
+		myCollider = new KamikazeCollider(daño);
 		posJugador=p;
 		
 		
