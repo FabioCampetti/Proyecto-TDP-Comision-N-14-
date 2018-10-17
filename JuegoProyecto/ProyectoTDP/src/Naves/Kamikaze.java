@@ -25,13 +25,16 @@ public class Kamikaze extends Enemigo {
 		myCollider = new EnemigoCollider();
 		posJugador=p;
 		
+		
 		Random r=new Random();
 		int res=r.nextInt(10);
 		if(res<7) {
 			convertirAleatorio();
+			score = 30;
 		}
 		else {
 			convertirDirigido();
+			score = 40;
 		}	
 	}
 	public void mover(int x) {
@@ -51,6 +54,6 @@ public class Kamikaze extends Enemigo {
 		c.collideEnemigo(this);
 	}
 	public int getScore() {
-		return 30;
+		return score;
 	}
 }

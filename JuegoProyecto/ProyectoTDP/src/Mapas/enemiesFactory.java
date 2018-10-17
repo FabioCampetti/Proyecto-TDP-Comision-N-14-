@@ -25,11 +25,11 @@ public abstract class enemiesFactory {
 	}
 	
 	public boolean noEnemies() {
-		return (armadoAmount+kamikazeAmount)==0;
+		return (armadoAmount+kamikazeAmount) == 0;
 	}
 	
 	public boolean noObstacles() {
-		return obstaclesAmount==0;
+		return obstaclesAmount == 0;
 	}
 	/**
 	 * Llamado el método se modifica el tipo de factory

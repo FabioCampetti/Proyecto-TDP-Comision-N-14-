@@ -13,7 +13,6 @@ public class EnemigoCollider extends DefaultCollider {
 		j.recibirDaño(10);
 	}
 	public void collideDisparoJugador(DisparoJugador d) {
-		//Hay que modelar que pasa cuando un enemigo recibe un disparo del jugador
 		d.morir();
 	}
 	public void collideObstaculoTodos(ObstaculoTodos o) {

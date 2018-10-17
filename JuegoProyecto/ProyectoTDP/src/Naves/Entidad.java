@@ -14,7 +14,7 @@ public abstract class Entidad {
 	
 	public Entidad() {
 		pos = new JLabel();
-		vida=100;
+		vida=11100;
 		velocidad=0;
 	}
 	
@@ -32,13 +32,17 @@ public abstract class Entidad {
 		return (vida<=0);
 	}
 	
+	public void recibirDaño(int daño) {
+		vida-=daño;
+	}
+	
 	public JLabel getPosicion() {
 		return pos;
 	}
 	/**
 	 * Caso para el jugador / obsctaculos.
 	 */
-	public int getScore() {
+	public  int getScore() {
 		return 0;
 	}
 	

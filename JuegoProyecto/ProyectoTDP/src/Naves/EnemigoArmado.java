@@ -20,6 +20,7 @@ public class EnemigoArmado extends Enemigo {
 		pos.setVisible(true);
 		pos.setIcon(foto);
 		IA=new IEnemigoBasico(velocidad);
+		score = 75;
 		myCollider = new EnemigoCollider();	
 	}
 	
@@ -35,7 +36,7 @@ public class EnemigoArmado extends Enemigo {
 		c.collideEnemigo(this);
 	}
 	public int getScore() {
-		return 75;
+		return score;
 	}
 	
 	public DisparoEnemigo disparar() {

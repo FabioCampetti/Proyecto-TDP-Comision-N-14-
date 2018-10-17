@@ -1,6 +1,11 @@
 package Mapas;
 
+<<<<<<< HEAD
 import java.util.Collection;
+=======
+
+import java.awt.Color;
+>>>>>>> 8c9f530c5f57879f99a6348e158468f681241926
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -27,29 +32,44 @@ public class Mapa extends JLayeredPane {
 
 	public Mapa() {
 		super();
-		entidades = new LinkedList<Entidad>();
-		disparos = new LinkedList<Disparo>();
-		jug = new Jugador();
-		factory = new factoryLevelOne(jug.getPosicion());
-		JLabel fondoAux = new JLabel();
-		score=new Puntaje();
+  		
+		/**Creacion del jugador, puntaje, factory/enemigos.*/
+		creacionEntidades();
+		addPlayerPuntaje();
 		
+		/**Seteo tamaño, imagen y layout del mapa. */
+		creacionMapa();
+		
+		/**Inicializacion del nivel */
+		this.startLevel();
+
+	}
+	
+	private void creacionMapa() {
+		JLabel fondoAux = new JLabel();
 		this.setSize(ANCHO, ALTO);
 		this.setLayout(null);
 		this.setVisible(true);
-		
-		this.add(jug.getPosicion(), 0);
-		this.add(score.getLabelScore(), 0);
-		this.add(score.getLabelVida(), 0);
-		
-		this.startLevel();
-
 		fondoAux.setBounds(0, 0, ANCHO, ALTO);
 		fondoAux.setIcon(background);
 		this.add(fondoAux, 0);
 		this.moveToBack(fondoAux);
 	}
-
+	
+	private void creacionEntidades() {
+		entidades = new LinkedList<Entidad>();
+		disparos = new LinkedList<Disparo>();
+		jug = new Jugador();
+		factory = new factoryLevelOne(jug.getPosicion());
+		score=new Puntaje(jug.getVida());
+	}
+	
+	private void addPlayerPuntaje() {
+		this.add(jug.getPosicion(), 0);
+		this.add(score.getLabelScore(), 0);
+		this.add(score.getLabelVida(), 0);
+	}
+	
 	private void startLevel() {
 		int xInicial = 100;
 		int yInicial = (ALTO / 2) + 100;
@@ -59,7 +79,7 @@ public class Mapa extends JLayeredPane {
 			o.getPosicion().setLocation(xInicial, yInicial);
 			this.add(o.getPosicion(), 0);
 
-			xInicial += 460;
+			xInicial += 360;
 		}
 		xInicial = 40;
 		yInicial = 40;
@@ -68,6 +88,8 @@ public class Mapa extends JLayeredPane {
 			entidades.add(e);
 			e.getPosicion().setLocation(xInicial, yInicial);
 			this.add(e.getPosicion(), 0);
+			
+			
 
 			xInicial += 150;
 			if (xInicial > ANCHO - 100) {
@@ -82,11 +104,13 @@ public class Mapa extends JLayeredPane {
 	}
 
 	private void nextLevel() {
+		/**Null pointer exception aca. */
 		factory = factory.getNextFactory();
 		if (factory != null)
 			this.startLevel();
+		else 
+			this.ganarGame();
 	}
-
 	public void movePlayer(int dir) {
 		jug.mover(dir);
 	}
@@ -100,7 +124,6 @@ public class Mapa extends JLayeredPane {
 			e.mover(0);
 		}
 	}
-
 	public void disparoPlayer() {
 		if (!jug.isDead()) {
 			Collection<Disparo> aux = jug.disparar();
@@ -110,7 +133,6 @@ public class Mapa extends JLayeredPane {
 			}
 		}
 	}
-
 	private void updateScore(Entidad e) {
 		score.actualizarPuntaje(e.getScore());
 	}
@@ -124,7 +146,6 @@ public class Mapa extends JLayeredPane {
 			entidades.add(d);
 		disparos.clear();
 	}
-
 	public boolean checkCollisions() {
 		boolean murioJugador = false;
 
@@ -174,6 +195,7 @@ public class Mapa extends JLayeredPane {
 		this.repaint();
 		return murioJugador;
 	}
+<<<<<<< HEAD
 	
 	private Buff buffRandom(JLabel pos) {
 		int x,y;
@@ -194,5 +216,20 @@ public class Mapa extends JLayeredPane {
 		else if(tipoBuff<40) {}
 		else {}
 		return res;
+=======
+	public void ganarGame() {
+		JLabel textDisplay = new JLabel();
+		
+		textDisplay.setBounds(ANCHO/2,ALTO/2, 150, 50);
+		textDisplay.setText("<html>¡Felicitaciones, ganaste!<br>Puntuación: "+score.getPuntaje()+"</html>");
+		textDisplay.setForeground(Color.WHITE); 
+		textDisplay.setVerticalTextPosition(JLabel.BOTTOM);
+		textDisplay.setHorizontalTextPosition(JLabel.CENTER);
+		
+		this.add(textDisplay,0);
+	}
+	public void perderGame() {
+		//puntaje display.
+>>>>>>> 8c9f530c5f57879f99a6348e158468f681241926
 	}
 }

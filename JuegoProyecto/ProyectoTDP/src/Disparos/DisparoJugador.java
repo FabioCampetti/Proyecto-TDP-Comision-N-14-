@@ -10,6 +10,10 @@ public class DisparoJugador extends Disparo {
 	public static final int alto=88;
 	
 	private ImageIcon imagenDisparo = new ImageIcon(this.getClass().getResource("/Disparos/imagenDisparoJugador.png"));
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8c9f530c5f57879f99a6348e158468f681241926
 	
 	public DisparoJugador(int x,int y) {
 		super();
@@ -17,19 +21,17 @@ public class DisparoJugador extends Disparo {
 		this.pos.setIcon(imagenDisparo);
 		velocidad = 30;
 		daño = 35;
-		myCollider=new DisparoCollider();
+		myCollider = new DisparoCollider();
 	}
 	public void mover(int x) {
 		pos.setLocation(pos.getX(),pos.getY() - velocidad);
 		if (pos.getY()<0)
 			this.morir();
 	}
-	
 	public void colision(Entidad e) {
 		e.aceptar(myCollider);
 	}
 	public void aceptar(DefaultCollider c) {
 		c.collideDisparoJugador(this);
 	}
-	
 }
