@@ -11,7 +11,8 @@ public class ObstaculoJugador extends Obstaculo {
 		super();
 		foto = new ImageIcon(this.getClass().getResource("/obstaculos/black hole.png"));
 		pos.setIcon(foto);
-		myCollider = new ObstaculoJugadorCollider();
+		daño=20;
+		myCollider = new ObstaculoJugadorCollider(daño);
 	}
 	public void mover(int x) {}
 	@Override

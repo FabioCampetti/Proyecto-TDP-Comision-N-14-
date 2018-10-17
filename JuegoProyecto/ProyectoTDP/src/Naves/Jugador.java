@@ -34,7 +34,8 @@ public class Jugador extends Entidad {
 		pos.setIcon(frontIcon);
 		buffsActivos = new LinkedList<Buff>();
 		armaJugador= new ArmaJugadorEstandar(this);
-		myCollider = new JugadorCollider(); 
+		daño=50;
+		myCollider = new JugadorCollider(daño); 
 	}
 	public void mover(int x) {
 		if (x == left) {

@@ -7,7 +7,7 @@ import colliders.DefaultCollider;
 
 public abstract class Entidad {
 	
-	protected int vida, velocidad;
+	protected int vida, velocidad,daño;
 	protected Disparo disparo;
 	protected JLabel pos;
 	protected DefaultCollider myCollider;
@@ -28,6 +28,10 @@ public abstract class Entidad {
 		this.vida = vida;
 		if(this.vida > 100)
 			this.vida = 100;
+	}
+	
+	public void setDaño(int daño) {
+		this.daño=daño;
 	}
 	
 	public boolean isDead() {
@@ -57,5 +61,9 @@ public abstract class Entidad {
 	 */
 	public void morir() {
 		vida = 0;
+	}
+	
+	public int getdaño() {
+		return daño;
 	}
 }

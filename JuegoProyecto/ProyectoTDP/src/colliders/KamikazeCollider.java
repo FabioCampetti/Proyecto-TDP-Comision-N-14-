@@ -3,8 +3,8 @@ import Naves.*;
 import Disparos.*;
 import obstaculos.*;
 
-public class EnemigoCollider extends DefaultCollider {
-	public EnemigoCollider(int daño) {
+public class KamikazeCollider extends DefaultCollider {
+	public KamikazeCollider(int daño) {
 		super(daño);
 	}
 	

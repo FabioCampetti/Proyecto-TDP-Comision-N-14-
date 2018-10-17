@@ -11,7 +11,8 @@ public class ObstaculoTodos extends Obstaculo{
 		super();
 		foto = new ImageIcon(this.getClass().getResource("/obstaculos/Muro_de_Ladrillos.png"));
 		pos.setIcon(foto);
-		myCollider = new ObstaculoTodosCollider();
+		daño=15;
+		myCollider = new ObstaculoTodosCollider(daño);
 	}
 	public void mover(int x) {}
 	@Override

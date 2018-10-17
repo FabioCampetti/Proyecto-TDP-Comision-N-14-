@@ -10,9 +10,15 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import Disparos.*;
 import Naves.*;
+<<<<<<< HEAD
 import buffs.Buff;
 import buffs.BuffArma;
 import buffs.BuffVida;
+=======
+import gui.GUI;
+import buffs.Buff;
+import buffs.BuffArma;
+>>>>>>> 4472266eecc84e77bc7efb68bf89943f18641dfc
 import gui.Puntaje;
 import obstaculos.Obstaculo;
 

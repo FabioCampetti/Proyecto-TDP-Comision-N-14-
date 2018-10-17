@@ -16,8 +16,13 @@ public class BuffArma extends Buff {
 		this.pos.setIcon(imagenBuff);
 		velocidad=20;
 		pos.setIcon(imagenBuff);
+<<<<<<< HEAD
 		timeLeft=25;
 		myCollider= new BuffArmaCollider();
+=======
+		daño=1;
+		myCollider= new BuffArmaCollider(daño);
+>>>>>>> 4472266eecc84e77bc7efb68bf89943f18641dfc
 	}
 
 

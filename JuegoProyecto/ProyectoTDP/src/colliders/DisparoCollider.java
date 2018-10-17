@@ -5,19 +5,19 @@ import obstaculos.*;
 
 public class DisparoCollider extends DefaultCollider {
 	
-	public DisparoCollider() {
-		super();
+	public DisparoCollider(int daño) {
+		super(daño);
 	}
 	
 	public void collideEnemigo(Enemigo e) {
-		e.morir();
+		e.recibirDaño(daño);
 	}
 	public void collideObstaculoTodos(ObstaculoTodos o) {
-		o.morir();
+		o.recibirDaño(daño);
 	}
 	
 	public void collideObstaculoJugador(ObstaculoJugador o) {
-		o.morir();
+		o.recibirDaño(daño);
 	}
 
 }
