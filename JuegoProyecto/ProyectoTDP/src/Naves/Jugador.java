@@ -1,6 +1,8 @@
 package Naves;
 
 import java.awt.event.KeyEvent;
+import java.util.Collection;
+
 import javax.swing.ImageIcon;
 import Disparos.*;
 import Mapas.Mapa;
@@ -13,9 +15,9 @@ public class Jugador extends Entidad {
 	private static final int right = KeyEvent.VK_RIGHT;
 	private static final int up = KeyEvent.VK_UP;
 	private static final int down = KeyEvent.VK_DOWN;
-	private static final int ancho = 190;
-	private static final int alto= 150;
-	
+	public static final int ancho = 190;
+	public static final int alto= 150;
+	private Arma armaJugador;
 	
 	private ImageIcon frontIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorFront.gif"));
 	private ImageIcon leftIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorLeft.gif"));
@@ -27,6 +29,7 @@ public class Jugador extends Entidad {
 		pos.setBounds(720,900,ancho,alto);
 		pos.setVisible(true);
 		pos.setIcon(frontIcon);
+		armaJugador= new ArmaJugadorEstandar(this);
 		myCollider = new JugadorCollider(); 
 	}
 	public void mover(int x) {
@@ -50,28 +53,24 @@ public class Jugador extends Entidad {
 		}
 	}
 	
-	public Disparo disparar() {
-		int val=(int) (ancho*0.5);
-		DisparoJugador disparo = new DisparoJugador(this.pos.getX()+val,this.pos.getY());
-		return disparo;
+	public Collection<Disparo> disparar() {
+		return armaJugador.disparar();
 	}
-	/**
-	 * TODO
-	 * Redefinicion del metodo morir segun el jugador
-	 * Meter explosion de la nave o un mensaje que diga "game over" aca.
-	 */
+	
 	public void morir() {
 		vida=0;
 	}
-	/**
-	 * TODO
-	 */
+	
 	public void recibirDaño(int daño) {
 		vida-=daño;
 	}
-	@Override
+
 	public void colision(Entidad e) {
 		e.aceptar(myCollider);
+	}
+	
+	public void cambiarArma(Arma a) {
+		armaJugador=a;
 	}
 	
 	public void aceptar(DefaultCollider c) {

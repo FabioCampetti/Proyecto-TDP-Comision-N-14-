@@ -19,6 +19,7 @@ public class JugadorCollider extends DefaultCollider {
 	}
 	public void collideBuff(Buff b) {
 		//Hay que afectar al jugador cuando lo choca un buff
+		b.morir();
 	}
 	public void collideObstaculoJugador(ObstaculoJugador o) {
 		o.morir();

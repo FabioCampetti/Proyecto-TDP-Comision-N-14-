@@ -10,10 +10,6 @@ public class DisparoJugador extends Disparo {
 	public static final int alto=88;
 	
 	private ImageIcon imagenDisparo = new ImageIcon(this.getClass().getResource("/Disparos/imagenDisparoJugador.png"));
-	/**
-	 * DISPARO IMPLEMENTADO CON POCOS DETALLES - ICONO DE BOLA AZUL.
-	 * PROBLEMA: EL DISPARO QUEDA ABAJO DEL FONDO DEL MAPA - PREGUNTAR
-	 */
 	
 	public DisparoJugador(int x,int y) {
 		super();
