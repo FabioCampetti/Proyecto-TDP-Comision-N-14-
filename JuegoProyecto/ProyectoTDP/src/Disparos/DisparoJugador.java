@@ -10,7 +10,6 @@ public class DisparoJugador extends Disparo {
 	public static final int alto=88;
 	
 	private ImageIcon imagenDisparo = new ImageIcon(this.getClass().getResource("/Disparos/imagenDisparoJugador.png"));
-
 	
 	public DisparoJugador(int x,int y) {
 		super();

@@ -1,6 +1,6 @@
 package Mapas;
 
-
+import java.util.Collection;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,7 +16,12 @@ import javax.swing.JPanel;
 
 import Disparos.*;
 import Naves.*;
+<<<<<<< HEAD
 import gui.GUI;
+=======
+import buffs.Buff;
+import buffs.BuffArma;
+>>>>>>> d84338e27e456ac16bd9bb7c1a748a27f8649a01
 import gui.Puntaje;
 import obstaculos.Obstaculo;
 
@@ -128,9 +133,11 @@ public class Mapa extends JLayeredPane {
 	}
 	public void disparoPlayer() {
 		if (!jug.isDead()) {
-			Disparo aux = jug.disparar();
-			disparos.add(aux);
-			this.add(aux.getPosicion(), 0);
+			Collection<Disparo> aux = jug.disparar();
+			for (Disparo a: aux) {
+				disparos.add(a);
+				this.add(a.getPosicion(), 0);
+			}
 		}
 	}
 	private void updateScore(Entidad e) {
@@ -153,6 +160,7 @@ public class Mapa extends JLayeredPane {
 			this.nextLevel();
 		}
 		List<Entidad> listaMuertos = new LinkedList<Entidad>();
+		List<Entidad> listaBuffs = new LinkedList<Entidad>();
 		for (Entidad e1 : entidades) {
 			for (Entidad e2 : entidades) {
 				if (e1.getPosicion().getBounds().intersects(e2.getPosicion().getBounds()))
@@ -166,6 +174,12 @@ public class Mapa extends JLayeredPane {
 			}
 			if (e1.isDead()) {
 				listaMuertos.add(e1);
+				Random r=new Random();
+				int caeBuff=r.nextInt(50);
+				if (caeBuff<5) {
+					Buff buffNuevo= buffRandom(e1.getPosicion());
+					listaBuffs.add(buffNuevo);
+				}
 			}
 		}
 
@@ -175,12 +189,39 @@ public class Mapa extends JLayeredPane {
 			updateScore(e1);
 		}
 		
+		for (Entidad e1 : listaBuffs) {
+			entidades.add(e1);
+			this.add(e1.getPosicion());
+			this.moveToFront(e1.getPosicion());
+		}
+		
 		if (jug.isDead()) {
 			this.remove(jug.getPosicion());
 			murioJugador = true;
 		}
 		this.repaint();
 		return murioJugador;
+	}
+	
+	private Buff buffRandom(JLabel pos) {
+		int x,y;
+		Buff res;
+		Random rand= new Random();
+		int tipoBuff= rand.nextInt(50);
+		x=pos.getX();
+		y=pos.getY();
+		
+		/*Esto se borra despues cuando tengamos los buffs*/
+		res=new BuffArma(x,y);
+		
+		//Se define que buff cae aleatoriamente
+		if (tipoBuff<10)
+			res=new BuffArma(x,y);
+		else if(tipoBuff<20) {}
+		else if(tipoBuff<30) {}
+		else if(tipoBuff<40) {}
+		else {}
+		return res;
 	}
 	public void ganarGame() {
 		JLabel textDisplay = new JLabel();
