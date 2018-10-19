@@ -1,5 +1,8 @@
 package Naves;
 
+import java.util.Random;
+
+import buffs.Buff;
 import inteligencias.Inteligencia;
 
 /**
@@ -10,5 +13,13 @@ public abstract class Enemigo extends Entidad{
 	protected boolean tiene_arma;
 	protected Inteligencia IA;
 	protected int score;
-	
+	public Buff lanzaBuff() {
+		Random r = new Random();
+		Buff buffNuevo=null;
+		int caeBuff = r.nextInt(50);
+		if (caeBuff < 10) {
+			buffNuevo = buffRandom(this.getPosicion());
+		}
+		return buffNuevo;
+	}
 }

@@ -19,7 +19,7 @@ public class ArmaEnemigoEstandar extends Arma {
 		Collection<Disparo> res= new LinkedList<Disparo>();
 		Random rand = new Random();
 		int voyADisparar = rand.nextInt(1000);
-		if (voyADisparar<1)
+		if (voyADisparar<5)
 			res.add(new DisparoEnemigo(quienDisparo.getPosicion().getX()+val , quienDisparo.getPosicion().getY()+val ));
 		return res;
 	}

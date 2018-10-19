@@ -176,12 +176,9 @@ public class Mapa extends JLayeredPane {
 			}
 			if (e1.isDead()) {
 				listaMuertos.add(e1);
-				Random r = new Random();
-				int caeBuff = r.nextInt(50);
-				if (caeBuff < 5) {
-					Buff buffNuevo = buffRandom(e1.getPosicion());
-					listaBuffs.add(buffNuevo);
-				}
+				Buff b = e1.lanzaBuff();
+				if (b!=null)
+					listaBuffs.add(b);
 			}
 		}
 
@@ -207,29 +204,6 @@ public class Mapa extends JLayeredPane {
 
 	public void updateBuffs() {
 		jug.updateBuffs(this);
-	}
-
-	private Buff buffRandom(JLabel pos) {
-		int x, y;
-		Buff res;
-		Random rand = new Random();
-		int tipoBuff = rand.nextInt(50);
-		x = pos.getX();
-		y = pos.getY();
-
-		/* Esto se borra despues cuando tengamos los buffs */
-		res = new BuffArma(x, y);
-
-		// Se define que buff cae aleatoriamente
-		if (tipoBuff < 10)
-			res = new BuffArma(x, y);
-		else if (tipoBuff < 20) {
-			res = new BuffVida(x, y);
-		} else if (tipoBuff < 30) {
-		} else if (tipoBuff < 40) {
-		} else {
-		}
-		return res;
 	}
 
 	public void ganarGame() {

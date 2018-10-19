@@ -1,16 +1,12 @@
 package buffs;
 
-import java.awt.MenuComponent;
-
 import javax.swing.ImageIcon;
-
 import Mapas.Mapa;
-import colliders.BuffArmaCollider;
 import colliders.BuffVidaCollider;
 
 public class BuffVida extends Buff {
 	
-	private ImageIcon imagenBuff = new ImageIcon(this.getClass().getResource("/buffs/ImagenBuffVida.jpg"));
+	private ImageIcon imagenBuff = new ImageIcon(this.getClass().getResource("/buffs/BuffVida.png"));
 	
 	public BuffVida(int x, int y) {
 		super();
@@ -22,9 +18,11 @@ public class BuffVida extends Buff {
 		myCollider= new BuffVidaCollider();
 		
 	}
+	
 	public void terminarBuff(Mapa m) {
 		this.morir();
 	}
+	
 	public void updateBuff(Mapa m) {
 		timeLeft--;
 		int nuevaVida = m.getJugador().getVida() + 3;

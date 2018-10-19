@@ -16,11 +16,10 @@ public class BuffArma extends Buff {
 		this.pos.setIcon(imagenBuff);
 		velocidad=10;
 		pos.setIcon(imagenBuff);
-		timeLeft=25;
 		myCollider= new BuffArmaCollider();
+		timeLeft=40;
 	}
-
-
+	
 	public void terminarBuff(Mapa m) {
 		m.getJugador().cambiarArma(new ArmaJugadorEstandar(m.getJugador()));
 		this.morir();

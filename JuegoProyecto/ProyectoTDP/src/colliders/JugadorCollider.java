@@ -16,6 +16,7 @@ public class JugadorCollider extends DefaultCollider {
 	}
 	public void collideDisparoEnemigo(DisparoEnemigo d) {
 		//Hay que afectar al jugador cuando recibe un disparo enemigo
+		d.morir();
 	}
 	public void collideBuff(Buff b) {
 		//Hay que afectar al jugador cuando lo choca un buff

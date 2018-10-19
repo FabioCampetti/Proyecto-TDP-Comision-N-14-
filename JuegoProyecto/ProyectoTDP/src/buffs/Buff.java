@@ -27,8 +27,8 @@ public abstract class Buff extends Entidad {
 		if (timeLeft<=0) {
 			terminarBuff(m);
 		}
-		
 	}
 	
 	public abstract void terminarBuff(Mapa m);
+	
 }

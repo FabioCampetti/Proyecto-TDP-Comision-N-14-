@@ -11,7 +11,7 @@ import inteligencias.IDisparoDiagonalIzq;
 public class ArmaJugadorTriple extends Arma {
 	public ArmaJugadorTriple(Entidad e) {
 		quienDisparo = e;
-		disparosRestantes = 15;
+		disparosRestantes = 10;
 	}
 
 	public Collection<Disparo> disparar() {
@@ -29,13 +29,13 @@ public class ArmaJugadorTriple extends Arma {
 			d.cambiarInteligencia(new IDisparoDiagonalDer(d.getVelocidad()));
 			disparos.add(d);
 			val += Jugador.ancho / 3;
-			disparosRestantes-=3;
 		}
+		disparosRestantes--;
 		return disparos;
 	}
 
 	public void recargar() {
-		disparosRestantes = 15;
+		disparosRestantes = 10;
 	}
 
 }

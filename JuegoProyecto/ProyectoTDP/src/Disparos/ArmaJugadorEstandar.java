@@ -8,7 +8,7 @@ public class ArmaJugadorEstandar extends Arma {
 	
 	public ArmaJugadorEstandar(Entidad e) {
 		quienDisparo=e;
-		disparosRestantes=5;
+		disparosRestantes=10;
 	}
 	public Collection<Disparo> disparar() {
 		Collection<Disparo> disparos=new LinkedList<Disparo>();
@@ -20,7 +20,7 @@ public class ArmaJugadorEstandar extends Arma {
 		return disparos;
 	}
 	public void recargar() {
-		disparosRestantes=5;
+		disparosRestantes=10;
 	}	
 
 }

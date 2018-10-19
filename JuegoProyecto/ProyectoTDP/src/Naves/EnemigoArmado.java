@@ -9,6 +9,7 @@ import Disparos.Arma;
 import Disparos.ArmaEnemigoEstandar;
 import Disparos.Disparo;
 import Disparos.DisparoEnemigo;
+import buffs.Buff;
 import colliders.DefaultCollider;
 import colliders.EnemigoCollider;
 import inteligencias.IEnemigoBasico;
@@ -62,5 +63,6 @@ public class EnemigoArmado extends Enemigo {
 				IA=new IKamikazeAleatorio(this.velocidad);
 		}
 	}
+	
 	
 }

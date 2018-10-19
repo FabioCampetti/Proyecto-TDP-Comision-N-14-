@@ -37,11 +37,16 @@ public class GUI extends JFrame {
 			public void keyPressed(KeyEvent e) {
 				int aux = e.getKeyCode();
 				if (aux == KeyEvent.VK_SPACE) {
-					mapa.disparoPlayer();
-				} else if (aux == KeyEvent.VK_R){
-					mapa.recargar();}
-				else {
-					mapa.movePlayer(aux);
+					if (!cont.isPaused())
+						mapa.disparoPlayer();
+				} else if (aux == KeyEvent.VK_R) {
+					if (!cont.isPaused())
+						mapa.recargar();
+				} else if (aux == KeyEvent.VK_P) {
+					cont.pause();
+				} else {
+					if (!cont.isPaused())
+						mapa.movePlayer(aux);
 				}
 			}
 
