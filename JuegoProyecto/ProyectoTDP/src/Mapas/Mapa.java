@@ -63,7 +63,7 @@ public class Mapa extends JLayeredPane {
 	private void addPlayerPuntaje() {
 		this.add(jug.getPosicion(), 0);
 		this.add(score.getLabelScore(), 0);
-		this.add(score.getLabelVida(), 0);
+		this.add(score.getBarraVida(), 0);
 		this.add(score.getLabelMaximo(), 0);
 
 	}
@@ -197,6 +197,7 @@ public class Mapa extends JLayeredPane {
 		if (jug.isDead()) {
 			this.remove(jug.getPosicion());
 			murioJugador = true;
+			score.checkUpdate();
 		}
 		this.repaint();
 		return murioJugador;
@@ -216,7 +217,7 @@ public class Mapa extends JLayeredPane {
 		textDisplay.setHorizontalTextPosition(JLabel.CENTER);
 		this.add(textDisplay, 0);
 
-		// score.checkUpdate();
+		score.checkUpdate();
 	}
 
 	public int getScore() {

@@ -96,6 +96,7 @@ public class GUI extends JFrame {
 
 		frameAux.add(panel);
 		frameAux.setVisible(true);
+		
 		/**
 		 * Listener del boton comienzo.
 		 */
@@ -112,6 +113,7 @@ public class GUI extends JFrame {
 				frame.setEnabled(true);
 			}
 		});
+		
 		/**
 		 * Listener del boton salir. Cierra el juego/menú.
 		 */
@@ -129,11 +131,14 @@ public class GUI extends JFrame {
 				try {
 					JFrame frameAux = new JFrame();
 					frameAux.setSize(500,500);
+					
 					ImageIcon fondoMenu = new ImageIcon(this.getClass().getResource("/gui/fondoMenu.jpg"));
+					
 					/** Inicialización de los botones. */
 					JButton botonComienzo = new JButton("Jugar");
 					JButton instrucciones = new JButton("Cómo jugar");
 					JButton salir = new JButton("Salir");
+					
 					/** Inicialización del fondo del menú. */
 					JLabel fondo = new JLabel();
 					fondo.setIcon(fondoMenu);
@@ -167,11 +172,13 @@ public class GUI extends JFrame {
 							frame.setEnabled(true);
 						}
 					});
+					
 					salir.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
 							frameAux.dispatchEvent(new WindowEvent(frameAux, WindowEvent.WINDOW_CLOSING));
 						}
 					});
+					
 					
 				} catch (Exception e) {
 					e.printStackTrace();
