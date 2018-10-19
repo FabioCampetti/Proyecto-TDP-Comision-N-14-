@@ -18,7 +18,7 @@ public class Kamikaze extends Enemigo {
 	
 	public Kamikaze(JLabel p) {
 		super();
-		velocidad=7;
+		velocidad=5;
 		pos.setBounds(50,50,ancho,alto);
 		pos.setVisible(true);
 		pos.setIcon(foto);
