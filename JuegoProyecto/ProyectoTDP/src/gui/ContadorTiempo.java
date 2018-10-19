@@ -15,6 +15,7 @@ public class ContadorTiempo extends Thread {
 	}
 
 	public void run() {
+<<<<<<< HEAD
 		while (true) {
 			//Si no pongo esto no anda ni idea por que
 			System.out.println("");
@@ -35,6 +36,22 @@ public class ContadorTiempo extends Thread {
 				}
 				mapa.updateVida(mapa.getJugador().getVida());
 				mapa.updateBuffs();
+=======
+		while(true){
+			try {
+				sleep(50);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			mapa.checkDisparos();
+			mapa.moveEntidades();
+			mapa.dispararEntidades();
+			if (mapa.checkCollisions()) {
+				mapa.removeAll();
+				mapa.repaint();
+				gui.menuPerder(mapa.getScore());
+				break;
+>>>>>>> 8ee8d9796b6a98d9f2190b38bcc620759e7fd276
 			}
 		}
 	}
