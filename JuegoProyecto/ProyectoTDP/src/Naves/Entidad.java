@@ -1,4 +1,7 @@
 package Naves;
+import java.util.Collection;
+import java.util.LinkedList;
+
 import javax.swing.JLabel;
 
 import Disparos.*;
@@ -65,5 +68,13 @@ public abstract class Entidad {
 	
 	public int getdaño() {
 		return daño;
+	}
+	
+	public int getVelocidad() {
+		return velocidad;
+	}
+	
+	public Collection<Disparo> disparar(){
+		return new LinkedList<Disparo>();
 	}
 }

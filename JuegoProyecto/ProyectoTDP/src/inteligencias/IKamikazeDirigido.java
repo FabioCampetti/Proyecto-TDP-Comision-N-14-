@@ -3,6 +3,7 @@ package inteligencias;
 import javax.swing.JLabel;
 
 import Mapas.Mapa;
+import Naves.Entidad;
 
 public class IKamikazeDirigido extends Inteligencia {
 	
@@ -13,7 +14,8 @@ public class IKamikazeDirigido extends Inteligencia {
 		pos_player=p;
 	}
 	
-	public void mover(JLabel pos) {
+	public void mover(Entidad e) {
+		JLabel pos = e.getPosicion();
 		int xJug,xEnem;
 		xJug=pos_player.getX();
 		xEnem=pos.getX();

@@ -5,6 +5,8 @@ import java.util.LinkedList;
 
 import Naves.Entidad;
 import Naves.Jugador;
+import inteligencias.IDisparoDiagonalDer;
+import inteligencias.IDisparoDiagonalIzq;
 
 public class ArmaJugadorTriple extends Arma {
 	public ArmaJugadorTriple(Entidad e) {
@@ -16,11 +18,18 @@ public class ArmaJugadorTriple extends Arma {
 		Collection<Disparo> disparos = new LinkedList<Disparo>();
 		int val = 10;
 		if (disparosRestantes > 0) {
-			for (int i = 0; i < 3; i++) {
-				disparos.add(new DisparoJugador(quienDisparo.getPosicion().getX() + val, quienDisparo.getPosicion().getY()));
-				val += Jugador.ancho / 3;
-				disparosRestantes--;
-			}
+			Disparo d = new DisparoJugador(quienDisparo.getPosicion().getX() + val, quienDisparo.getPosicion().getY());
+			d.cambiarInteligencia(new IDisparoDiagonalIzq(d.getVelocidad()));
+			disparos.add(d);
+			val += Jugador.ancho / 3;
+			d = new DisparoJugador(quienDisparo.getPosicion().getX() + val, quienDisparo.getPosicion().getY());
+			disparos.add(d);
+			val += Jugador.ancho / 3;
+			d = new DisparoJugador(quienDisparo.getPosicion().getX() + val, quienDisparo.getPosicion().getY());
+			d.cambiarInteligencia(new IDisparoDiagonalDer(d.getVelocidad()));
+			disparos.add(d);
+			val += Jugador.ancho / 3;
+			disparosRestantes-=3;
 		}
 		return disparos;
 	}

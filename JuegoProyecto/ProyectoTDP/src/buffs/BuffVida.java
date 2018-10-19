@@ -16,7 +16,7 @@ public class BuffVida extends Buff {
 		super();
 		this.pos.setBounds(x,y,ancho,alto);
 		this.pos.setIcon(imagenBuff);
-		velocidad=20;
+		velocidad=10;
 		pos.setIcon(imagenBuff);
 		timeLeft = 25;
 		myCollider= new BuffVidaCollider();

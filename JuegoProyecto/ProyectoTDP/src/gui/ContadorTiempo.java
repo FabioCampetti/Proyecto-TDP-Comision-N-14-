@@ -14,12 +14,13 @@ public class ContadorTiempo extends Thread {
 	public void run() {
 		while(true){
 			try {
-				sleep(200);
+				sleep(50);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 			mapa.checkDisparos();
 			mapa.moveEntidades();
+			mapa.dispararEntidades();
 			if (mapa.checkCollisions()) {
 				mapa.removeAll();
 				mapa.repaint();

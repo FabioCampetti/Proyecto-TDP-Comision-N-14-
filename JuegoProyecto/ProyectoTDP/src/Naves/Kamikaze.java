@@ -10,15 +10,15 @@ import colliders.KamikazeCollider;
 import inteligencias.*;
 
 public class Kamikaze extends Enemigo {
-	private static final int ancho = 85;
-	private static final int alto= 130;
+	public static final int ancho = 85;
+	public static final int alto= 130;
 	
 	private ImageIcon foto = new ImageIcon(this.getClass().getResource("/Naves/EnemigoKamikaze.png"));
 	private JLabel posJugador;
 	
 	public Kamikaze(JLabel p) {
 		super();
-		velocidad=10;
+		velocidad=7;
 		pos.setBounds(50,50,ancho,alto);
 		pos.setVisible(true);
 		pos.setIcon(foto);
@@ -39,13 +39,13 @@ public class Kamikaze extends Enemigo {
 		}	
 	}
 	public void mover(int x) {
-		IA.mover(pos);
+		IA.mover(this);
 	}
 	
-	public void convertirAleatorio() {
-		IA = new IKamikazeAleatorio(velocidad*2);
+	private void convertirAleatorio() {
+		IA = new IKamikazeAleatorio(velocidad);
 	}
-	public void convertirDirigido() {
+	private void convertirDirigido() {
 		IA = new IKamikazeDirigido(posJugador,velocidad);
 	}
 	public void colision(Entidad e) {
@@ -56,5 +56,14 @@ public class Kamikaze extends Enemigo {
 	}
 	public int getScore() {
 		return score;
+	}
+	public void recibirDaño(int daño) {
+		vida-=daño;
+		if (vida<50) {
+			Random rand=new Random();
+			int cambioInteligencia = rand.nextInt(10);
+			if (cambioInteligencia<7)
+				IA=new IKamikazeAleatorio(this.velocidad);
+		}
 	}
 }

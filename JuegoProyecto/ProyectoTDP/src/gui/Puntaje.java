@@ -10,7 +10,7 @@ public class Puntaje {
 	private int puntaje;
 	private int vida;
 	private int puntajeMaximo;
-	private InputStream almacenamiento = this.getClass().getResourceAsStream("Almacenamiento.txt");
+	private File almacenamiento =new File("/gui/Almacenamiento.txt");
 	public Puntaje(int vida) {
 
 		labelPuntaje = new JLabel();
@@ -34,7 +34,7 @@ public class Puntaje {
 	}
 	private void iniciarMaximo() {
 		try {
-			BufferedReader br = new BufferedReader(new InputStreamReader(almacenamiento));
+			BufferedReader br = new BufferedReader(new FileReader(almacenamiento),0);
 
 			String st = new String("");
 			

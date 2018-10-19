@@ -4,6 +4,7 @@ import javax.swing.ImageIcon;
 import Naves.Entidad;
 import colliders.DefaultCollider;
 import colliders.DisparoCollider;
+import inteligencias.IDisparoEstandar;
 
 public class DisparoJugador extends Disparo {
 	public static final int ancho=47;
@@ -15,14 +16,13 @@ public class DisparoJugador extends Disparo {
 		super();
 		this.pos.setBounds(x,y,ancho,alto);
 		this.pos.setIcon(imagenDisparo);
-		velocidad = 30;
-		daño = 50;
+		velocidad = 10;
+		daño = 35;
 		myCollider = new DisparoCollider(daño);
+		myInteligencia = new IDisparoEstandar(velocidad);
 	}
 	public void mover(int x) {
-		pos.setLocation(pos.getX(),pos.getY() - velocidad);
-		if (pos.getY()<0)
-			this.morir();
+		myInteligencia.mover(this);
 	}
 	public void colision(Entidad e) {
 		e.aceptar(myCollider);
