@@ -10,7 +10,9 @@ public class Puntaje {
 	private int puntaje;
 	private int vida;
 	private int puntajeMaximo;
-	private File almacenamiento =new File("/gui/Almacenamiento.txt");
+
+	private File almacenamiento = new File("/gui/Almacenamiento.txt");
+
 	public Puntaje(int vida) {
 
 		labelPuntaje = new JLabel();
@@ -34,13 +36,12 @@ public class Puntaje {
 	}
 	private void iniciarMaximo() {
 		try {
-			BufferedReader br = new BufferedReader(new FileReader(almacenamiento),0);
+			BufferedReader br = new BufferedReader(new FileReader(almacenamiento));
 
 			String st = new String("");
 			
 			st = br.readLine();
 			puntajeMaximo = Integer.parseInt(st);
-			
 			//almacenamiento.
 			
 			br.close();
@@ -48,15 +49,11 @@ public class Puntaje {
 			System.out.println(e.getStackTrace());
 		}
 	}
-	/**
-	 * Preguntar cómo escribir en el input stream.
-	 */
-	/*
 	public void checkUpdate() {
 		if(puntaje > puntajeMaximo) {
 			puntajeMaximo = puntaje;
 			try {
-				System.out.println("Entre aca");
+				System.out.println("Entre acaAAA");
 				String st = Integer.toString(puntajeMaximo);
 				FileWriter fr = new FileWriter(almacenamiento,false);
 				fr.write(st);
@@ -66,7 +63,7 @@ public class Puntaje {
 			}
 		}
 	}
-	*/
+
 	public void actualizarVida(int v) {
 		vida = v;
 		labelVida.setText("Vida actual: " + vida);
