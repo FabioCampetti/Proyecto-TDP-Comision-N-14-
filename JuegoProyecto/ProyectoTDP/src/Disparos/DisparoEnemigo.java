@@ -8,9 +8,9 @@ import colliders.DefaultCollider;
 import colliders.DisparoEnemigoCollider;
 
 public class DisparoEnemigo extends Disparo{
-	private ImageIcon imagenDisparo = new ImageIcon(this.getClass().getResource("/Disparos/imagenDisparoEnemigo.png"));
-	public static final int ancho=47;
-	public static final int alto=88;
+	private ImageIcon imagenDisparo = new ImageIcon(this.getClass().getResource("/Disparos/disparoEnemigoPrototipo.png"));
+	public static final int ancho = 50;
+	public static final int alto = 75;
 	
 	public DisparoEnemigo(int x,int y) {
 		super();

@@ -4,9 +4,6 @@ import inteligencias.Inteligencia;
 
 public abstract class Disparo extends Entidad {
 	
-	/**
-	 * FALTAN DETALLES DE IMPLEMENTACION ETC.
-	 */
 	Inteligencia myInteligencia;
 	
 	public Disparo() {

@@ -62,6 +62,8 @@ public class Mapa extends JLayeredPane {
 		this.add(score.getLabelScore(), 0);
 		this.add(score.getBarraVida(), 0);
 		this.add(score.getLabelMaximo(), 0);
+		
+		this.add(score.getLabelDisparos(),0);
 
 	}
 
@@ -97,7 +99,6 @@ public class Mapa extends JLayeredPane {
 	}
 
 	private void nextLevel() {
-		/** Null pointer exception aca. */
 		if (factory.getNextFactory() != null) {
 			factory = factory.getNextFactory();
 			this.startLevel();
@@ -132,6 +133,7 @@ public class Mapa extends JLayeredPane {
 	public void disparoPlayer() {
 		if (!jug.isDead()) {
 			Collection<Disparo> aux = jug.disparar();
+			this.updateRestantes(jug.disparosRestantes());
 			for (Disparo a : aux) {
 				disparos.add(a);
 				this.add(a.getPosicion(), 0);
@@ -142,7 +144,11 @@ public class Mapa extends JLayeredPane {
 	private void updateScore(Entidad e) {
 		score.actualizarPuntaje(e.getScore());
 	}
-
+	
+	private void updateRestantes(int restantes) {
+		score.actualizarRestantes(restantes);
+	}
+	
 	public void updateVida(int v) {
 		score.actualizarVida(v);
 	}
@@ -204,6 +210,7 @@ public class Mapa extends JLayeredPane {
 		jug.updateBuffs(this);
 	}
 
+
 	public void ganarGame() {
 		JLabel textDisplay = new JLabel();
 
@@ -223,8 +230,8 @@ public class Mapa extends JLayeredPane {
 
 	public void recargar() {
 		jug.recargar();
+		this.updateRestantes(jug.disparosRestantes());
 	}
-
 	public Jugador getJugador() {
 		return jug;
 	}

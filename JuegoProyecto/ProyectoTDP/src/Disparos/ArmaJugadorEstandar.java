@@ -21,6 +21,5 @@ public class ArmaJugadorEstandar extends Arma {
 	}
 	public void recargar() {
 		disparosRestantes=10;
-	}	
-
+	}
 }
