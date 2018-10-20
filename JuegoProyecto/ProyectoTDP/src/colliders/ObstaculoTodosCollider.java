@@ -9,15 +9,15 @@ public class ObstaculoTodosCollider extends DefaultCollider {
 	public ObstaculoTodosCollider(int daño) {
 		super(daño);
 	}
+	
 	public void collideEnemigo(Enemigo e) {
-		//Hay que modelar que le sucede al obstaculo cuando choca con un enemigo
 	}
+	
 	public void collideDisparoJugador(DisparoJugador d) {
 		d.morir();
-
 	}
 	public void collideDisparoEnemigo(DisparoEnemigo d) {
-		
+		d.morir();
 	}
 	public void collideJugador(Jugador j) {
 		j.recibirDaño(daño);

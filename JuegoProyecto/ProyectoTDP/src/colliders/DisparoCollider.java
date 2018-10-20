@@ -13,6 +13,7 @@ public class DisparoCollider extends DefaultCollider {
 	public void collideEnemigo(Enemigo e) {
 		e.recibirDaño(daño);
 	}
+	
 	public void collideObstaculoTodos(ObstaculoTodos o) {
 		o.recibirDaño(daño);
 	}
@@ -20,6 +21,7 @@ public class DisparoCollider extends DefaultCollider {
 	public void collideObstaculoJugador(ObstaculoJugador o) {
 		o.recibirDaño(daño);
 	}
+	
 	public void collideDisparoEnemigo(DisparoEnemigo d) {
 		d.morir();
 	}

@@ -7,7 +7,7 @@ import Naves.Entidad;
 import colliders.DefaultCollider;
 
 public abstract class Buff extends Entidad {
-	public final int ancho=60;
+	public final int ancho=80;
 	public final int alto=80;
 	
 	public void mover(int x) {

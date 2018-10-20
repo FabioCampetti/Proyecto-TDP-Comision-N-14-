@@ -99,16 +99,13 @@ public abstract class Entidad {
 	
 	protected Buff buffRandom(JLabel pos) {
 		int x, y;
-		Buff res;
 		Random rand = new Random();
 		int tipoBuff = rand.nextInt(50);
 		x = pos.getX();
 		y = pos.getY();
-
-		/* Esto se borra despues cuando tengamos los buffs */
-		res = new BuffArma(x, y);
-
-		// Se define que buff cae aleatoriamente
+		
+		Buff res = null;
+		
 		if (tipoBuff < 10)
 			res = new BuffArma(x, y);
 		else if (tipoBuff < 20) {
@@ -116,18 +113,24 @@ public abstract class Entidad {
 		} else if (tipoBuff < 30) {
 			res = new BuffEscudo(x, y);
 		} else if (tipoBuff < 40) {
-			res = new BuffCongelarTiempo();
+			res = new BuffCongelarTiempo(x,y);
 		} else {
 		}
 		return res;
 	}
 	
 	public void congelar() {
-		guardarVelocidad();
-		velocidad=0;
+		if(velocidad!=0) {
+			guardarVelocidad();
+			velocidad=0;
+		}
 	}
 	
 	public void descongelar() {
 		devolverVelocidad();
+	}
+	
+	public boolean isFrozen() {
+		return (velocidad == 0);
 	}
 }
