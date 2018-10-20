@@ -228,4 +228,16 @@ public class Mapa extends JLayeredPane {
 	public Jugador getJugador() {
 		return jug;
 	}
+	
+	public void congelar() {
+		for (Entidad e : entidades) {
+			e.congelar();
+		}
+	}
+	
+	public void descongelar() {
+		for (Entidad e : entidades) {
+			e.descongelar();
+		}
+	}
 }

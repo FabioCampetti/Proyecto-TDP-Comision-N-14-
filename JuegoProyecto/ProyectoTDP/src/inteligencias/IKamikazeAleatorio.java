@@ -11,13 +11,14 @@ public class IKamikazeAleatorio extends Inteligencia {
 	private int dir;
 	private int cantMovimientosSiguientes;
 	
-	public IKamikazeAleatorio(int velocidad) {
-		super(velocidad);
+	public IKamikazeAleatorio() {
+		super();
 		cantMovimientosSiguientes=0;
 		dir=0;
 	}
 	public void mover(Entidad e) {
 		JLabel pos = e.getPosicion();
+		int velocidad=e.getVelocidad();
 		if(cantMovimientosSiguientes==0) {
 			Random r=new Random();
 			dir=r.nextInt(4);

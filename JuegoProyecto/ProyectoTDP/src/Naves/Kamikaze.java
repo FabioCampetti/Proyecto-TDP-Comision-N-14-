@@ -43,10 +43,10 @@ public class Kamikaze extends Enemigo {
 	}
 	
 	private void convertirAleatorio() {
-		IA = new IKamikazeAleatorio(velocidad);
+		IA = new IKamikazeAleatorio();
 	}
 	private void convertirDirigido() {
-		IA = new IKamikazeDirigido(posJugador,velocidad);
+		IA = new IKamikazeDirigido(posJugador);
 	}
 	public void colision(Entidad e) {
 		e.aceptar(myCollider);
@@ -63,7 +63,7 @@ public class Kamikaze extends Enemigo {
 			Random rand=new Random();
 			int cambioInteligencia = rand.nextInt(10);
 			if (cambioInteligencia<7)
-				IA=new IKamikazeAleatorio(this.velocidad);
+				IA=new IKamikazeAleatorio();
 		}
 	}
 }

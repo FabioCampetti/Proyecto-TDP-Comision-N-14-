@@ -5,8 +5,8 @@ import javax.swing.ImageIcon;
 import colliders.BuffArmaCollider;
 
 public class BuffArma extends Buff {
-	private ImageIcon imagenBuff = new ImageIcon(this.getClass().getResource("/buffs/ImagenBuffDisparoTriple.jpg"));
 	
+	private ImageIcon imagenBuff = new ImageIcon(this.getClass().getResource("/buffs/ImagenBuffDisparoTriple.jpg"));
 	
 	public BuffArma(int x, int y) {
 		super();

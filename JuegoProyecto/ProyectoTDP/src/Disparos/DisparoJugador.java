@@ -19,7 +19,7 @@ public class DisparoJugador extends Disparo {
 		velocidad = 10;
 		daño = 35;
 		myCollider = new DisparoCollider(daño);
-		myInteligencia = new IDisparoEstandar(velocidad);
+		myInteligencia = new IDisparoEstandar();
 	}
 	public void mover(int x) {
 		myInteligencia.mover(this);

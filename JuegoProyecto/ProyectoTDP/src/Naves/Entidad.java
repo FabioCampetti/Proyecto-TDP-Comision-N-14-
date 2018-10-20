@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import Disparos.*;
 import buffs.Buff;
 import buffs.BuffArma;
+import buffs.BuffCongelarTiempo;
 import buffs.BuffEscudo;
 import buffs.BuffVida;
 import colliders.DefaultCollider;
@@ -19,6 +20,7 @@ public abstract class Entidad {
 	protected Disparo disparo;
 	protected JLabel pos;
 	protected DefaultCollider myCollider;
+	protected Memento<Integer> memVelocidad;
 	
 	public Entidad() {
 		pos = new JLabel();
@@ -83,6 +85,16 @@ public abstract class Entidad {
 		return new LinkedList<Disparo>();
 	}
 	
+	protected void guardarVelocidad(){
+		memVelocidad = new Memento<Integer>(velocidad);
+	}
+	
+	protected void devolverVelocidad() {
+		if (memVelocidad!=null) {
+			velocidad=memVelocidad.getState();
+		}
+	}
+	
 	public Buff lanzaBuff() {return null;}
 	
 	protected Buff buffRandom(JLabel pos) {
@@ -104,8 +116,18 @@ public abstract class Entidad {
 		} else if (tipoBuff < 30) {
 			res = new BuffEscudo(x, y);
 		} else if (tipoBuff < 40) {
+			res = new BuffCongelarTiempo();
 		} else {
 		}
 		return res;
+	}
+	
+	public void congelar() {
+		guardarVelocidad();
+		velocidad=0;
+	}
+	
+	public void descongelar() {
+		devolverVelocidad();
 	}
 }

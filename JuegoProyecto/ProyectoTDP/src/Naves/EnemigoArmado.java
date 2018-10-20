@@ -26,7 +26,7 @@ public class EnemigoArmado extends Enemigo {
 		pos.setBounds(50,50,ancho,alto);
 		pos.setVisible(true);
 		pos.setIcon(foto);
-		IA=new IEnemigoBasico(velocidad);
+		IA=new IEnemigoBasico();
 		score = 75;
 		daño=15;
 		myCollider = new EnemigoCollider(daño);
@@ -58,7 +58,7 @@ public class EnemigoArmado extends Enemigo {
 			Random rand=new Random();
 			int cambioInteligencia = rand.nextInt(5);
 			if (cambioInteligencia<1)
-				IA=new IKamikazeAleatorio(this.velocidad);
+				IA=new IKamikazeAleatorio();
 		}
 	}
 	
