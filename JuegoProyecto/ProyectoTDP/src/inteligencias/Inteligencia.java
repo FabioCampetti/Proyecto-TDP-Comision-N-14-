@@ -1,6 +1,4 @@
 package inteligencias;
-import javax.swing.JLabel;
-
 import Naves.Entidad;
 
 public abstract class Inteligencia {

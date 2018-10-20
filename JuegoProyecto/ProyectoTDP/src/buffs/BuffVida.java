@@ -1,12 +1,11 @@
 package buffs;
 
 import javax.swing.ImageIcon;
-import Mapas.Mapa;
 import colliders.BuffVidaCollider;
 
 public class BuffVida extends Buff {
 	
-	private ImageIcon imagenBuff = new ImageIcon(this.getClass().getResource("/buffs/BuffVida.png"));
+	private ImageIcon imagenBuff = new ImageIcon(this.getClass().getResource("/buffs/ImagenBuffVida.png"));
 	
 	public BuffVida(int x, int y) {
 		super();

@@ -2,7 +2,6 @@ package inteligencias;
 
 import javax.swing.JLabel;
 
-import Mapas.Mapa;
 import Naves.Entidad;
 
 public class IDisparoDiagonalIzq extends Inteligencia {

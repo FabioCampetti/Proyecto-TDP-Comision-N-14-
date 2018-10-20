@@ -2,12 +2,10 @@ package buffs;
 
 import javax.swing.ImageIcon;
 
-import Disparos.ArmaJugadorEstandar;
-import Mapas.Mapa;
 import colliders.BuffArmaCollider;
 
 public class BuffArma extends Buff {
-	private ImageIcon imagenBuff = new ImageIcon(this.getClass().getResource("/buffs/ImagenBuff (1).jpg"));
+	private ImageIcon imagenBuff = new ImageIcon(this.getClass().getResource("/buffs/ImagenBuffDisparoTriple.jpg"));
 	
 	
 	public BuffArma(int x, int y) {

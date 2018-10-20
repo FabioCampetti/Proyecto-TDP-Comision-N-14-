@@ -2,7 +2,6 @@ package inteligencias;
 
 import javax.swing.JLabel;
 
-import Disparos.Disparo;
 import Naves.Entidad;
 
 public class IDisparoEstandar extends Inteligencia {

@@ -1,7 +1,6 @@
 package colliders;
 import Disparos.ArmaJugadorTriple;
 import Naves.*;
-import buffs.BuffArma;
 import buffs.BuffTimerArma;
 public class BuffArmaCollider extends DefaultCollider {
 	public BuffArmaCollider() {

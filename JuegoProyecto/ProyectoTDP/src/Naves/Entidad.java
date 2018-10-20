@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import Disparos.*;
 import buffs.Buff;
 import buffs.BuffArma;
+import buffs.BuffEscudo;
 import buffs.BuffVida;
 import colliders.DefaultCollider;
 
@@ -101,6 +102,7 @@ public abstract class Entidad {
 		else if (tipoBuff < 20) {
 			res = new BuffVida(x, y);
 		} else if (tipoBuff < 30) {
+			res = new BuffEscudo(x, y);
 		} else if (tipoBuff < 40) {
 		} else {
 		}

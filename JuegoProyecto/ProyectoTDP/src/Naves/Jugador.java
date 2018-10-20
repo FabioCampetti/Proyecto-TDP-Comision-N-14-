@@ -6,8 +6,9 @@ import java.util.LinkedList;
 
 import javax.swing.ImageIcon;
 import Disparos.*;
+import Escudos.Escudo;
+import Escudos.EscudoEstandar;
 import Mapas.Mapa;
-import buffs.Buff;
 import buffs.BuffTimer;
 import colliders.DefaultCollider;
 import colliders.JugadorCollider;
@@ -22,6 +23,7 @@ public class Jugador extends Entidad {
 	public static final int alto= 150;
 	private Arma armaJugador;
 	private Collection<BuffTimer> buffsActivos;
+	private Escudo escudoJugador;
 	
 	private ImageIcon frontIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorFront.gif"));
 	private ImageIcon leftIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorLeft.gif"));
@@ -36,6 +38,7 @@ public class Jugador extends Entidad {
 		buffsActivos = new LinkedList<BuffTimer>();
 		armaJugador= new ArmaJugadorEstandar(this);
 		daño=50;
+		escudoJugador = new EscudoEstandar();
 		myCollider = new JugadorCollider(daño); 
 	}
 	public void mover(int x) {
@@ -81,7 +84,9 @@ public class Jugador extends Entidad {
 	}
 	
 	public void recibirDaño(int daño) {
-		vida-=daño;
+		int dañoFinal;
+		dañoFinal = escudoJugador.recibirDaño(daño);
+		vida-=dañoFinal;
 	}
 
 	public void colision(Entidad e) {
@@ -106,5 +111,9 @@ public class Jugador extends Entidad {
 	
 	public void recargar() {
 		armaJugador.recargar();
+	}
+	
+	public void setEscudo(Escudo e) {
+		escudoJugador=e;
 	}
 }

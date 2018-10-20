@@ -4,15 +4,12 @@ import java.util.Collection;
 import java.awt.Color;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import Disparos.*;
 import Naves.*;
 import buffs.Buff;
-import buffs.BuffArma;
-import buffs.BuffVida;
 import gui.Puntaje;
 import obstaculos.Obstaculo;
 

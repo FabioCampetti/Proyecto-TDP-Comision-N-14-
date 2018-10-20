@@ -8,8 +8,6 @@ import javax.swing.ImageIcon;
 import Disparos.Arma;
 import Disparos.ArmaEnemigoEstandar;
 import Disparos.Disparo;
-import Disparos.DisparoEnemigo;
-import buffs.Buff;
 import colliders.DefaultCollider;
 import colliders.EnemigoCollider;
 import inteligencias.IEnemigoBasico;

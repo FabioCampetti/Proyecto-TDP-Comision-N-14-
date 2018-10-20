@@ -6,7 +6,6 @@ import java.util.Random;
 
 import Naves.EnemigoArmado;
 import Naves.Entidad;
-import Naves.Jugador;
 
 public class ArmaEnemigoEstandar extends Arma {
 
