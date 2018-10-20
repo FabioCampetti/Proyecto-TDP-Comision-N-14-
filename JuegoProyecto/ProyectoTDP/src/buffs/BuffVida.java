@@ -14,22 +14,10 @@ public class BuffVida extends Buff {
 		this.pos.setIcon(imagenBuff);
 		velocidad=10;
 		pos.setIcon(imagenBuff);
-		timeLeft = 25;
 		myCollider= new BuffVidaCollider();
 		
 	}
 	
-	public void terminarBuff(Mapa m) {
-		this.morir();
-	}
 	
-	public void updateBuff(Mapa m) {
-		timeLeft--;
-		int nuevaVida = m.getJugador().getVida() + 3;
-		m.getJugador().setVida(nuevaVida);
-		if (timeLeft<=0) {
-			terminarBuff(m);
-		}
-	}
 	
 }

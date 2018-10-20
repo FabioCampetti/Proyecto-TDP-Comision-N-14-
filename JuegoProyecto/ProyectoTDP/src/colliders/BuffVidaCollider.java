@@ -1,6 +1,7 @@
 package colliders;
 
 import Naves.Jugador;
+import buffs.BuffTimerVida;
 import buffs.BuffVida;
 
 public class BuffVidaCollider extends DefaultCollider {
@@ -9,6 +10,6 @@ public class BuffVidaCollider extends DefaultCollider {
 		super(0);
 	}
 	public void collideJugador(Jugador j) {
-		j.addBuff(new BuffVida(0,0));
+		j.addBuff(new BuffTimerVida());
 	}
 }

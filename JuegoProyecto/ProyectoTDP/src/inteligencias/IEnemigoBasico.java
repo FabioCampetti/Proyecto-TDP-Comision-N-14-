@@ -1,9 +1,5 @@
 package inteligencias;
-
-import java.util.Random;
-
 import javax.swing.JLabel;
-
 import Mapas.Mapa;
 import Naves.EnemigoArmado;
 import Naves.Entidad;
@@ -14,19 +10,6 @@ public class IEnemigoBasico extends Inteligencia{
 		super(velocidad);
 		mover=0;
 	}
-	/*public void mover(Entidad e) {
-		JLabel pos = e.getPosicion();
-		Random r=new Random();
-		int dir=r.nextInt(2);
-		if (dir==0) {
-			if(pos.getX()>25)
-				pos.setLocation(pos.getX()-velocidad, pos.getY());
-		}
-		else {
-			if(pos.getX()<Mapa.ANCHO-EnemigoArmado.ancho)
-				pos.setLocation(pos.getX()+velocidad, pos.getY());
-		}
-	}*/
 	
 	public void mover(Entidad e) {
 		JLabel pos= e.getPosicion();

@@ -8,16 +8,21 @@ import Naves.Kamikaze;
 import java.util.Random;
 
 public class IKamikazeAleatorio extends Inteligencia {
-	
-	
+	private int dir;
+	private int cantMovimientosSiguientes;
 	
 	public IKamikazeAleatorio(int velocidad) {
 		super(velocidad);
+		cantMovimientosSiguientes=0;
+		dir=0;
 	}
 	public void mover(Entidad e) {
 		JLabel pos = e.getPosicion();
-		Random r=new Random();
-		int dir=r.nextInt(4);
+		if(cantMovimientosSiguientes==0) {
+			Random r=new Random();
+			dir=r.nextInt(4);
+			cantMovimientosSiguientes=15;
+		}
 		switch(dir){
 		case 0 : //Arriba
 			if(pos.getY()>Kamikaze.alto)
@@ -37,7 +42,7 @@ public class IKamikazeAleatorio extends Inteligencia {
 			break;
 		}
 		
-		
+		cantMovimientosSiguientes--;
 		
 	}
 }

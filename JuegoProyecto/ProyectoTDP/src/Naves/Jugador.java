@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 import Disparos.*;
 import Mapas.Mapa;
 import buffs.Buff;
+import buffs.BuffTimer;
 import colliders.DefaultCollider;
 import colliders.JugadorCollider;
 
@@ -20,7 +21,7 @@ public class Jugador extends Entidad {
 	public static final int ancho = 190;
 	public static final int alto= 150;
 	private Arma armaJugador;
-	private Collection<Buff> buffsActivos;
+	private Collection<BuffTimer> buffsActivos;
 	
 	private ImageIcon frontIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorFront.gif"));
 	private ImageIcon leftIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorLeft.gif"));
@@ -32,7 +33,7 @@ public class Jugador extends Entidad {
 		pos.setBounds(720,900,ancho,alto);
 		pos.setVisible(true);
 		pos.setIcon(frontIcon);
-		buffsActivos = new LinkedList<Buff>();
+		buffsActivos = new LinkedList<BuffTimer>();
 		armaJugador= new ArmaJugadorEstandar(this);
 		daño=50;
 		myCollider = new JugadorCollider(daño); 
@@ -59,14 +60,14 @@ public class Jugador extends Entidad {
 	}
 	
 	public void updateBuffs(Mapa m) {
-		Collection<Buff> buffsTerminados = new LinkedList<Buff>();
-		for (Buff b: buffsActivos) {
+		Collection<BuffTimer> buffsTerminados = new LinkedList<BuffTimer>();
+		for (BuffTimer b: buffsActivos) {
 			b.updateBuff(m);
-			if (b.isDead())
+			if (b.terminoBuff())
 				buffsTerminados.add(b);
 		}
 		
-		for (Buff b: buffsTerminados) {
+		for (BuffTimer b: buffsTerminados) {
 			buffsActivos.remove(b);
 		}
 	}
@@ -91,7 +92,7 @@ public class Jugador extends Entidad {
 		armaJugador=a;
 	}
 	
-	public void addBuff(Buff b) {
+	public void addBuff(BuffTimer b) {
 		buffsActivos.add(b);
 	}
 	
