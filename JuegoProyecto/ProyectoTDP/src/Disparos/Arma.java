@@ -8,4 +8,9 @@ public abstract class Arma {
 	protected int disparosRestantes;
 	public abstract Collection<Disparo> disparar();
 	public abstract void recargar();
+	
+	public int disparosRestantes() {
+		return disparosRestantes;
+	}
+	
 }

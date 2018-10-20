@@ -116,4 +116,8 @@ public class Jugador extends Entidad {
 	public void setEscudo(Escudo e) {
 		escudoJugador=e;
 	}
+	
+	public int disparosRestantes() {
+		return armaJugador.disparosRestantes();
+	}
 }

@@ -6,8 +6,10 @@ import java.io.*;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 
+import Mapas.Mapa;
+
 public class Puntaje {
-	private JLabel labelPuntaje, labelMaximo;
+	private JLabel labelPuntaje, labelMaximo,labelDisparos;
 	private JProgressBar barraVida;
 	private int puntaje;
 	private int vida;
@@ -16,22 +18,36 @@ public class Puntaje {
 
 	public Puntaje(int vida) {
 
-		/** Inicialización label que almacena el puntaje */
+		/** Inicialización label que almacena el puntaje
+		 * 	Se inserta en la punta derecha de la pantalla.
+		 *  */
 		labelPuntaje = new JLabel();
-		labelPuntaje.setBounds(25, 25, 150, 50);
+		labelPuntaje.setBounds(Mapa.ANCHO-100,0, 150, 50);
 		labelPuntaje.setText("Puntuacion: 0");
 		labelPuntaje.setForeground(Color.WHITE);
+		
+		/**Inicialización label que mostrara los disparos restantes del jugador
+		 * Se insertará en la punta derecha inferior de la pantalla.
+		 * */
+		labelDisparos = new JLabel();
+		labelDisparos.setBounds(Mapa.ANCHO-100,Mapa.ALTO-80,150,75);
+		labelDisparos.setText("Disparos: 10/10");
+		labelDisparos.setForeground(Color.WHITE);
 
-		/** Inicialización barra que mantendra la vida del jugador */
+		/** Inicialización barra que mantendra la vida del jugador
+		 * 	Se inserta en la punta izquierda de la pantalla.
+		 *  */
 		barraVida = new JProgressBar(JProgressBar.HORIZONTAL, 0, 100);
 		barraVida.setForeground(Color.RED);
-		barraVida.setBounds(20, 60, 150, 25);
+		barraVida.setBounds(10,10, 200, 25);
 		barraVida.setValue(vida);
 
-		/** Inicialización del puntaje máximo obtenido del archivo */
+		/** Inicialización del puntaje máximo obtenido del archivo 
+		 * 	Se inserta en el medio de la pantalla.
+		 * */
 		iniciarMaximo();
 		labelMaximo = new JLabel();
-		labelMaximo.setBounds(25, 0, 150, 50);
+		labelMaximo.setBounds(Mapa.ANCHO/2 - 75, 0, 150, 50);
 		labelMaximo.setText("Puntaje máximo: " + puntajeMaximo);
 		labelMaximo.setForeground(Color.WHITE);
 
@@ -79,11 +95,19 @@ public class Puntaje {
 		puntaje += p;
 		labelPuntaje.setText("Puntación: " + puntaje);
 	}
-
+	
+	public void actualizarRestantes(int restantes) {
+		labelDisparos.setText("Disparos: "+restantes+"/10");
+	}
+	
 	public JLabel getLabelScore() {
 		return labelPuntaje;
 	}
-
+	
+	public JLabel getLabelDisparos() {
+		return labelDisparos;
+	}
+	
 	public JLabel getLabelMaximo() {
 		return labelMaximo;
 	}
@@ -99,4 +123,5 @@ public class Puntaje {
 	public int getPuntajeMax() {
 		return puntajeMaximo;
 	}
+	
 }

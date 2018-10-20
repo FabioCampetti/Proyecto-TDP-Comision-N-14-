@@ -1,3 +1,8 @@
 /Buff.class
 /BuffArma.class
 /BuffVida.class
+/BuffEscudo.class
+/BuffTimer.class
+/BuffTimerArma.class
+/BuffTimerEscudo.class
+/BuffTimerVida.class
