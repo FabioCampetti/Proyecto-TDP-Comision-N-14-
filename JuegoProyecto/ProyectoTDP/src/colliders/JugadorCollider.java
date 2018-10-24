@@ -1,7 +1,7 @@
 package colliders;
-import Naves.*;
-import Disparos.*;
-import buffs.*;
+import Disparos.DisparoEnemigo;
+import Naves.Enemigo;
+import buffs.Buff;
 import obstaculos.ObstaculoJugador;
 import obstaculos.ObstaculoTodos;
 
@@ -23,11 +23,11 @@ public class JugadorCollider extends DefaultCollider {
 		b.morir();
 	}
 	public void collideObstaculoJugador(ObstaculoJugador o) {
-		o.recibirDaño(daño);
 		//visitor.getPosicion().setlocation(visitor.getPosicion().getX(), visitor.getPosicion().getY()+30);
+		o.morir();
 	}
 	public void collideObstaculoTodos(ObstaculoTodos o) {
-		o.recibirDaño(daño);
+		o.morir();
 		
 		//visitor.getPosicion().setLocation(visitor.getPosicion().getX(), visitor.getPosicion().getY()+30);
 	}

@@ -10,6 +10,7 @@ public class BuffTimerEscudo extends BuffTimer {
 	}
 	public void terminarBuff(Mapa m) {
 		m.getJugador().setEscudo(new EscudoEstandar());
+		m.getJugador().setImagenesDefault();
 	}
 	
 }

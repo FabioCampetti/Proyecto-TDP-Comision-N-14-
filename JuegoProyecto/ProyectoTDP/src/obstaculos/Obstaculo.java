@@ -12,6 +12,6 @@ public abstract class Obstaculo extends Entidad {
 		super();
 		pos.setBounds(200,500,ancho,largo);
 		pos.setVisible(true);
-		vida = 250;
+		vida = 100;
 	}
 }

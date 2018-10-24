@@ -1,7 +1,7 @@
 package colliders;
-import Naves.*;
-import Disparos.*;
-import obstaculos.*;
+import Disparos.DisparoJugador;
+import Naves.Jugador;
+import obstaculos.ObstaculoTodos;
 
 public class KamikazeCollider extends DefaultCollider {
 	public KamikazeCollider(int daño) {
@@ -17,5 +17,6 @@ public class KamikazeCollider extends DefaultCollider {
 	}
 	public void collideObstaculoTodos(ObstaculoTodos o) {
 		//Hay que modelar que pasa cuando un enemigo choca con un obstaculo que lo afecte
+		o.morir();
 	}
 }

@@ -7,7 +7,8 @@ import javax.swing.JLabel;
 
 import colliders.DefaultCollider;
 import colliders.KamikazeCollider;
-import inteligencias.*;
+import inteligencias.IKamikazeAleatorio;
+import inteligencias.IKamikazeDirigido;
 
 public class Kamikaze extends Enemigo {
 	public static final int ancho = 85;

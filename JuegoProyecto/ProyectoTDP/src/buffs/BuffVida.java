@@ -1,6 +1,7 @@
 package buffs;
 
 import javax.swing.ImageIcon;
+
 import colliders.BuffVidaCollider;
 
 public class BuffVida extends Buff {

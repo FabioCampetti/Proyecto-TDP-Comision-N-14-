@@ -5,7 +5,10 @@ import java.util.Collection;
 import java.util.LinkedList;
 
 import javax.swing.ImageIcon;
-import Disparos.*;
+
+import Disparos.Arma;
+import Disparos.ArmaJugadorEstandar;
+import Disparos.Disparo;
 import Escudos.Escudo;
 import Escudos.EscudoEstandar;
 import Mapas.Mapa;
@@ -25,14 +28,15 @@ public class Jugador extends Entidad {
 	private Collection<BuffTimer> buffsActivos;
 	private Escudo escudoJugador;
 	
-	private ImageIcon frontIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorFront.gif"));
-	private ImageIcon leftIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorLeft.gif"));
-	private ImageIcon rightIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorRight.gif"));
+	private ImageIcon frontIcon;
+	private ImageIcon leftIcon;
+	private ImageIcon rightIcon;
 	
 	public Jugador() {
 		super();
 		velocidad=20;
 		pos.setBounds(720,900,ancho,alto);
+		setImagenesDefault();
 		pos.setVisible(true);
 		pos.setIcon(frontIcon);
 		buffsActivos = new LinkedList<BuffTimer>();
@@ -119,5 +123,20 @@ public class Jugador extends Entidad {
 	
 	public int disparosRestantes() {
 		return armaJugador.disparosRestantes();
+	}
+	
+	public void setImagenesDefault() {
+		frontIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorFront.gif"));
+		leftIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorLeft.gif"));
+		rightIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorRight.gif"));
+		pos.setBounds(pos.getX(),pos.getY(),ancho,alto);
+		defaultIcon();
+	}
+	
+	public void setImagenesEscudo() {
+		frontIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorFrontEscudo.png"));
+		leftIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorLeftEscudo.png"));
+		rightIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorRightEscudo.png"));
+		pos.setBounds(pos.getX(),pos.getY(),frontIcon.getIconWidth(),frontIcon.getIconHeight());
 	}
 }

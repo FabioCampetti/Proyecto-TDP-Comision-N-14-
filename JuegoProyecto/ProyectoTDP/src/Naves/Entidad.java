@@ -5,7 +5,7 @@ import java.util.Random;
 
 import javax.swing.JLabel;
 
-import Disparos.*;
+import Disparos.Disparo;
 import buffs.Buff;
 import buffs.BuffArma;
 import buffs.BuffCongelarTiempo;
@@ -66,9 +66,7 @@ public abstract class Entidad {
 	
 	public abstract void aceptar(DefaultCollider c);
 	
-	/**
-	 * Este metodo generaliza la idea de "desaparecer" del mapa.
-	 */
+	
 	public void morir() {
 		vida = 0;
 	}
@@ -100,7 +98,7 @@ public abstract class Entidad {
 	protected Buff buffRandom(JLabel pos) {
 		int x, y;
 		Random rand = new Random();
-		int tipoBuff = rand.nextInt(50);
+		int tipoBuff = rand.nextInt(40);
 		x = pos.getX();
 		y = pos.getY();
 		
@@ -114,7 +112,6 @@ public abstract class Entidad {
 			res = new BuffEscudo(x, y);
 		} else if (tipoBuff < 40) {
 			res = new BuffCongelarTiempo(x,y);
-		} else {
 		}
 		return res;
 	}

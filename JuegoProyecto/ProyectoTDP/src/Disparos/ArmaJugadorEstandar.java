@@ -1,6 +1,7 @@
 package Disparos;
 import java.util.Collection;
 import java.util.LinkedList;
+
 import Naves.Entidad;
 import Naves.Jugador;
 

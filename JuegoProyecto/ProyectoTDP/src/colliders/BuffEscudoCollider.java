@@ -13,6 +13,7 @@ public class BuffEscudoCollider extends DefaultCollider {
 	public void collideJugador(Jugador j) {
 		j.setEscudo(new EscudoIndestructible());
 		j.addBuff(new BuffTimerEscudo());
+		j.setImagenesEscudo();
 	}
 
 }

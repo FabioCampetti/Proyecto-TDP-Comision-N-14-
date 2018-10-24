@@ -11,6 +11,7 @@ public class ObstaculoTodosCollider extends DefaultCollider {
 	}
 	
 	public void collideEnemigo(Enemigo e) {
+		e.recibirDaño(daño);
 	}
 	
 	public void collideDisparoJugador(DisparoJugador d) {

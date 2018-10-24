@@ -1,6 +1,7 @@
 package Disparos;
 
 import javax.swing.ImageIcon;
+
 import Naves.Entidad;
 import colliders.DefaultCollider;
 import colliders.DisparoCollider;

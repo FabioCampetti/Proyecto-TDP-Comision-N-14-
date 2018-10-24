@@ -1,6 +1,7 @@
 package buffs;
 
 import javax.swing.ImageIcon;
+
 import colliders.BuffEscudoCollider;
 
 public class BuffEscudo extends Buff {
