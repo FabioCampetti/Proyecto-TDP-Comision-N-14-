@@ -1,15 +1,26 @@
 package gui;
 
-import Mapas.*;
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.WindowEvent;
 
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import Mapas.Mapa;
 
 public class GUI extends JFrame {
 	protected Mapa mapa;
 	private ContadorTiempo cont;
 	private ImageIcon fondoMenu = new ImageIcon(this.getClass().getResource("/gui/fondoMenu.jpg"));
+
 	/**
 	 * Inicializacion de GUI con listeners para las flechitas.
 	 * 
@@ -21,14 +32,14 @@ public class GUI extends JFrame {
 	public GUI() {
 
 		this.setTitle("Space Game");
-		this.setSize(1920,1080);
+		this.setSize(1920, 1080);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
-		
+
 		mapa = new Mapa();
 		this.add(mapa);
-		
+
 		this.addKeyListener(new KeyListener() {
 			public void keyPressed(KeyEvent e) {
 				int aux = e.getKeyCode();
@@ -53,7 +64,7 @@ public class GUI extends JFrame {
 			public void keyTyped(KeyEvent e) {
 			}
 		});
-		
+
 		this.setSize(1920, 1080);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -62,16 +73,16 @@ public class GUI extends JFrame {
 		cont = new ContadorTiempo(mapa, this);
 		cont.start();
 	}
+
 	public void menuPerder(int score) {
-		/**Cierro GUI que se estaba ejecutando anteriormente.*/
+		/** Cierro GUI que se estaba ejecutando anteriormente. */
 		this.setVisible(false);
 		this.setFocusable(false);
 		this.setEnabled(false);
-		
-		
+
 		/** Inicialización de los botones. */
 		JFrame frameAux = new JFrame();
-		frameAux.setSize(500,500);
+		frameAux.setSize(500, 500);
 		JLabel displayPerdiste = new JLabel();
 		displayPerdiste.setText("<html>¡Perdiste!<br>Puntuación: " + score + "</html>");
 		displayPerdiste.setForeground(Color.BLACK);
@@ -96,7 +107,7 @@ public class GUI extends JFrame {
 
 		frameAux.add(panel);
 		frameAux.setVisible(true);
-		
+
 		/**
 		 * Listener del boton comienzo.
 		 */
@@ -113,7 +124,7 @@ public class GUI extends JFrame {
 				frame.setEnabled(true);
 			}
 		});
-		
+
 		/**
 		 * Listener del boton salir. Cierra el juego/menú.
 		 */
@@ -130,15 +141,15 @@ public class GUI extends JFrame {
 			public void run() {
 				try {
 					JFrame frameAux = new JFrame();
-					frameAux.setSize(500,500);
-					
+					frameAux.setSize(500, 500);
+
 					ImageIcon fondoMenu = new ImageIcon(this.getClass().getResource("/gui/fondoMenu.jpg"));
-					
+
 					/** Inicialización de los botones. */
 					JButton botonComienzo = new JButton("Jugar");
 					JButton instrucciones = new JButton("Cómo jugar");
 					JButton salir = new JButton("Salir");
-					
+
 					/** Inicialización del fondo del menú. */
 					JLabel fondo = new JLabel();
 					fondo.setIcon(fondoMenu);
@@ -158,7 +169,7 @@ public class GUI extends JFrame {
 
 					frameAux.add(panel);
 					frameAux.setVisible(true);
-					
+
 					botonComienzo.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
 							frameAux.remove(panel);
@@ -172,14 +183,13 @@ public class GUI extends JFrame {
 							frame.setEnabled(true);
 						}
 					});
-					
+
 					salir.addActionListener(new ActionListener() {
 						public void actionPerformed(ActionEvent e) {
 							frameAux.dispatchEvent(new WindowEvent(frameAux, WindowEvent.WINDOW_CLOSING));
 						}
 					});
-					
-					
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

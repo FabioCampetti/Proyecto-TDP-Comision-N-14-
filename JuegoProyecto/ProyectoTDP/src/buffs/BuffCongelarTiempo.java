@@ -2,7 +2,6 @@ package buffs;
 
 import javax.swing.ImageIcon;
 
-import colliders.BuffArmaCollider;
 import colliders.BuffCongelarCollider;
 
 public class BuffCongelarTiempo extends Buff {

@@ -10,7 +10,6 @@ import inteligencias.Inteligencia;
  *
  */
 public abstract class Enemigo extends Entidad{
-	protected boolean tiene_arma;
 	protected Inteligencia IA;
 	protected int score;
 	public Buff lanzaBuff() {

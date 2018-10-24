@@ -4,6 +4,7 @@ import javax.swing.JLabel;
 
 import Mapas.Mapa;
 import Naves.Entidad;
+import Naves.Kamikaze;
 
 public class IKamikazeDirigido extends Inteligencia {
 	
@@ -20,7 +21,9 @@ public class IKamikazeDirigido extends Inteligencia {
 		velocidad=e.getVelocidad();
 		xJug=pos_player.getX();
 		xEnem=pos.getX();
-		int y = (pos.getY() + velocidad) % Mapa.ALTO;
+		int y = (pos.getY() + velocidad);
+		if (y+Kamikaze.alto>=Mapa.ALTO)
+			y=0;
 		
 		if (xEnem<xJug+50){ //Jugador esta mas a la derecha
 			int x = (xEnem + velocidad) % Mapa.ANCHO;

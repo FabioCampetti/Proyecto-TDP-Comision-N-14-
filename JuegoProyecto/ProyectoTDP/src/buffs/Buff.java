@@ -1,7 +1,5 @@
 package buffs;
 
-import javax.swing.ImageIcon;
-
 import Mapas.Mapa;
 import Naves.Entidad;
 import colliders.DefaultCollider;

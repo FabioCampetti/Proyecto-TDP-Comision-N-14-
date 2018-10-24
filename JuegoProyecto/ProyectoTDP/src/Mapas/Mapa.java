@@ -1,14 +1,18 @@
 package Mapas;
 
-import java.util.Collection;
 import java.awt.Color;
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
-import Disparos.*;
-import Naves.*;
+
+import Disparos.Disparo;
+import Naves.Enemigo;
+import Naves.Entidad;
+import Naves.Jugador;
 import buffs.Buff;
 import gui.Puntaje;
 import obstaculos.Obstaculo;
@@ -177,7 +181,6 @@ public class Mapa extends JLayeredPane {
 			if (e1.getPosicion().getBounds().intersects(jug.getPosicion().getBounds())) {
 				jug.colision(e1);
 				e1.colision(jug);
-
 			}
 			if (e1.isDead()) {
 				listaMuertos.add(e1);

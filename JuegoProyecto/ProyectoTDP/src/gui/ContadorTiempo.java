@@ -1,6 +1,6 @@
 package gui;
 
-import Mapas.*;
+import Mapas.Mapa;
 
 public class ContadorTiempo extends Thread {
 
@@ -17,14 +17,13 @@ public class ContadorTiempo extends Thread {
 	public void run() {
 
 		while (true) {
-			// Si no pongo esto no anda ni idea por que
-			System.out.println("");
-			if (running) {
-				try {
-					sleep(50);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+			try {
+				sleep(50);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			
+			if (running) {	
 				mapa.checkDisparos();
 				mapa.moveEntidades();
 				mapa.dispararEntidades();
@@ -41,7 +40,7 @@ public class ContadorTiempo extends Thread {
 	}
 
 	public boolean isPaused() {
-		return running == false;
+		return !running;
 	}
 
 	public void pause() {

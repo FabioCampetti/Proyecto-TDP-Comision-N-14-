@@ -20,18 +20,18 @@ public class IDisparoEstandar extends Inteligencia {
 	}
 	
 }
-/*
-	Mover alternativo, mueve haciendo zig zag, lo dejo aca hasta que lo veamos.
+
+/*	Mover alternativo, mueve haciendo zig zag, lo dejo aca hasta que lo veamos.
 	
 private int sigMov;
-	public IDisparoEstandar(int velocidad) {
-		super(velocidad);
+	public IDisparoEstandar() {
 		sigMov=5;
 	}
 
 	public void mover(Entidad e) {
 		JLabel pos= e.getPosicion();
-		int x,y;
+		int x,y,velocidad;
+		velocidad= e.getVelocidad();
 		y=pos.getY() - velocidad;
 		x=pos.getX();
 		if (sigMov<5) {
