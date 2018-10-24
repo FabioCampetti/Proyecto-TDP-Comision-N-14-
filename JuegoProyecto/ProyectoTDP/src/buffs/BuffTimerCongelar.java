@@ -1,6 +1,6 @@
 package buffs;
 
-import Mapas.Mapa;
+import mapas.Mapa;
 
 public class BuffTimerCongelar extends BuffTimer {
 

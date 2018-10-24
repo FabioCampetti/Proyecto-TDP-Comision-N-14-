@@ -1,9 +1,9 @@
 package colliders;
 
-import Disparos.DisparoEnemigo;
-import Disparos.DisparoJugador;
-import Naves.Enemigo;
-import Naves.Jugador;
+import disparos.DisparoEnemigo;
+import disparos.DisparoJugador;
+import naves.Enemigo;
+import naves.Jugador;
 
 public class ObstaculoTodosCollider extends DefaultCollider {
 	public ObstaculoTodosCollider(int daño) {

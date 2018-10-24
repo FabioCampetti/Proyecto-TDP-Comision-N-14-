@@ -1,7 +1,7 @@
 package colliders;
-import Disparos.ArmaJugadorTriple;
-import Naves.Jugador;
 import buffs.BuffTimerArma;
+import disparos.ArmaJugadorTriple;
+import naves.Jugador;
 public class BuffArmaCollider extends DefaultCollider {
 	public BuffArmaCollider() {
 		super(0);

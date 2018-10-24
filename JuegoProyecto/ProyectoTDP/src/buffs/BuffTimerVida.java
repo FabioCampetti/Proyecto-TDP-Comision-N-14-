@@ -1,12 +1,13 @@
 package buffs;
 
-import Mapas.Mapa;
+import mapas.Mapa;
 
 public class BuffTimerVida extends BuffTimer{
 	public BuffTimerVida() {
 		timeLeft=60;
 	}
 	public void terminarBuff(Mapa m) {
+		/* El buff de vida no hace nada en especial al terminar */
 	}
 	
 	public void updateBuff(Mapa m) {

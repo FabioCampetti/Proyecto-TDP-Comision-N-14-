@@ -1,11 +1,11 @@
-package Disparos;
+package disparos;
 
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.Random;
 
-import Naves.EnemigoArmado;
-import Naves.Entidad;
+import naves.EnemigoArmado;
+import naves.Entidad;
 
 public class ArmaEnemigoEstandar extends Arma {
 
@@ -25,6 +25,7 @@ public class ArmaEnemigoEstandar extends Arma {
 
 	@Override
 	public void recargar() {
+		/* El enemigo tiene disparo ilimitados, no necesita recargar. */
 	}
 
 }

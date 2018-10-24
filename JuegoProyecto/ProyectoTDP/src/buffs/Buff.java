@@ -1,8 +1,8 @@
 package buffs;
 
-import Mapas.Mapa;
-import Naves.Entidad;
 import colliders.DefaultCollider;
+import mapas.Mapa;
+import naves.Entidad;
 
 public abstract class Buff extends Entidad {
 	public final int ancho=80;

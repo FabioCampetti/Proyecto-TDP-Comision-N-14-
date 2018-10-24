@@ -4,9 +4,9 @@ import java.util.Random;
 
 import javax.swing.JLabel;
 
-import Mapas.Mapa;
-import Naves.Entidad;
-import Naves.Kamikaze;
+import mapas.Mapa;
+import naves.Entidad;
+import naves.Kamikaze;
 
 public class IKamikazeAleatorio extends Inteligencia {
 	private int dir;
@@ -46,6 +46,8 @@ public class IKamikazeAleatorio extends Inteligencia {
 			if (pos.getX() < Mapa.ANCHO - Kamikaze.ancho)
 				pos.setLocation(pos.getX() + velocidad, pos.getY());
 			break;
+		default:
+			/* por default no mueve */
 		}
 
 		cantMovimientosSiguientes--;

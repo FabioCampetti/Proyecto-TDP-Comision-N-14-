@@ -1,7 +1,7 @@
 package obstaculos;
 import javax.swing.ImageIcon;
 
-import Naves.Entidad;
+import naves.Entidad;
 
 public abstract class Obstaculo extends Entidad {
 	private static final int ancho = 299;

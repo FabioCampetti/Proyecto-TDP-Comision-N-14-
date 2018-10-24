@@ -1,4 +1,4 @@
-package Naves;
+package naves;
 
 import java.util.Random;
 

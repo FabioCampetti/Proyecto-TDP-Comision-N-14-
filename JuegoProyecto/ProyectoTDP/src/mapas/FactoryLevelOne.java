@@ -1,22 +1,22 @@
-package Mapas;
+package mapas;
 
 
 import java.util.Random;
 
 import javax.swing.JLabel;
 
-import Naves.Enemigo;
-import Naves.EnemigoArmado;
-import Naves.Kamikaze;
+import naves.Enemigo;
+import naves.EnemigoArmado;
+import naves.Kamikaze;
 import obstaculos.Obstaculo;
 import obstaculos.ObstaculoJugador;
 import obstaculos.ObstaculoTodos;
 
-public class factoryLevelOne extends enemiesFactory {
+public class FactoryLevelOne extends EnemiesFactory {
 	
 	
 	
-	public factoryLevelOne(JLabel p) {
+	public FactoryLevelOne(JLabel p) {
 		kamikazeAmount = 10;
 		armadoAmount = 20;
 		obstaclesAmount = 4;
@@ -24,8 +24,8 @@ public class factoryLevelOne extends enemiesFactory {
 		posJugador = p;
 	}
 	
-	public enemiesFactory getNextFactory() {
-		return new factoryLevelTwo(posJugador);
+	public EnemiesFactory getNextFactory() {
+		return new FactoryLevelTwo(posJugador);
 	}
 	
 	public Enemigo createEnemy() {

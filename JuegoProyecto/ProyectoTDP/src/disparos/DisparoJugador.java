@@ -1,11 +1,11 @@
-package Disparos;
+package disparos;
 
 import javax.swing.ImageIcon;
 
-import Naves.Entidad;
 import colliders.DefaultCollider;
 import colliders.DisparoCollider;
 import inteligencias.IDisparoEstandar;
+import naves.Entidad;
 
 public class DisparoJugador extends Disparo {
 	public static final int ancho=47;

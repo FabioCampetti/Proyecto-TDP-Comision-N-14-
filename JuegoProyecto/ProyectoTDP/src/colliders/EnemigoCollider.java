@@ -1,6 +1,6 @@
 package colliders;
-import Disparos.DisparoJugador;
-import Naves.Jugador;
+import disparos.DisparoJugador;
+import naves.Jugador;
 import obstaculos.ObstaculoTodos;
 
 public class EnemigoCollider extends DefaultCollider {

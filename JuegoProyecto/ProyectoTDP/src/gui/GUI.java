@@ -14,7 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import Mapas.Mapa;
+import mapas.Mapa;
 
 public class GUI extends JFrame {
 	protected Mapa mapa;
@@ -62,6 +62,7 @@ public class GUI extends JFrame {
 			}
 
 			public void keyTyped(KeyEvent e) {
+				/* No tiene uso */
 			}
 		});
 

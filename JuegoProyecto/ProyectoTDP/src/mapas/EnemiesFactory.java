@@ -1,13 +1,13 @@
-package Mapas;
+package mapas;
 
 import javax.swing.JLabel;
 
-import Naves.Enemigo;
+import naves.Enemigo;
 import obstaculos.Obstaculo;
 
 /**
  */
-public abstract class enemiesFactory {
+public abstract class EnemiesFactory {
 	protected int size;
 	protected int armadoAmount;
 	protected int kamikazeAmount;
@@ -35,7 +35,7 @@ public abstract class enemiesFactory {
 	 * Llamado el método se modifica el tipo de factory
 	 * @return tipo de factory al que se cambió.
 	 */
-	public abstract enemiesFactory getNextFactory();
+	public abstract EnemiesFactory getNextFactory();
 	
 	/**
 	 * Creo un tipo de enemigo que decida.

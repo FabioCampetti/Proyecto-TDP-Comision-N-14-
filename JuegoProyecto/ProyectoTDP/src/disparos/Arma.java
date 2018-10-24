@@ -1,7 +1,7 @@
-package Disparos;
+package disparos;
 import java.util.Collection;
 
-import Naves.Entidad;
+import naves.Entidad;
 
 public abstract class Arma {
 	protected Entidad quienDisparo;

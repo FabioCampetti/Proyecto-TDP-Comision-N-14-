@@ -2,9 +2,9 @@ package obstaculos;
 
 import javax.swing.ImageIcon;
 
-import Naves.Entidad;
 import colliders.DefaultCollider;
 import colliders.ObstaculoJugadorCollider;
+import naves.Entidad;
 
 public class ObstaculoJugador extends Obstaculo {
 	public ObstaculoJugador() {

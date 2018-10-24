@@ -1,12 +1,12 @@
-package Disparos;
+package disparos;
 
 import java.util.Collection;
 import java.util.LinkedList;
 
-import Naves.Entidad;
-import Naves.Jugador;
 import inteligencias.IDisparoDiagonalDer;
 import inteligencias.IDisparoDiagonalIzq;
+import naves.Entidad;
+import naves.Jugador;
 
 public class ArmaJugadorTriple extends Arma {
 	public ArmaJugadorTriple(Entidad e) {

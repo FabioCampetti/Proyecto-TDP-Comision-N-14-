@@ -2,14 +2,9 @@ package inteligencias;
 
 import javax.swing.JLabel;
 
-import Naves.Entidad;
+import naves.Entidad;
 
 public class IDisparoEstandar extends Inteligencia {
-
-	public IDisparoEstandar() {
-		super();
-		
-	}
 
 	public void mover(Entidad e) {
 		JLabel pos= e.getPosicion();

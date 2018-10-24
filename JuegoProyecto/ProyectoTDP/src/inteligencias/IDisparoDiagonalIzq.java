@@ -2,13 +2,9 @@ package inteligencias;
 
 import javax.swing.JLabel;
 
-import Naves.Entidad;
+import naves.Entidad;
 
 public class IDisparoDiagonalIzq extends Inteligencia {
-
-	public IDisparoDiagonalIzq() {
-		super();
-	}
 
 	public void mover(Entidad e) {
 		JLabel pos = e.getPosicion();

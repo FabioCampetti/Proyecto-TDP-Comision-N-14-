@@ -1,7 +1,6 @@
 package inteligencias;
-import Naves.Entidad;
+import naves.Entidad;
 
 public abstract class Inteligencia {
-	public Inteligencia() {}
-	public void mover(Entidad e) {}
+	public abstract void mover(Entidad e) ;
 }

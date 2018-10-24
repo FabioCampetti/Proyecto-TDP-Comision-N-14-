@@ -10,13 +10,12 @@ import java.io.IOException;
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 
-import Mapas.Mapa;
+import mapas.Mapa;
 
 public class Puntaje {
 	private JLabel labelPuntaje, labelMaximo,labelDisparos;
 	private JProgressBar barraVida;
 	private int puntaje;
-	private int vida;
 	private int puntajeMaximo;
 	private File almacenamiento = new File("PuntajeMaximo.txt");
 
@@ -91,8 +90,7 @@ public class Puntaje {
 	}
 
 	public void actualizarVida(int v) {
-		vida = v;
-		barraVida.setValue(vida);
+		barraVida.setValue(v);
 	}
 
 	public void actualizarPuntaje(int p) {

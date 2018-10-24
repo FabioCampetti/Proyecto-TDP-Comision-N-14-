@@ -1,4 +1,4 @@
-package Naves;
+package naves;
 
 import java.awt.event.KeyEvent;
 import java.util.Collection;
@@ -6,15 +6,15 @@ import java.util.LinkedList;
 
 import javax.swing.ImageIcon;
 
-import Disparos.Arma;
-import Disparos.ArmaJugadorEstandar;
-import Disparos.Disparo;
-import Escudos.Escudo;
-import Escudos.EscudoEstandar;
-import Mapas.Mapa;
 import buffs.BuffTimer;
 import colliders.DefaultCollider;
 import colliders.JugadorCollider;
+import disparos.Arma;
+import disparos.ArmaJugadorEstandar;
+import disparos.Disparo;
+import escudos.Escudo;
+import escudos.EscudoEstandar;
+import mapas.Mapa;
 
 public class Jugador extends Entidad {
 

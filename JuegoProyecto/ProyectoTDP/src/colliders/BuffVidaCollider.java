@@ -1,7 +1,7 @@
 package colliders;
 
-import Naves.Jugador;
 import buffs.BuffTimerVida;
+import naves.Jugador;
 
 public class BuffVidaCollider extends DefaultCollider {
 	

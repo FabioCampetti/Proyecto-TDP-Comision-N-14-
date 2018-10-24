@@ -1,7 +1,7 @@
 package colliders;
 
-import Disparos.DisparoJugador;
-import Naves.Jugador;
+import disparos.DisparoJugador;
+import naves.Jugador;
 
 public class ObstaculoJugadorCollider extends DefaultCollider {
 	public ObstaculoJugadorCollider(int daño) {

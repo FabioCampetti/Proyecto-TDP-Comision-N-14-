@@ -1,15 +1,15 @@
-package Naves;
+package naves;
 
 import java.util.Collection;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
 
-import Disparos.Arma;
-import Disparos.ArmaEnemigoEstandar;
-import Disparos.Disparo;
 import colliders.DefaultCollider;
 import colliders.EnemigoCollider;
+import disparos.Arma;
+import disparos.ArmaEnemigoEstandar;
+import disparos.Disparo;
 import inteligencias.IEnemigoBasico;
 import inteligencias.IKamikazeAleatorio;
 

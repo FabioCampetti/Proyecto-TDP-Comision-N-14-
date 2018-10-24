@@ -1,4 +1,4 @@
-package Escudos;
+package escudos;
 
 
 public abstract class Escudo {

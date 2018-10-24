@@ -1,11 +1,11 @@
-package Disparos;
+package disparos;
 
 import javax.swing.ImageIcon;
 
-import Mapas.Mapa;
-import Naves.Entidad;
 import colliders.DefaultCollider;
 import colliders.DisparoEnemigoCollider;
+import mapas.Mapa;
+import naves.Entidad;
 
 public class DisparoEnemigo extends Disparo{
 	private ImageIcon imagenDisparo = new ImageIcon(this.getClass().getResource("/Disparos/disparoEnemigoPrototipo.png"));

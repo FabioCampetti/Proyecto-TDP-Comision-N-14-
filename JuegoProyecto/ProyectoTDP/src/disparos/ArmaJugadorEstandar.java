@@ -1,9 +1,9 @@
-package Disparos;
+package disparos;
 import java.util.Collection;
 import java.util.LinkedList;
 
-import Naves.Entidad;
-import Naves.Jugador;
+import naves.Entidad;
+import naves.Jugador;
 
 public class ArmaJugadorEstandar extends Arma {
 	

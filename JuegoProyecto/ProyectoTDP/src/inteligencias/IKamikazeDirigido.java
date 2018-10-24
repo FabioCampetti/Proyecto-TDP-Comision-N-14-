@@ -2,38 +2,39 @@ package inteligencias;
 
 import javax.swing.JLabel;
 
-import Mapas.Mapa;
-import Naves.Entidad;
-import Naves.Kamikaze;
+import mapas.Mapa;
+import naves.Entidad;
+import naves.Kamikaze;
 
 public class IKamikazeDirigido extends Inteligencia {
-	
-	JLabel pos_player;
-	
+
+	private JLabel pos_player;
+
 	public IKamikazeDirigido(JLabel p) {
 		super();
-		pos_player=p;
+		pos_player = p;
 	}
-	
+
 	public void mover(Entidad e) {
 		JLabel pos = e.getPosicion();
-		int xJug,xEnem,velocidad;
-		velocidad=e.getVelocidad();
-		xJug=pos_player.getX();
-		xEnem=pos.getX();
-		int y = (pos.getY() + velocidad);
-		if (y+Kamikaze.alto>=Mapa.ALTO)
-			y=0;
+		int xJug, 
+			xEnem, 
+			velocidad;
 		
-		if (xEnem<xJug+50){ //Jugador esta mas a la derecha
+		velocidad = e.getVelocidad();
+		xJug = pos_player.getX();
+		xEnem = pos.getX();
+		int y = (pos.getY() + velocidad);
+		if (y + Kamikaze.alto >= Mapa.ALTO)
+			y = 0;
+
+		if (xEnem < xJug + 50) { // Jugador esta mas a la derecha
 			int x = (xEnem + velocidad) % Mapa.ANCHO;
-			pos.setLocation(x,y);
-		}
-		else if(xEnem>xJug+50) { //Jugador esta mas a la izquierda
+			pos.setLocation(x, y);
+		} else if (xEnem > xJug + 50) { // Jugador esta mas a la izquierda
 			int x = (xEnem - velocidad) % Mapa.ANCHO;
-			pos.setLocation(x,y);
-		}
-		else { //Jugador esta a la misma altura en x
+			pos.setLocation(x, y);
+		} else { // Jugador esta a la misma altura en x
 			pos.setLocation(xEnem, y);
 		}
 	}

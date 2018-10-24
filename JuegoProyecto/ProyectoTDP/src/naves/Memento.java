@@ -1,4 +1,4 @@
-package Naves;
+package naves;
 
 public class Memento<E> {
 	private E state;

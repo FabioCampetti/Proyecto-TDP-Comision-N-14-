@@ -1,14 +1,10 @@
-package Disparos;
-import Naves.Entidad;
+package disparos;
 import inteligencias.Inteligencia;
+import naves.Entidad;
 
 public abstract class Disparo extends Entidad {
 	
-	Inteligencia myInteligencia;
-	
-	public Disparo() {
-		super();
-	}
+	protected Inteligencia myInteligencia;
 	
 	public void cambiarInteligencia(Inteligencia i) {
 		myInteligencia=i;

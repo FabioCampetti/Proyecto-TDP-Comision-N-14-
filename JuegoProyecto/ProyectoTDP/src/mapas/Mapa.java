@@ -1,4 +1,4 @@
-package Mapas;
+package mapas;
 
 import java.awt.Color;
 import java.util.Collection;
@@ -9,12 +9,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 
-import Disparos.Disparo;
-import Naves.Enemigo;
-import Naves.Entidad;
-import Naves.Jugador;
 import buffs.Buff;
+import disparos.Disparo;
 import gui.Puntaje;
+import naves.Enemigo;
+import naves.Entidad;
+import naves.Jugador;
 import obstaculos.Obstaculo;
 
 public class Mapa extends JLayeredPane {
@@ -24,7 +24,7 @@ public class Mapa extends JLayeredPane {
 	public static final int ANCHO = 1920;
 	public static final int ALTO = 1080;
 	private ImageIcon background = new ImageIcon(this.getClass().getResource("/Mapas/fondo.jpg"));
-	private enemiesFactory factory;
+	private EnemiesFactory factory;
 	private Puntaje score;
 
 	public Mapa() {
@@ -57,7 +57,7 @@ public class Mapa extends JLayeredPane {
 		entidades = new LinkedList<Entidad>();
 		disparos = new LinkedList<Disparo>();
 		jug = new Jugador();
-		factory = new factoryLevelOne(jug.getPosicion());
+		factory = new FactoryLevelOne(jug.getPosicion());
 		score = new Puntaje(jug.getVida());
 	}
 

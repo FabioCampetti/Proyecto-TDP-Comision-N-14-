@@ -2,9 +2,9 @@ package inteligencias;
 
 import javax.swing.JLabel;
 
-import Mapas.Mapa;
-import Naves.EnemigoArmado;
-import Naves.Entidad;
+import mapas.Mapa;
+import naves.EnemigoArmado;
+import naves.Entidad;
 
 public class IEnemigoBasico extends Inteligencia {
 	private int mover;

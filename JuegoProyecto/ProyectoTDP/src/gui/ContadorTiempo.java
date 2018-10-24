@@ -1,6 +1,6 @@
 package gui;
 
-import Mapas.Mapa;
+import mapas.Mapa;
 
 public class ContadorTiempo extends Thread {
 

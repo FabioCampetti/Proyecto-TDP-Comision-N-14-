@@ -1,8 +1,8 @@
 package colliders;
 
-import Escudos.EscudoIndestructible;
-import Naves.Jugador;
 import buffs.BuffTimerEscudo;
+import escudos.EscudoIndestructible;
+import naves.Jugador;
 
 public class BuffEscudoCollider extends DefaultCollider {
 

@@ -1,7 +1,7 @@
 package buffs;
 
-import Escudos.EscudoEstandar;
-import Mapas.Mapa;
+import escudos.EscudoEstandar;
+import mapas.Mapa;
 
 public class BuffTimerEscudo extends BuffTimer {
 

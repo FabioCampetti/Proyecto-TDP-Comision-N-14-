@@ -1,7 +1,7 @@
 package buffs;
 
-import Disparos.ArmaJugadorEstandar;
-import Mapas.Mapa;
+import disparos.ArmaJugadorEstandar;
+import mapas.Mapa;
 
 public class BuffTimerArma extends BuffTimer {
 	public BuffTimerArma() {

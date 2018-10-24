@@ -1,17 +1,17 @@
-package Naves;
+package naves;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.Random;
 
 import javax.swing.JLabel;
 
-import Disparos.Disparo;
 import buffs.Buff;
 import buffs.BuffArma;
 import buffs.BuffCongelarTiempo;
 import buffs.BuffEscudo;
 import buffs.BuffVida;
 import colliders.DefaultCollider;
+import disparos.Disparo;
 
 
 public abstract class Entidad {

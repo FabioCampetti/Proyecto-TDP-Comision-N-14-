@@ -1,4 +1,4 @@
-package Escudos;
+package escudos;
 
 public class EscudoIndestructible extends Escudo{
 

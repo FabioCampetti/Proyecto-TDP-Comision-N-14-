@@ -1,7 +1,7 @@
 package colliders;
-import Disparos.DisparoEnemigo;
-import Naves.Enemigo;
 import buffs.Buff;
+import disparos.DisparoEnemigo;
+import naves.Enemigo;
 import obstaculos.ObstaculoJugador;
 import obstaculos.ObstaculoTodos;
 
