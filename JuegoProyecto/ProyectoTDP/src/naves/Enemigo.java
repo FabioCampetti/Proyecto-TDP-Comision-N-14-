@@ -12,6 +12,7 @@ import inteligencias.Inteligencia;
 public abstract class Enemigo extends Entidad{
 	protected Inteligencia IA;
 	protected int score;
+	
 	public Buff lanzaBuff() {
 		Random r = new Random();
 		Buff buffNuevo=null;
@@ -21,4 +22,5 @@ public abstract class Enemigo extends Entidad{
 		}
 		return buffNuevo;
 	}
+	
 }

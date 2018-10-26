@@ -41,7 +41,7 @@ public class GUI extends JFrame {
 		this.add(mapa);
 
 		this.addKeyListener(new KeyListener() {
-			public void keyPressed(KeyEvent e) {
+			public void keyPressed(KeyEvent e) { 
 				int aux = e.getKeyCode();
 				if (aux == KeyEvent.VK_SPACE) {
 					if (!cont.isPaused())

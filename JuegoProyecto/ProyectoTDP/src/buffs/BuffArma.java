@@ -17,7 +17,5 @@ public class BuffArma extends Buff {
 		myCollider= new BuffArmaCollider();
 	}
 	
-	
-	
 
 }
