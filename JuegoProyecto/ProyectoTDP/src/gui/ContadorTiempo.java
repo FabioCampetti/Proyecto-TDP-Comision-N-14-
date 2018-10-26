@@ -18,7 +18,7 @@ public class ContadorTiempo extends Thread {
 
 		while (true) {
 			try {
-				sleep(50);
+				sleep(20);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -29,12 +29,13 @@ public class ContadorTiempo extends Thread {
 				mapa.dispararEntidades();
 				if (mapa.checkCollisions()) {
 					mapa.removeAll();
-					mapa.repaint();
+					
 					gui.menuPerder(mapa.getScore());
 					break;
 				}
 				mapa.updateVida();
 				mapa.updateBuffs();
+				mapa.repaint();
 			}
 		}
 	}

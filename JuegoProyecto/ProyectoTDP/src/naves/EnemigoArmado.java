@@ -22,11 +22,11 @@ public class EnemigoArmado extends Enemigo {
 	
 	public EnemigoArmado() {
 		super();
-		velocidad=10;
+		velocidad=7;
 		pos.setBounds(50,50,ancho,alto);
 		pos.setVisible(true);
 		pos.setIcon(foto);
-		IA=new IEnemigoBasico();
+		IA=IEnemigoBasico.getInstance();
 		score = 75;
 		daño=15;
 		myCollider = new EnemigoCollider(daño);

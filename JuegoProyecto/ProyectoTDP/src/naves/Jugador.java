@@ -17,7 +17,7 @@ import escudos.EscudoEstandar;
 import mapas.Mapa;
 
 public class Jugador extends Entidad {
-
+	private static Jugador instancia = null;
 	private static final int left = KeyEvent.VK_LEFT;
 	private static final int right = KeyEvent.VK_RIGHT;
 	private static final int up = KeyEvent.VK_UP;
@@ -28,15 +28,20 @@ public class Jugador extends Entidad {
 	private Collection<BuffTimer> buffsActivos;
 	private Escudo escudoJugador;
 	
-	private ImageIcon frontIcon;
-	private ImageIcon leftIcon;
-	private ImageIcon rightIcon;
+	private ImageIcon frontIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorFront.gif"));
+	private ImageIcon leftIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorLeft.gif"));
+	private ImageIcon rightIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorRight.gif"));
 	
-	public Jugador() {
+	public static Jugador getInstance() {
+		if(instancia == null)
+			return new Jugador();
+		return instancia;
+	}
+	
+	private Jugador() {
 		super();
 		velocidad=20;
 		pos.setBounds(720,900,ancho,alto);
-		setImagenesDefault();
 		pos.setVisible(true);
 		pos.setIcon(frontIcon);
 		buffsActivos = new LinkedList<BuffTimer>();
@@ -45,6 +50,7 @@ public class Jugador extends Entidad {
 		escudoJugador = new EscudoEstandar();
 		myCollider = new JugadorCollider(daño); 
 	}
+
 	public void mover(int x) {
 		if (x == left) {
 			if(pos.getX()> 0)
@@ -131,6 +137,7 @@ public class Jugador extends Entidad {
 		rightIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorRight.gif"));
 		pos.setBounds(pos.getX(),pos.getY(),ancho,alto);
 		defaultIcon();
+		pos.repaint();
 	}
 	
 	public void setImagenesEscudo() {
@@ -138,5 +145,7 @@ public class Jugador extends Entidad {
 		leftIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorLeftEscudo.png"));
 		rightIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorRightEscudo.png"));
 		pos.setBounds(pos.getX(),pos.getY(),frontIcon.getIconWidth(),frontIcon.getIconHeight());
+		defaultIcon();
+		pos.repaint();
 	}
 }

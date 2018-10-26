@@ -60,7 +60,7 @@ public class Puntaje {
 	private void iniciarMaximo() {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(almacenamiento));
-			String st = new String("");
+			String st = "";
 
 			st = br.readLine();
 			puntajeMaximo = Integer.parseInt(st);

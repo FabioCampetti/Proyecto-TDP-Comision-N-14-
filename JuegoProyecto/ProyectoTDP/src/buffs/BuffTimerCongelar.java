@@ -5,7 +5,7 @@ import mapas.Mapa;
 public class BuffTimerCongelar extends BuffTimer {
 
 	public BuffTimerCongelar() {
-		timeLeft=60;
+		timeLeft=70;
 	}
 	
 	public void updateBuff(Mapa m) {

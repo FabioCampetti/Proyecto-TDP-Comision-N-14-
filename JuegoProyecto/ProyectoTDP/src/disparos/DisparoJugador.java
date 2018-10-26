@@ -31,4 +31,6 @@ public class DisparoJugador extends Disparo {
 	public void aceptar(DefaultCollider c) {
 		c.collideDisparoJugador(this);
 	}
+	
+	public void congelar() {};
 }

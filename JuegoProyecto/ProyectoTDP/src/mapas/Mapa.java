@@ -56,7 +56,7 @@ public class Mapa extends JLayeredPane {
 	private void creacionEntidades() {
 		entidades = new LinkedList<Entidad>();
 		disparos = new LinkedList<Disparo>();
-		jug = new Jugador();
+		jug = Jugador.getInstance();
 		factory = new FactoryLevelOne(jug.getPosicion());
 		score = new Puntaje(jug.getVida());
 	}
@@ -66,9 +66,7 @@ public class Mapa extends JLayeredPane {
 		this.add(score.getLabelScore(), 0);
 		this.add(score.getBarraVida(), 0);
 		this.add(score.getLabelMaximo(), 0);
-
 		this.add(score.getLabelDisparos(), 0);
-
 	}
 
 	private void startLevel() {
