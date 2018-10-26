@@ -4,6 +4,7 @@ import mapas.Mapa;
 
 public abstract class BuffTimer {
 	public int timeLeft;
+	
 	public void updateBuff(Mapa m) {
 		timeLeft--;
 		if (timeLeft<=0) {

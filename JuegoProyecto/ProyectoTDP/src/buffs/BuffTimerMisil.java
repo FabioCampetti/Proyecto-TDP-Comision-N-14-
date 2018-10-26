@@ -3,12 +3,12 @@ package buffs;
 import disparos.ArmaJugadorEstandar;
 import mapas.Mapa;
 
-public class BuffTimerArma extends BuffTimer {
+public class BuffTimerMisil extends BuffTimer{
 	
-	public BuffTimerArma() {
-		timeLeft=40;
+	public BuffTimerMisil() {
+		timeLeft = 30;
 	}
-	
+
 	public void terminarBuff(Mapa m) {
 		m.getJugador().cambiarArma(new ArmaJugadorEstandar(m.getJugador()));
 	}
