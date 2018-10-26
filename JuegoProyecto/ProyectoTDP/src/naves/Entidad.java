@@ -121,7 +121,7 @@ public abstract class Entidad {
 	public void congelar() {
 		if(velocidad!=0) {
 			guardarVelocidad();
-			velocidad=0;
+			velocidad = 0;
 		}
 	}
 	
