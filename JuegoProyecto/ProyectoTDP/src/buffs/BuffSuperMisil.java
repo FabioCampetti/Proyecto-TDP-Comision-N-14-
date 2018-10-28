@@ -11,7 +11,7 @@ public class BuffSuperMisil extends Buff {
 		super();
 		this.pos.setBounds(x,y,ancho,alto);
 		this.pos.setIcon(imagenBuff);
-		velocidad=10;
+		velocidad=10 ;
 		pos.setIcon(imagenBuff);
 		myCollider = new BuffMisilCollider();
 	}

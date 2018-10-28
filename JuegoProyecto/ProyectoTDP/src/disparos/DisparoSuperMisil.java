@@ -5,6 +5,7 @@ import javax.swing.ImageIcon;
 import colliders.DefaultCollider;
 import colliders.SuperMisilCollider;
 import inteligencias.IDisparoEstandar;
+import inteligencias.IDisparoSuperMisil;
 import naves.Entidad;
 
 public class DisparoSuperMisil extends Disparo {
@@ -22,7 +23,7 @@ public class DisparoSuperMisil extends Disparo {
 		daño = 50;
 		myCollider = new SuperMisilCollider(daño);
 		/**Inteligencia de disparo estandar ya que se mueve igual que todos.*/
-		myInteligencia = new IDisparoEstandar();
+		myInteligencia = new IDisparoSuperMisil();
 	}
 	
 	public void mover(int x) {

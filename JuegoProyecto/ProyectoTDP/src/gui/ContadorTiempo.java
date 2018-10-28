@@ -29,7 +29,6 @@ public class ContadorTiempo extends Thread {
 				mapa.dispararEntidades();
 				if (mapa.checkCollisions()) {
 					mapa.removeAll();
-					
 					gui.menuPerder(mapa.getScore());
 					break;
 				}
@@ -37,6 +36,7 @@ public class ContadorTiempo extends Thread {
 				mapa.updateBuffs();
 				mapa.repaint();
 			}
+			
 		}
 	}
 

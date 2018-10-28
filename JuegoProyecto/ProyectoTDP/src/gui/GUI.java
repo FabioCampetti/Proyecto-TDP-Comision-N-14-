@@ -1,25 +1,24 @@
 package gui;
 
-import java.awt.Color;
 import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import mapas.Mapa;
+import javax.swing.SwingConstants;
+import java.awt.Component;
 
 public class GUI extends JFrame {
 	protected Mapa mapa;
 	private ContadorTiempo cont;
-	private ImageIcon fondoMenu = new ImageIcon(this.getClass().getResource("/gui/fondoMenu.jpg"));
 
 	/**
 	 * Inicializacion de GUI con listeners para las flechitas.
@@ -29,6 +28,7 @@ public class GUI extends JFrame {
 	 *            Inicializacion del juego en si. Se crea frame principal y se le
 	 *            pega el JPanel del mapa.
 	 */
+
 	public GUI() {
 
 		this.setTitle("Space Game");
@@ -38,10 +38,10 @@ public class GUI extends JFrame {
 		this.setResizable(false);
 
 		mapa = new Mapa();
-		this.add(mapa);
+		getContentPane().add(mapa);
 
 		this.addKeyListener(new KeyListener() {
-			public void keyPressed(KeyEvent e) { 
+			public void keyPressed(KeyEvent e) {
 				int aux = e.getKeyCode();
 				if (aux == KeyEvent.VK_SPACE) {
 					if (!cont.isPaused())
@@ -51,6 +51,7 @@ public class GUI extends JFrame {
 						mapa.recargar();
 				} else if (aux == KeyEvent.VK_P) {
 					cont.pause();
+					
 				} else {
 					if (!cont.isPaused())
 						mapa.movePlayer(aux);
@@ -62,7 +63,7 @@ public class GUI extends JFrame {
 			}
 
 			public void keyTyped(KeyEvent e) {
-				/* No tiene uso */
+				// No tiene uso
 			}
 		});
 
@@ -81,41 +82,58 @@ public class GUI extends JFrame {
 		this.setFocusable(false);
 		this.setEnabled(false);
 
-		/** Inicialización de los botones. */
 		JFrame frameAux = new JFrame();
-		frameAux.setSize(500, 500);
-		JLabel displayPerdiste = new JLabel();
-		displayPerdiste.setText("<html>¡Perdiste!<br>Puntuación: " + score + "</html>");
-		displayPerdiste.setForeground(Color.BLACK);
+		frameAux.setSize(1920, 1080);
+		frameAux.setUndecorated(true);
+		frameAux.setResizable(false);
+		ImageIcon imagenJugar = new ImageIcon(this.getClass().getResource("/gui/JugarDeNuevo.png"));
+		ImageIcon imagenSalir = new ImageIcon(this.getClass().getResource("/gui/Salir.png"));
+		ImageIcon imagenPerdiste = new ImageIcon(this.getClass().getResource("/gui/GameOver.png"));
+		ImageIcon fondoMenu = new ImageIcon(this.getClass().getResource("/gui/FondoMenu.jpg"));
 
-		JButton botonComienzo = new JButton("Jugar");
-		JButton salir = new JButton("Salir");
+		/** Inicialización de los label. */
+		JLabel comienzo = new JLabel();
+		comienzo.setVerticalAlignment(SwingConstants.TOP);
+		comienzo.setHorizontalAlignment(SwingConstants.CENTER);
+		JLabel instrucciones = new JLabel();
+
+		instrucciones.setBounds(807, 219, imagenPerdiste.getIconWidth(), imagenPerdiste.getIconHeight());
+		instrucciones.setAlignmentX(Component.CENTER_ALIGNMENT);
+		instrucciones.setHorizontalAlignment(SwingConstants.CENTER);
+
+		comienzo.setBounds(720, 411, imagenJugar.getIconWidth(), imagenJugar.getIconHeight());
+
+		JLabel salir = new JLabel();
+		salir.setBounds(873, 628, 157, 52);
+
+		comienzo.setIcon(imagenJugar);
+		salir.setIcon(imagenSalir);
+		instrucciones.setIcon(imagenPerdiste);
+
 		/** Inicialización del fondo del menú. */
 		JLabel fondo = new JLabel();
+		fondo.setLocation(0, 0);
+		fondo.setSize(1920, 1080);
 		fondo.setIcon(fondoMenu);
 
 		/** Creacion del panel y se le agrega el fondo */
 		JPanel panel = new JPanel();
-
-		/** Agregación de todos los botones al panel. */
-		panel.setComponentZOrder(fondo, 0);
-		panel.add(botonComienzo);
-		panel.setComponentZOrder(botonComienzo, 0);
+		panel.setLayout(null);
+		panel.add(comienzo);
+		panel.setComponentZOrder(comienzo, 0);
+		panel.add(instrucciones);
+		panel.setComponentZOrder(instrucciones, 0);
 		panel.add(salir);
 		panel.setComponentZOrder(salir, 0);
-		panel.add(displayPerdiste);
-		panel.setComponentZOrder(displayPerdiste, 0);
+		panel.add(fondo);
 
-		frameAux.add(panel);
+		frameAux.getContentPane().add(panel);
 		frameAux.setVisible(true);
-
-		/**
-		 * Listener del boton comienzo.
-		 */
-		botonComienzo.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		comienzo.addMouseListener(new MouseListener() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
 				frameAux.remove(panel);
-				frameAux.remove(botonComienzo);
+				frameAux.remove(comienzo);
 				frameAux.setVisible(false);
 				frameAux.setFocusable(false);
 				frameAux.setEnabled(false);
@@ -123,58 +141,119 @@ public class GUI extends JFrame {
 				frame.setVisible(true);
 				frame.setFocusable(true);
 				frame.setEnabled(true);
+
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseExited(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mousePressed(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+
 			}
 		});
 
-		/**
-		 * Listener del boton salir. Cierra el juego/menú.
-		 */
-		salir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		salir.addMouseListener(new MouseListener() {
+			public void mouseClicked(MouseEvent e) {
 				frameAux.dispatchEvent(new WindowEvent(frameAux, WindowEvent.WINDOW_CLOSING));
 			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
 		});
-
 	}
-
+	
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
 					JFrame frameAux = new JFrame();
-					frameAux.setSize(500, 500);
+					frameAux.setSize(1920, 1080);
+					frameAux.setUndecorated(true);
+					frameAux.setResizable(false);
+					ImageIcon imagenJugar = new ImageIcon(this.getClass().getResource("/gui/Jugar.png"));
+					ImageIcon imagenSalir = new ImageIcon(this.getClass().getResource("/gui/Salir.png"));
+					ImageIcon imagenComoJugar = new ImageIcon(this.getClass().getResource("/gui/ComoJugar.png"));
+					ImageIcon fondoMenu = new ImageIcon(this.getClass().getResource("/gui/FondoMenu.jpg"));
 
-					ImageIcon fondoMenu = new ImageIcon(this.getClass().getResource("/gui/fondoMenu.jpg"));
+					/** Inicialización de los label. */
+					JLabel comienzo = new JLabel();
+					comienzo.setVerticalAlignment(SwingConstants.TOP);
+					comienzo.setHorizontalAlignment(SwingConstants.CENTER);
+					comienzo.setBounds(864, 219, 175, 52);
+					JLabel instrucciones = new JLabel();
+					instrucciones.setAlignmentX(Component.CENTER_ALIGNMENT);
+					instrucciones.setHorizontalAlignment(SwingConstants.CENTER);
+					instrucciones.setBounds(776, 411, 352, 52);
+					JLabel salir = new JLabel();
+					salir.setBounds(873, 628, 157, 52);
 
-					/** Inicialización de los botones. */
-					JButton botonComienzo = new JButton("Jugar");
-					JButton instrucciones = new JButton("Cómo jugar");
-					JButton salir = new JButton("Salir");
+					comienzo.setIcon(imagenJugar);
+					salir.setIcon(imagenSalir);
+					instrucciones.setIcon(imagenComoJugar);
 
 					/** Inicialización del fondo del menú. */
 					JLabel fondo = new JLabel();
+					fondo.setLocation(0, 0);
+					fondo.setSize(1920, 1080);
 					fondo.setIcon(fondoMenu);
 
 					/** Creacion del panel y se le agrega el fondo */
 					JPanel panel = new JPanel();
-					panel.add(fondo);
-
-					/** Agregación de todos los botones al panel. */
-					panel.setComponentZOrder(fondo, 0);
-					panel.add(botonComienzo);
-					panel.setComponentZOrder(botonComienzo, 0);
+					panel.setLayout(null);
+					panel.add(comienzo);
+					panel.setComponentZOrder(comienzo, 0);
 					panel.add(instrucciones);
 					panel.setComponentZOrder(instrucciones, 0);
 					panel.add(salir);
 					panel.setComponentZOrder(salir, 0);
+					panel.add(fondo);
 
-					frameAux.add(panel);
+					frameAux.getContentPane().add(panel);
 					frameAux.setVisible(true);
-
-					botonComienzo.addActionListener(new ActionListener() {
-						public void actionPerformed(ActionEvent e) {
+					comienzo.addMouseListener(new MouseListener() {
+						@Override
+						public void mouseClicked(MouseEvent arg0) {
 							frameAux.remove(panel);
-							frameAux.remove(botonComienzo);
+							frameAux.remove(comienzo);
 							frameAux.setVisible(false);
 							frameAux.setFocusable(false);
 							frameAux.setEnabled(false);
@@ -182,12 +261,61 @@ public class GUI extends JFrame {
 							frame.setVisible(true);
 							frame.setFocusable(true);
 							frame.setEnabled(true);
+
+						}
+
+						@Override
+						public void mouseEntered(MouseEvent arg0) {
+							// TODO Auto-generated method stub
+
+						}
+
+						@Override
+						public void mouseExited(MouseEvent arg0) {
+							// TODO Auto-generated method stub
+
+						}
+
+						@Override
+						public void mousePressed(MouseEvent arg0) {
+							// TODO Auto-generated method stub
+
+						}
+
+						@Override
+						public void mouseReleased(MouseEvent arg0) {
+							// TODO Auto-generated method stub
+
 						}
 					});
 
-					salir.addActionListener(new ActionListener() {
-						public void actionPerformed(ActionEvent e) {
+					salir.addMouseListener(new MouseListener() {
+						public void mouseClicked(MouseEvent e) {
 							frameAux.dispatchEvent(new WindowEvent(frameAux, WindowEvent.WINDOW_CLOSING));
+						}
+
+						@Override
+						public void mouseEntered(MouseEvent e) {
+							// TODO Auto-generated method stub
+
+						}
+
+						@Override
+						public void mouseExited(MouseEvent e) {
+							// TODO Auto-generated method stub
+
+						}
+
+						@Override
+						public void mousePressed(MouseEvent e) {
+							// TODO Auto-generated method stub
+
+						}
+
+						@Override
+						public void mouseReleased(MouseEvent e) {
+							// TODO Auto-generated method stub
+
 						}
 					});
 
@@ -197,5 +325,4 @@ public class GUI extends JFrame {
 			}
 		});
 	}
-
 }

@@ -1,6 +1,11 @@
 package mapas;
 
 import java.awt.Color;
+import java.awt.Frame;
+import java.awt.Window;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.WindowEvent;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
@@ -26,7 +31,6 @@ public class Mapa extends JLayeredPane {
 	private ImageIcon background = new ImageIcon(this.getClass().getResource("/Mapas/fondo.jpg"));
 	private EnemiesFactory factory;
 	private Puntaje score;
-
 	public Mapa() {
 		super();
 
@@ -36,12 +40,14 @@ public class Mapa extends JLayeredPane {
 
 		/** Seteo tamaño, imagen y layout del mapa. */
 		creacionMapa();
-
+		
 		/** Inicializacion del nivel */
 		this.startLevel();
 
 	}
-
+	
+	
+	
 	private void creacionMapa() {
 		JLabel fondoAux = new JLabel();
 		this.setSize(ANCHO, ALTO);

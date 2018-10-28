@@ -5,6 +5,7 @@ import javax.swing.ImageIcon;
 import colliders.DefaultCollider;
 import colliders.DisparoCollider;
 import inteligencias.IDisparoEstandar;
+import inteligencias.IDisparoSuperMisil;
 import naves.Entidad;
 
 public class DisparoJugador extends Disparo {
