@@ -29,14 +29,14 @@ public class Mapa extends JLayeredPane {
 	public Mapa() {
 		super();
 
-		/** Creacion del jugador, puntaje, factory/enemigos. */
+		/* Creacion del jugador, puntaje, factory/enemigos. */
 		creacionEntidades();
 		addPlayerPuntaje();
 
-		/** Seteo tamaño, imagen y layout del mapa. */
+		/* Seteo tamaño, imagen y layout del mapa. */
 		creacionMapa();
 		
-		/** Inicializacion del nivel */
+		/* Inicializacion del nivel */
 		this.startLevel();
 
 	}
@@ -214,19 +214,6 @@ public class Mapa extends JLayeredPane {
 
 	public void updateBuffs() {
 		jug.updateBuffs(this);
-	}
-
-	public void ganarGame() {
-		JLabel textDisplay = new JLabel();
-
-		textDisplay.setBounds(ANCHO / 2, ALTO / 2, 150, 50);
-		textDisplay.setText("<html>¡Felicitaciones, ganaste!<br>Puntuación: " + score.getPuntaje() + "</html>");
-		textDisplay.setForeground(Color.WHITE);
-		textDisplay.setVerticalTextPosition(JLabel.BOTTOM);
-		textDisplay.setHorizontalTextPosition(JLabel.CENTER);
-		this.add(textDisplay, 0);
-
-		score.checkUpdate();
 	}
 
 	public int getScore() {

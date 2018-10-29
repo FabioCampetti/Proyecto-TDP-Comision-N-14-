@@ -24,6 +24,7 @@ public class GUI extends JFrame {
 	private ImageIcon fondoMenu = new ImageIcon(this.getClass().getResource("/gui/FondoMenu.jpg"));
 	private ImageIcon imagenPerdiste = new ImageIcon(this.getClass().getResource("/gui/GameOver.png"));
 	private ImageIcon imagenGanaste = new ImageIcon(this.getClass().getResource("/gui/YouWon.png"));
+	private ImageIcon imagenJugarAgain = new ImageIcon(this.getClass().getResource("/gui/JugarDeNuevo.png"));
 
 	/**
 	 * Inicializacion de GUI con listeners para las flechitas.
@@ -211,12 +212,12 @@ public class GUI extends JFrame {
 		perdiste.setAlignmentX(Component.CENTER_ALIGNMENT);
 		perdiste.setHorizontalAlignment(SwingConstants.CENTER);
 
-		comienzo.setBounds(870, 514, imagenJugar.getIconWidth(), imagenJugar.getIconHeight());
+		comienzo.setBounds(740, 514, imagenJugarAgain.getIconWidth(), imagenJugarAgain.getIconHeight());
 
 		JLabel salir = new JLabel();
 		salir.setBounds(882, 831, 157, 52);
 
-		comienzo.setIcon(imagenJugar);
+		comienzo.setIcon(imagenJugarAgain);
 		salir.setIcon(imagenSalir);
 		perdiste.setIcon(imagenPerdiste);
 

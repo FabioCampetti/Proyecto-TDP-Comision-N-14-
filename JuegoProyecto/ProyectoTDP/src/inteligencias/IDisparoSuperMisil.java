@@ -6,7 +6,7 @@ import disparos.DisparoSuperMisil;
 import naves.Entidad;
 
 public class IDisparoSuperMisil extends Inteligencia {
-	float aceleracion = 1;
+	private float aceleracion = 1;
 
 	@Override
 
