@@ -1,11 +1,6 @@
 package mapas;
 
 import java.awt.Color;
-import java.awt.Frame;
-import java.awt.Window;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.WindowEvent;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
@@ -107,13 +102,15 @@ public class Mapa extends JLayeredPane {
 	}
 
 	private void nextLevel() {
-		if (factory.getNextFactory() != null) {
-			factory = factory.getNextFactory();
+		factory = factory.getNextFactory();
+		if (factory != null) {
 			this.startLevel();
-		} else
-			this.ganarGame();
+		} 
 	}
 
+	public boolean youWon() {
+		return (factory == null); 
+	}
 	public void movePlayer(int dir) {
 		jug.mover(dir);
 	}

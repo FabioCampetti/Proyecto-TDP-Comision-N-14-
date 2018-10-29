@@ -4,8 +4,6 @@ import java.awt.Point;
 
 import javax.swing.JLabel;
 
-import mapas.Mapa;
-import naves.EnemigoArmado;
 import naves.Entidad;
 
 public class IEnemigoBasico extends Inteligencia {

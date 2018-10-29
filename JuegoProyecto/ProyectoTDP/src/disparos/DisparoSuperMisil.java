@@ -4,20 +4,19 @@ import javax.swing.ImageIcon;
 
 import colliders.DefaultCollider;
 import colliders.SuperMisilCollider;
-import inteligencias.IDisparoEstandar;
 import inteligencias.IDisparoSuperMisil;
 import naves.Entidad;
 
 public class DisparoSuperMisil extends Disparo {
 	
-	public static final int ancho = 100;
-	public static final int alto = 173;
+	public static final int ancho = 18;
+	public static final int alto = 1080;
 	
-	private ImageIcon imagenDisparo = new ImageIcon(this.getClass().getResource("/Disparos/superMisil.png"));
+	private ImageIcon imagenDisparo = new ImageIcon(this.getClass().getResource("/Disparos/SuperLaser.gif"));
 	
 	public DisparoSuperMisil(int x,int y) {
 		super();
-		this.pos.setBounds(x,y,ancho,alto);
+		this.pos.setBounds(x,y,ancho,18);
 		this.pos.setIcon(imagenDisparo);
 		velocidad = 10;
 		daño = 50;

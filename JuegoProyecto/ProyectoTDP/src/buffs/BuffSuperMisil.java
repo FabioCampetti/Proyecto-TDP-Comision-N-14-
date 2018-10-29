@@ -1,6 +1,7 @@
 package buffs;
 
 import javax.swing.ImageIcon;
+
 import colliders.BuffMisilCollider;
 
 public class BuffSuperMisil extends Buff {

@@ -29,11 +29,15 @@ public class ContadorTiempo extends Thread {
 				mapa.dispararEntidades();
 				if (mapa.checkCollisions()) {
 					mapa.removeAll();
-					gui.menuPerder(mapa.getScore());
+					gui.menuPerder();
 					break;
 				}
 				mapa.updateVida();
 				mapa.updateBuffs();
+				if (mapa.youWon()) {
+					gui.menuGanar();
+					break;
+				}
 				mapa.repaint();
 			}
 			
