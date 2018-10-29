@@ -132,4 +132,8 @@ public abstract class Entidad {
 	public boolean isFrozen() {
 		return (velocidad == 0);
 	}
+	
+	public boolean explota() {
+		return false;
+	}
 }

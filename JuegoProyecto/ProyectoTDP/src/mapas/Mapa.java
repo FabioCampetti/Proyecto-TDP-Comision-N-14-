@@ -20,12 +20,14 @@ import obstaculos.Obstaculo;
 public class Mapa extends JLayeredPane {
 	private List<Entidad> entidades;
 	private List<Disparo> disparos;
+	private List<Explosion> explosiones;
 	private Jugador jug;
 	public static final int ANCHO = 1920;
 	public static final int ALTO = 1080;
-	private ImageIcon background = new ImageIcon(this.getClass().getResource("/Mapas/fondo.jpg"));
+	private ImageIcon background = new ImageIcon(this.getClass().getResource("/Mapas/Fondo2.jpg"));
 	private EnemiesFactory factory;
 	private Puntaje score;
+
 	public Mapa() {
 		super();
 
@@ -35,14 +37,12 @@ public class Mapa extends JLayeredPane {
 
 		/* Seteo tamaño, imagen y layout del mapa. */
 		creacionMapa();
-		
+
 		/* Inicializacion del nivel */
 		this.startLevel();
 
 	}
-	
-	
-	
+
 	private void creacionMapa() {
 		JLabel fondoAux = new JLabel();
 		this.setSize(ANCHO, ALTO);
@@ -57,6 +57,7 @@ public class Mapa extends JLayeredPane {
 	private void creacionEntidades() {
 		entidades = new LinkedList<Entidad>();
 		disparos = new LinkedList<Disparo>();
+		explosiones = new LinkedList<Explosion>();
 		jug = Jugador.getInstance();
 		factory = new FactoryLevelOne(jug.getPosicion());
 		score = new Puntaje(jug.getVida());
@@ -81,7 +82,7 @@ public class Mapa extends JLayeredPane {
 
 			xInicial += 360;
 		}
-		xInicial = 40;
+		xInicial = 100;
 		yInicial = 40;
 		while (!factory.noEnemies()) {
 			Enemigo e = factory.createEnemy();
@@ -90,7 +91,7 @@ public class Mapa extends JLayeredPane {
 			this.add(e.getPosicion(), 0);
 
 			xInicial += 150;
-			if (xInicial > ANCHO - 100) {
+			if (xInicial > ANCHO - 200) {
 				xInicial = 40;
 				yInicial += 200;
 			}
@@ -105,12 +106,13 @@ public class Mapa extends JLayeredPane {
 		factory = factory.getNextFactory();
 		if (factory != null) {
 			this.startLevel();
-		} 
+		}
 	}
 
 	public boolean youWon() {
-		return (factory == null); 
+		return (factory == null);
 	}
+
 	public void movePlayer(int dir) {
 		jug.mover(dir);
 	}
@@ -195,6 +197,12 @@ public class Mapa extends JLayeredPane {
 			entidades.remove(e1);
 			this.remove(e1.getPosicion());
 			updateScore(e1);
+			if (e1.explota()) {
+				/* Pone explosiones cuando mueren enemigos */
+				Explosion e = new Explosion(e1.getPosicion().getX(),e1.getPosicion().getY());
+				explosiones.add(e);
+				this.add(e.getLabel(), 0);
+			}
 		}
 
 		for (Entidad e1 : listaBuffs) {
@@ -210,6 +218,16 @@ public class Mapa extends JLayeredPane {
 		}
 		this.repaint();
 		return murioJugador;
+	}
+
+	public void checkExplosiones() {
+		for (Explosion e : explosiones) {
+			e.tick();
+			if (e.isDone()) {
+				this.remove(e.getLabel());
+			}
+		}
+
 	}
 
 	public void updateBuffs() {

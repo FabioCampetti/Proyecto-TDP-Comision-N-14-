@@ -8,9 +8,9 @@ import mapas.Mapa;
 import naves.Entidad;
 
 public class DisparoEnemigo extends Disparo{
-	private ImageIcon imagenDisparo = new ImageIcon(this.getClass().getResource("/Disparos/disparoEnemigoPrototipo.png"));
-	public static final int ancho = 50;
-	public static final int alto = 75;
+	private ImageIcon imagenDisparo = new ImageIcon(this.getClass().getResource("/Disparos/disparoEnemigo.png"));
+	public static final int ancho = 7;
+	public static final int alto = 45;
 	
 	public DisparoEnemigo(int x,int y) {
 		super();

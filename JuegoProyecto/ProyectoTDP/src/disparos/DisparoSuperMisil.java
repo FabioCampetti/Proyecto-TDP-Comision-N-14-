@@ -37,5 +37,6 @@ public class DisparoSuperMisil extends Disparo {
 		c.collideSuperMisil(this);
 	}
 
+	public void congelar() {};
 	
 }

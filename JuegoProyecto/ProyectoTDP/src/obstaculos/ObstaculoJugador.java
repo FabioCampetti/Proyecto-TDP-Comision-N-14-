@@ -7,10 +7,13 @@ import colliders.ObstaculoJugadorCollider;
 import naves.Entidad;
 
 public class ObstaculoJugador extends Obstaculo {
+	private static final int ancho = 299;
+	private static final int largo= 153;
 	public ObstaculoJugador() {
 		super();
 		foto = new ImageIcon(this.getClass().getResource("/obstaculos/black hole.png"));
 		pos.setIcon(foto);
+		pos.setBounds(200,500,ancho,largo);
 		daño=20;
 		myCollider = new ObstaculoJugadorCollider(daño);
 	}

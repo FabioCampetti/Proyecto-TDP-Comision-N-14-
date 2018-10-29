@@ -11,7 +11,7 @@ public class IDisparoSuperMisil extends Inteligencia {
 	@Override
 
 	public void mover(Entidad e) {
-		if (!e.isFrozen()) {
+		
 			JLabel pos = e.getPosicion();
 			int velocidad = (int) (aceleracion * e.getVelocidad());
 			pos.setLocation(pos.getX(), pos.getY() - velocidad);
@@ -19,7 +19,7 @@ public class IDisparoSuperMisil extends Inteligencia {
 				e.morir();
 			pos.setBounds(pos.getX(), pos.getY(), pos.getWidth(), pos.getHeight() + velocidad);
 			aceleracion *= 1.1;
-		}
+	
 	}
 
 }

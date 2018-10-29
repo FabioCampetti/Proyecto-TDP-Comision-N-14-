@@ -22,8 +22,8 @@ public class Jugador extends Entidad {
 	private static final int right = KeyEvent.VK_RIGHT;
 	private static final int up = KeyEvent.VK_UP;
 	private static final int down = KeyEvent.VK_DOWN;
-	public static final int ancho = 190;
-	public static final int alto= 150;
+	public static final int ancho = 120;
+	public static final int alto= 120;
 	private Arma armaJugador;
 	private Collection<BuffTimer> buffsActivos;
 	private Escudo escudoJugador;
@@ -41,7 +41,7 @@ public class Jugador extends Entidad {
 	private Jugador() {
 		super();
 		velocidad=20;
-		pos.setBounds(720,900,ancho,alto);
+		pos.setBounds(900,960,ancho,alto);
 		pos.setVisible(true);
 		pos.setIcon(frontIcon);
 		buffsActivos = new LinkedList<BuffTimer>();
@@ -135,16 +135,14 @@ public class Jugador extends Entidad {
 		frontIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorFront.gif"));
 		leftIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorLeft.gif"));
 		rightIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorRight.gif"));
-		pos.setBounds(pos.getX(),pos.getY(),ancho,alto);
 		defaultIcon();
 		pos.repaint();
 	}
 	
 	public void setImagenesEscudo() {
-		frontIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorFrontEscudo.png"));
-		leftIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorLeftEscudo.png"));
-		rightIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorRightEscudo.png"));
-		pos.setBounds(pos.getX(),pos.getY(),frontIcon.getIconWidth(),frontIcon.getIconHeight());
+		frontIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorFrontEscudo.gif"));
+		leftIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorLeftEscudo.gif"));
+		rightIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorRightEscudo.gif"));
 		defaultIcon();
 		pos.repaint();
 	}

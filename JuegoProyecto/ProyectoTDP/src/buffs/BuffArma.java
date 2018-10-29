@@ -6,7 +6,7 @@ import colliders.BuffArmaCollider;
 
 public class BuffArma extends Buff {
 	
-	private ImageIcon imagenBuff = new ImageIcon(this.getClass().getResource("/buffs/super.gif"));
+	private ImageIcon imagenBuff = new ImageIcon(this.getClass().getResource("/buffs/ArmaBuff.png"));
 	
 	public BuffArma(int x, int y) {
 		super();

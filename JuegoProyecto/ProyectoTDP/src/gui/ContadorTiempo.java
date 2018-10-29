@@ -32,6 +32,7 @@ public class ContadorTiempo extends Thread {
 					gui.menuPerder();
 					break;
 				}
+				mapa.checkExplosiones();
 				mapa.updateVida();
 				mapa.updateBuffs();
 				if (mapa.youWon()) {

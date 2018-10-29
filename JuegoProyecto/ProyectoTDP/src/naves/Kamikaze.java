@@ -11,15 +11,15 @@ import inteligencias.IKamikazeAleatorio;
 import inteligencias.IKamikazeDirigido;
 
 public class Kamikaze extends Enemigo {
-	public static final int ancho = 85;
-	public static final int alto= 130;
+	public static final int ancho = 92;
+	public static final int alto= 92;
 	
-	private ImageIcon foto = new ImageIcon(this.getClass().getResource("/Naves/EnemigoKamikaze.png"));
+	private ImageIcon foto = new ImageIcon(this.getClass().getResource("/Naves/ImagenEnemigo1FF.png"));
 	private JLabel posJugador;
 	
 	public Kamikaze(JLabel p) {
 		super();
-		velocidad=3;
+		velocidad=5;
 		pos.setBounds(50,50,ancho,alto);
 		pos.setVisible(true);
 		pos.setIcon(foto);

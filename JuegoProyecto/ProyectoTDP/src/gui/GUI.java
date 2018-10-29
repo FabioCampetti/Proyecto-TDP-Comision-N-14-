@@ -251,6 +251,7 @@ public class GUI extends JFrame {
 				System.exit(DISPOSE_ON_CLOSE);
 			}
 		});
+		getContentPane().repaint();
 	}
 
 	public static void main(String[] args) {

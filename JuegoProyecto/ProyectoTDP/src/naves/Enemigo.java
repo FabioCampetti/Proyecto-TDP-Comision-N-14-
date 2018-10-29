@@ -22,5 +22,7 @@ public abstract class Enemigo extends Entidad{
 		}
 		return buffNuevo;
 	}
-	
+	public boolean explota() {
+		return true;
+	}
 }

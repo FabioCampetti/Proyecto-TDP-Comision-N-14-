@@ -15,9 +15,9 @@ import inteligencias.IKamikazeAleatorio;
 
 public class EnemigoArmado extends Enemigo {
 	
-	public static final int ancho = 132;
-	public static final int alto= 135;
-	private ImageIcon foto = new ImageIcon(this.getClass().getResource("/Naves/EnemigoArmado (1).gif"));
+	public static final int ancho = 100;
+	public static final int alto= 88;
+	private ImageIcon foto = new ImageIcon(this.getClass().getResource("/Naves/ImagenEnemigoArmado.png"));
 	private Arma armaEnemigo;
 	
 	public EnemigoArmado() {
