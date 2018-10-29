@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import mapas.Mapa;
 import javax.swing.SwingConstants;
 import java.awt.Component;
+import java.awt.event.MouseAdapter;
 
 public class GUI extends JFrame {
 	protected Mapa mapa;
@@ -36,7 +37,20 @@ public class GUI extends JFrame {
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
-
+		
+		ImageIcon imagenCruz = new ImageIcon(this.getClass().getResource("/gui/CruzCerrar.png"));
+		getContentPane().setLayout(null);
+		JLabel labelCerrar = new JLabel("");
+		
+		labelCerrar.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent arg0) {
+				System.exit(DISPOSE_ON_CLOSE);
+			}
+		});
+		
+		labelCerrar.setBounds(1875, 39, imagenCruz.getIconWidth(), imagenCruz.getIconHeight());
+		labelCerrar.setIcon(imagenCruz);
+		getContentPane().add(labelCerrar);
 		mapa = new Mapa();
 		getContentPane().add(mapa);
 
@@ -73,6 +87,9 @@ public class GUI extends JFrame {
 		this.setResizable(false);
 		this.setFocusable(true);
 		cont = new ContadorTiempo(mapa, this);
+		
+		
+		
 		cont.start();
 	}
 
@@ -129,73 +146,25 @@ public class GUI extends JFrame {
 
 		frameAux.getContentPane().add(panel);
 		frameAux.setVisible(true);
-		comienzo.addMouseListener(new MouseListener() {
+		comienzo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				frameAux.remove(panel);
-				frameAux.remove(comienzo);
-				frameAux.setVisible(false);
-				frameAux.setFocusable(false);
-				frameAux.setEnabled(false);
+				frameAux.dispose();
+				frameAux.dispatchEvent(new WindowEvent(frameAux, WindowEvent.WINDOW_CLOSING));
 				GUI frame = new GUI();
+				frame.dispose();
+				frame.setUndecorated(true);
 				frame.setVisible(true);
 				frame.setFocusable(true);
 				frame.setEnabled(true);
 
 			}
 
-			@Override
-			public void mouseEntered(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mousePressed(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent arg0) {
-				// TODO Auto-generated method stub
-
-			}
 		});
 
-		salir.addMouseListener(new MouseListener() {
+		salir.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				frameAux.dispatchEvent(new WindowEvent(frameAux, WindowEvent.WINDOW_CLOSING));
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-
+				System.exit(DISPOSE_ON_CLOSE);
 			}
 		});
 	}
@@ -249,73 +218,25 @@ public class GUI extends JFrame {
 
 					frameAux.getContentPane().add(panel);
 					frameAux.setVisible(true);
-					comienzo.addMouseListener(new MouseListener() {
+					comienzo.addMouseListener(new MouseAdapter() {
 						@Override
 						public void mouseClicked(MouseEvent arg0) {
-							frameAux.remove(panel);
-							frameAux.remove(comienzo);
-							frameAux.setVisible(false);
-							frameAux.setFocusable(false);
-							frameAux.setEnabled(false);
+							frameAux.dispose();
+							frameAux.dispatchEvent(new WindowEvent(frameAux, WindowEvent.WINDOW_CLOSING));
 							GUI frame = new GUI();
+							frame.dispose();
+							frame.setUndecorated(true);
 							frame.setVisible(true);
 							frame.setFocusable(true);
 							frame.setEnabled(true);
-
 						}
 
-						@Override
-						public void mouseEntered(MouseEvent arg0) {
-							// TODO Auto-generated method stub
-
-						}
-
-						@Override
-						public void mouseExited(MouseEvent arg0) {
-							// TODO Auto-generated method stub
-
-						}
-
-						@Override
-						public void mousePressed(MouseEvent arg0) {
-							// TODO Auto-generated method stub
-
-						}
-
-						@Override
-						public void mouseReleased(MouseEvent arg0) {
-							// TODO Auto-generated method stub
-
-						}
+						
 					});
 
-					salir.addMouseListener(new MouseListener() {
+					salir.addMouseListener(new MouseAdapter() {
 						public void mouseClicked(MouseEvent e) {
-							frameAux.dispatchEvent(new WindowEvent(frameAux, WindowEvent.WINDOW_CLOSING));
-						}
-
-						@Override
-						public void mouseEntered(MouseEvent e) {
-							// TODO Auto-generated method stub
-
-						}
-
-						@Override
-						public void mouseExited(MouseEvent e) {
-							// TODO Auto-generated method stub
-
-						}
-
-						@Override
-						public void mousePressed(MouseEvent e) {
-							// TODO Auto-generated method stub
-
-						}
-
-						@Override
-						public void mouseReleased(MouseEvent e) {
-							// TODO Auto-generated method stub
-
+							System.exit(DISPOSE_ON_CLOSE);
 						}
 					});
 
