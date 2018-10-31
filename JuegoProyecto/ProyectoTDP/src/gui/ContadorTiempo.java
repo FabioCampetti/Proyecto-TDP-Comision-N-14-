@@ -15,33 +15,37 @@ public class ContadorTiempo extends Thread {
 	}
 
 	public void run() {
-
-		while (true) {
+		boolean finishThread = false;
+		while (!finishThread) {
 			try {
 				sleep(20);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			
-			if (running) {	
+
+			if (running) {
 				mapa.checkDisparos();
 				mapa.moveEntidades();
 				mapa.dispararEntidades();
-				if (mapa.checkCollisions()) {
-					mapa.removeAll();
-					gui.menuPerder();
-					break;
-				}
+				mapa.checkCollisions();
 				mapa.checkExplosiones();
 				mapa.updateVida();
 				mapa.updateBuffs();
+				
+				if (mapa.youLost()) {
+					mapa.removeAll();
+					gui.menuPerder();
+					finishThread = true;
+				}
+				
 				if (mapa.youWon()) {
 					gui.menuGanar();
-					break;
+					finishThread = true;
 				}
+				
 				mapa.repaint();
 			}
-			
+
 		}
 	}
 

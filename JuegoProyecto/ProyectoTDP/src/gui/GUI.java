@@ -91,9 +91,10 @@ public class GUI extends JFrame {
 
 	public void jugar() {
 		/* Limpio la GUI */
+		
 		getContentPane().removeAll();
 		getContentPane().repaint();
-
+		
 		ImageIcon imagenCruz = new ImageIcon(this.getClass().getResource("/gui/CruzCerrar.png"));
 		getContentPane().setLayout(null);
 		JLabel labelCerrar = new JLabel("");
@@ -109,7 +110,16 @@ public class GUI extends JFrame {
 		getContentPane().add(labelCerrar);
 		mapa = new Mapa();
 		getContentPane().add(mapa);
-
+		
+		/* 
+		 * Borro los listeners que habian para evitar que se ejecuten muchos
+		 * al mismo tiempo.
+		 */
+		KeyListener[] currentListeners=this.getKeyListeners();
+		for (KeyListener KL: currentListeners) {
+			this.removeKeyListener(KL);
+		}
+		
 		this.addKeyListener(new KeyListener() {
 			public void keyPressed(KeyEvent e) {
 				int aux = e.getKeyCode();

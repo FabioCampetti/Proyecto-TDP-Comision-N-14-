@@ -113,6 +113,15 @@ public class Mapa extends JLayeredPane {
 		return (factory == null);
 	}
 
+	public boolean youLost() {
+		boolean murioJugador = false;
+		if (jug.isDead()) {
+			this.remove(jug.getPosicion());
+			murioJugador = true;
+		}
+		return murioJugador;
+	}
+
 	public void movePlayer(int dir) {
 		jug.mover(dir);
 	}
@@ -129,24 +138,20 @@ public class Mapa extends JLayeredPane {
 
 	public void dispararEntidades() {
 		for (Entidad e : entidades) {
-			if (!e.isFrozen()) {
-				Collection<Disparo> disp = e.disparar();
-				for (Disparo a : disp) {
-					disparos.add(a);
-					this.add(a.getPosicion(), 0);
-				}
+			Collection<Disparo> disp = e.disparar();
+			for (Disparo a : disp) {
+				disparos.add(a);
+				this.add(a.getPosicion(), 0);
 			}
 		}
 	}
 
 	public void disparoPlayer() {
-		if (!jug.isDead()) {
-			Collection<Disparo> aux = jug.disparar();
-			this.updateRestantes(jug.disparosRestantes());
-			for (Disparo a : aux) {
-				disparos.add(a);
-				this.add(a.getPosicion(), 0);
-			}
+		Collection<Disparo> aux = jug.disparar();
+		this.updateRestantes(jug.disparosRestantes());
+		for (Disparo a : aux) {
+			disparos.add(a);
+			this.add(a.getPosicion(), 0);
 		}
 	}
 
@@ -168,8 +173,7 @@ public class Mapa extends JLayeredPane {
 		disparos.clear();
 	}
 
-	public boolean checkCollisions() {
-		boolean murioJugador = false;
+	public void checkCollisions() {
 
 		if (entidades.isEmpty()) {
 			this.nextLevel();
@@ -199,7 +203,7 @@ public class Mapa extends JLayeredPane {
 			updateScore(e1);
 			if (e1.explota()) {
 				/* Pone explosiones cuando mueren enemigos */
-				Explosion e = new Explosion(e1.getPosicion().getX(),e1.getPosicion().getY());
+				Explosion e = new Explosion(e1.getPosicion().getX(), e1.getPosicion().getY());
 				explosiones.add(e);
 				this.add(e.getLabel(), 0);
 			}
@@ -211,13 +215,7 @@ public class Mapa extends JLayeredPane {
 			this.moveToFront(e1.getPosicion());
 		}
 
-		if (jug.isDead()) {
-			this.remove(jug.getPosicion());
-			murioJugador = true;
-			score.checkUpdate();
-		}
 		this.repaint();
-		return murioJugador;
 	}
 
 	public void checkExplosiones() {
@@ -227,7 +225,6 @@ public class Mapa extends JLayeredPane {
 				this.remove(e.getLabel());
 			}
 		}
-
 	}
 
 	public void updateBuffs() {

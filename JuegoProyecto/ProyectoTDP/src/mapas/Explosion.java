@@ -13,7 +13,7 @@ public class Explosion {
 	public Explosion (int x, int y) {
 		labelExplosion=new JLabel();
 		labelExplosion.setBounds(x, y, imagenExplosion.getIconWidth(),imagenExplosion.getIconHeight());
-		timeLeft=50;
+		timeLeft=35;
 		labelExplosion.setIcon(imagenExplosion);
 		
 	}

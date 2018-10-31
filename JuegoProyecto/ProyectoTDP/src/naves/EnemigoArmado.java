@@ -1,6 +1,7 @@
 package naves;
 
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
@@ -49,7 +50,11 @@ public class EnemigoArmado extends Enemigo {
 	}
 	
 	public Collection<Disparo> disparar() {
-		return armaEnemigo.disparar();
+		Collection<Disparo> res=new LinkedList<Disparo>();
+		if (!isFrozen()) {
+		 res=armaEnemigo.disparar();
+		 }
+		return res;
 	}
 	
 	public void recibirDaño(int daño) {
