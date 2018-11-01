@@ -4,6 +4,7 @@ import disparos.DisparoEnemigo;
 import disparos.DisparoJugador;
 import disparos.DisparoSuperMisil;
 import naves.Enemigo;
+import naves.EnemigoBoss;
 import naves.Jugador;
 import obstaculos.ObstaculoJugador;
 import obstaculos.ObstaculoTodos;
@@ -14,6 +15,7 @@ public abstract class DefaultCollider {
 		this.daño=daño;
 	}
 	
+	public void collideBoss(EnemigoBoss e) {}
 	public void collideEnemigo(Enemigo e) {}
 	public void collideJugador(Jugador j) {}
 	public void collideDisparoJugador(DisparoJugador d) {}

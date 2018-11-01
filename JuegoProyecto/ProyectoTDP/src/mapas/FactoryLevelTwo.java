@@ -21,7 +21,7 @@ public class FactoryLevelTwo extends EnemiesFactory {
 	}
 	
 	public EnemiesFactory getNextFactory() {
-		return null;
+		return new FactoryLevelThree(posJugador);
 	}
 	
 	public Enemigo createEnemy() {

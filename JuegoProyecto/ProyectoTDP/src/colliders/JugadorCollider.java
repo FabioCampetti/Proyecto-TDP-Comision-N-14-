@@ -2,6 +2,7 @@ package colliders;
 import buffs.Buff;
 import disparos.DisparoEnemigo;
 import naves.Enemigo;
+import naves.EnemigoBoss;
 import obstaculos.ObstaculoJugador;
 import obstaculos.ObstaculoTodos;
 
@@ -30,5 +31,8 @@ public class JugadorCollider extends DefaultCollider {
 		o.morir();
 		
 		//visitor.getPosicion().setLocation(visitor.getPosicion().getX(), visitor.getPosicion().getY()+30);
+	}
+	public void collideBoss(EnemigoBoss e) {
+		//Aca va que le pasa al boss cuando choca al jugador.
 	}
 }
