@@ -2,22 +2,24 @@ package buffs;
 
 import mapas.Mapa;
 
-public class BuffTimerCongelar extends BuffTimer {
+public class BuffTimerCongelarPlayer extends BuffTimer {
 
-	public BuffTimerCongelar() {
-		timeLeft=70;
+	public BuffTimerCongelarPlayer() {
+		timeLeft = 70;
 	}
-	
+
 	public void updateBuff(Mapa m) {
-		m.congelar();
+		m.getJugador().slow();
 		timeLeft--;
+		
 		if (timeLeft<=0) {
 			terminarBuff(m);
 		}
+		
 	}
 	
 	public void terminarBuff(Mapa m) {
-		m.descongelar();
+		m.getJugador().speedUp();
 	}
-
+	
 }

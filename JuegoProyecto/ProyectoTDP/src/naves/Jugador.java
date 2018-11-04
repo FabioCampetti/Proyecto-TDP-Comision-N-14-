@@ -50,6 +50,7 @@ public class Jugador extends Entidad {
 		escudoJugador = new EscudoEstandar();
 		myCollider = new JugadorCollider(daño);
 		IA = new IJugador();
+		this.guardarVelocidad();
 	}
 
 	public void mover(int dir) {
@@ -144,5 +145,16 @@ public class Jugador extends Entidad {
 		rightIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorRightEscudo.gif"));
 		defaultIcon();
 		pos.repaint();
+	}
+	
+	public void slow() {
+		if(velocidad >= memVelocidad.getState()) {
+			this.guardarVelocidad();
+			velocidad/=2;
+		}
+	}
+	
+	public void speedUp() {
+		this.devolverVelocidad();
 	}
 }

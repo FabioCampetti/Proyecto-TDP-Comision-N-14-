@@ -37,9 +37,8 @@ public class EnemigoBoss extends Enemigo {
 		Collection<Disparo> res=armaEnemigo.disparar();
 		return res;
 	}
-	@Override
+	
 	public void mover() {
-		// TODO Auto-generated method stub
 		IA.mover(this);
 	}
 

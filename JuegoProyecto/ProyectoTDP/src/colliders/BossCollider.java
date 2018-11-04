@@ -1,5 +1,6 @@
 package colliders;
 
+import disparos.DisparoJugador;
 import naves.Jugador;
 
 public class BossCollider extends DefaultCollider {
@@ -13,4 +14,9 @@ public class BossCollider extends DefaultCollider {
 		//Aca que va que le pasa al jugador cuando es chocado por el boss
 		j.recibirDaño(daño);
 	}
+	
+	public void collideDisparoJugador(DisparoJugador d) {
+		d.morir();
+	}
+	
 }

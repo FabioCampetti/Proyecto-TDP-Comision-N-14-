@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 
 import buffs.Buff;
 import buffs.BuffArma;
+import buffs.BuffCongelarPlayer;
 import buffs.BuffCongelarTiempo;
 import buffs.BuffEscudo;
 import buffs.BuffSuperMisil;
@@ -99,11 +100,12 @@ public abstract class Entidad {
 	protected Buff buffRandom(JLabel pos) {
 		int x, y;
 		Random rand = new Random();
-		int tipoBuff = rand.nextInt(50);
+		int tipoBuff = rand.nextInt(60);
 		x = pos.getX();
 		y = pos.getY();
 		
 		Buff res = null;
+		
 		if (tipoBuff < 10)
 			res = new BuffArma(x, y);
 		else if (tipoBuff < 20) {
@@ -114,7 +116,10 @@ public abstract class Entidad {
 			res = new BuffCongelarTiempo(x,y);
 		} else if (tipoBuff < 50) {
 			res = new BuffSuperMisil(x,y);
+		} else if (tipoBuff < 60) {
+			res = new BuffCongelarPlayer(x,y);
 		}
+		
 		return res;
 	}
 	
