@@ -20,7 +20,7 @@ public class DisparoEnemigo extends Disparo{
 		daño = 15;
 		myCollider=new DisparoEnemigoCollider(daño);
 	}
-	public void mover(int x) {
+	public void mover() {
 		pos.setLocation(pos.getX(), pos.getY() + velocidad);
 		if (pos.getY() > Mapa.ALTO)
 			this.morir();

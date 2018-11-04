@@ -8,7 +8,7 @@ public abstract class Buff extends Entidad {
 	public final int ancho=80;
 	public final int alto=80;
 	
-	public void mover(int x) {
+	public void mover() {
 		pos.setLocation(pos.getX(),pos.getY()+velocidad);
 		if (pos.getY()>Mapa.ALTO)
 			this.morir();

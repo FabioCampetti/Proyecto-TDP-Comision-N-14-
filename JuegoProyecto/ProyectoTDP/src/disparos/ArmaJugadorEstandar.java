@@ -17,7 +17,9 @@ public class ArmaJugadorEstandar extends Arma {
 			int val=(int) (Jugador.ancho*0.5);
 			disparos.add(new DisparoJugador(quienDisparo.getPosicion().getX()+val, quienDisparo.getPosicion().getY() ));
 			disparosRestantes--;
+			
 		}
+		
 		return disparos;
 	}
 	public void recargar() {

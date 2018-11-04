@@ -72,7 +72,8 @@ public class GUI extends JFrame {
 		panel.add(salir);
 		panel.setComponentZOrder(salir, 0);
 		panel.add(fondo);
-
+		
+		
 		this.setVisible(true);
 		comienzo.addMouseListener(new MouseAdapter() {
 			@Override
@@ -94,6 +95,7 @@ public class GUI extends JFrame {
 		
 		getContentPane().removeAll();
 		getContentPane().repaint();
+		
 		
 		ImageIcon imagenCruz = new ImageIcon(this.getClass().getResource("/gui/CruzCerrar.png"));
 		getContentPane().setLayout(null);
@@ -156,6 +158,7 @@ public class GUI extends JFrame {
 		getContentPane().removeAll();
 		getContentPane().repaint();
 		
+		
 		/* Inicialización de los label. */
 		JLabel comienzo = new JLabel();
 		comienzo.setVerticalAlignment(SwingConstants.TOP);
@@ -211,6 +214,7 @@ public class GUI extends JFrame {
 		/* Limpio la GUI */
 		getContentPane().removeAll();
 		getContentPane().repaint();
+		
 		
 		/* Inicialización de los label. */
 		JLabel comienzo = new JLabel();

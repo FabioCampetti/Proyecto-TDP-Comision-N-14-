@@ -34,7 +34,7 @@ public class EnemigoArmado extends Enemigo {
 		armaEnemigo = new ArmaEnemigoEstandar(this);
 	}
 	
-	public void mover(int x) {
+	public void mover() {
 		IA.mover(this);
 	}
 	

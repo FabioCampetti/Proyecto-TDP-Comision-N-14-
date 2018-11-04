@@ -14,19 +14,19 @@ import disparos.ArmaJugadorEstandar;
 import disparos.Disparo;
 import escudos.Escudo;
 import escudos.EscudoEstandar;
+import inteligencias.IJugador;
 import mapas.Mapa;
 
 public class Jugador extends Entidad {
 	private static Jugador instancia = null;
 	private static final int left = KeyEvent.VK_LEFT;
 	private static final int right = KeyEvent.VK_RIGHT;
-	private static final int up = KeyEvent.VK_UP;
-	private static final int down = KeyEvent.VK_DOWN;
 	public static final int ancho = 120;
 	public static final int alto = 120;
 	private Arma armaJugador;
 	private Collection<BuffTimer> buffsActivos;
 	private Escudo escudoJugador;
+	private IJugador IA;
 
 	private ImageIcon frontIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorFront.gif"));
 	private ImageIcon leftIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorLeft.gif"));
@@ -49,24 +49,22 @@ public class Jugador extends Entidad {
 		daño = 50;
 		escudoJugador = new EscudoEstandar();
 		myCollider = new JugadorCollider(daño);
+		IA = new IJugador();
 	}
 
-	public void mover(int x) {
-		if (x == left) {
-			if (pos.getX() > 0)
-				pos.setLocation(pos.getX() - velocidad, pos.getY());
+	public void mover(int dir) {
+		Integer dirFinal = new Integer(dir);
+		IA.addMove(dirFinal);
+
+		if (dir == left) {
 			pos.setIcon(leftIcon);
-		} else if (x == right) {
-			if (pos.getX() < Mapa.ANCHO - ancho)
-				pos.setLocation(pos.getX() + velocidad, pos.getY());
+		} else if (dir == right) {
 			pos.setIcon(rightIcon);
-		} else if (x == up) {
-			if (pos.getY() > 0)
-				pos.setLocation(pos.getX(), pos.getY() - velocidad);
-		} else if (x == down) {
-			if (pos.getY() < Mapa.ALTO - alto - 35)
-				pos.setLocation(pos.getX(), pos.getY() + velocidad);
 		}
+	}
+
+	public void mover() {
+		IA.mover(this);
 	}
 
 	public void updateBuffs(Mapa m) {
@@ -83,7 +81,7 @@ public class Jugador extends Entidad {
 	}
 
 	public Collection<Disparo> disparar() {
-		Collection<Disparo> res= new LinkedList<Disparo>();
+		Collection<Disparo> res = new LinkedList<Disparo>();
 		if (!isDead()) {
 			res = armaJugador.disparar();
 		}

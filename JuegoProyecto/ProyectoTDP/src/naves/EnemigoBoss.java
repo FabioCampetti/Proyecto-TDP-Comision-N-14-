@@ -38,7 +38,7 @@ public class EnemigoBoss extends Enemigo {
 		return res;
 	}
 	@Override
-	public void mover(int x) {
+	public void mover() {
 		// TODO Auto-generated method stub
 		IA.mover(this);
 	}

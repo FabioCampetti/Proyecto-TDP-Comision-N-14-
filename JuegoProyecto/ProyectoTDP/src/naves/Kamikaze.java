@@ -39,7 +39,7 @@ public class Kamikaze extends Enemigo {
 			score = 40;
 		}	
 	}
-	public void mover(int x) {
+	public void mover() {
 		IA.mover(this);
 	}
 	

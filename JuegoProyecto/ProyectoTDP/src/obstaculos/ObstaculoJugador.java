@@ -17,7 +17,7 @@ public class ObstaculoJugador extends Obstaculo {
 		daño=20;
 		myCollider = new ObstaculoJugadorCollider(daño);
 	}
-	public void mover(int x) {}
+	public void mover() {}
 	@Override
 	public void colision(Entidad e) {
 		// TODO Auto-generated method stub

@@ -1,6 +1,6 @@
 package disparos;
 
-import javax.swing.ImageIcon;
+//import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import colliders.DefaultCollider;
@@ -8,7 +8,7 @@ import inteligencias.IDisparoDirigido;
 import naves.Entidad;
 
 public class DisparoEnemigoDirigido extends DisparoEnemigo {
-	private ImageIcon imagenDisparo = new ImageIcon(this.getClass().getResource("/Disparos/disparoEnemigo.png"));
+	//private ImageIcon imagenDisparo = new ImageIcon(this.getClass().getResource("/Disparos/disparoEnemigo.png"));
 	public static final int ancho = 7;
 	public static final int alto = 45;
 
@@ -17,7 +17,7 @@ public class DisparoEnemigoDirigido extends DisparoEnemigo {
 		myInteligencia= new IDisparoDirigido(p);
 	}
 	@Override
-	public void mover(int x) {
+	public void mover() {
 		// TODO Auto-generated method stub
 		myInteligencia.mover(this);
 	}

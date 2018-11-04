@@ -29,7 +29,7 @@ public abstract class Entidad {
 		velocidad=0;
 	}
 	
-	public abstract void mover(int x);
+	public abstract void mover();
 	
 	public int getVida() {
 		return vida;

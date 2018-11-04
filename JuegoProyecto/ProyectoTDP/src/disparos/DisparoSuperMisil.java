@@ -25,7 +25,7 @@ public class DisparoSuperMisil extends Disparo {
 		myInteligencia = new IDisparoSuperMisil();
 	}
 	
-	public void mover(int x) {
+	public void mover() {
 		myInteligencia.mover(this);
 	}
 

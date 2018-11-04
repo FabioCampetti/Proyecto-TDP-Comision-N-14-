@@ -40,6 +40,7 @@ public class Mapa extends JLayeredPane {
 		/* Inicializacion del nivel */
 		this.startLevel();
 
+		
 	}
 
 	private void creacionMapa() {
@@ -131,8 +132,9 @@ public class Mapa extends JLayeredPane {
 
 	public void moveEntidades() {
 		for (Entidad e : entidades) {
-			e.mover(0);
+			e.mover();
 		}
+		jug.mover();
 	}
 
 	public void dispararEntidades() {

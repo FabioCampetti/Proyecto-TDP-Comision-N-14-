@@ -25,7 +25,7 @@ public class JugadorCollider extends DefaultCollider {
 	}
 	public void collideObstaculoJugador(ObstaculoJugador o) {
 		//visitor.getPosicion().setlocation(visitor.getPosicion().getX(), visitor.getPosicion().getY()+30);
-		o.morir();
+		o.recibirDaño(daño);
 	}
 	public void collideObstaculoTodos(ObstaculoTodos o) {
 		o.morir();
