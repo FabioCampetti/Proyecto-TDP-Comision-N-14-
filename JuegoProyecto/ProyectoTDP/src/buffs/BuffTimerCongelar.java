@@ -9,7 +9,9 @@ public class BuffTimerCongelar extends BuffTimer {
 	}
 	
 	public void updateBuff(Mapa m) {
-		m.congelar();
+		if(timeLeft == 70)
+			m.congelar();
+		
 		timeLeft--;
 		if (timeLeft<=0) {
 			terminarBuff(m);

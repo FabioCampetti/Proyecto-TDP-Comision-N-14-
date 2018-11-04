@@ -119,7 +119,6 @@ public abstract class Entidad {
 		} else if (tipoBuff < 60) {
 			res = new BuffCongelarPlayer(x,y);
 		}
-		
 		return res;
 	}
 	

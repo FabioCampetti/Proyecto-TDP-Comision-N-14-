@@ -50,7 +50,6 @@ public class Jugador extends Entidad {
 		escudoJugador = new EscudoEstandar();
 		myCollider = new JugadorCollider(daño);
 		IA = new IJugador();
-		this.guardarVelocidad();
 	}
 
 	public void mover(int dir) {
@@ -148,10 +147,8 @@ public class Jugador extends Entidad {
 	}
 	
 	public void slow() {
-		if(velocidad >= memVelocidad.getState()) {
-			this.guardarVelocidad();
-			velocidad/=2;
-		}
+		this.guardarVelocidad();
+		velocidad/=1.75;
 	}
 	
 	public void speedUp() {

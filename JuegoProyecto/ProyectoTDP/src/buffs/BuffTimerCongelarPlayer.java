@@ -5,11 +5,13 @@ import mapas.Mapa;
 public class BuffTimerCongelarPlayer extends BuffTimer {
 
 	public BuffTimerCongelarPlayer() {
-		timeLeft = 70;
+		timeLeft = 100;
 	}
 
 	public void updateBuff(Mapa m) {
-		m.getJugador().slow();
+		if(timeLeft == 100)
+			m.getJugador().slow();
+		
 		timeLeft--;
 		
 		if (timeLeft<=0) {
