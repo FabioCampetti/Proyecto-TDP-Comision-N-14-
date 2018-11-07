@@ -15,6 +15,7 @@ import naves.Enemigo;
 import naves.Entidad;
 import naves.Jugador;
 import obstaculos.Obstaculo;
+import sonidos.GameSound;
 
 public class Mapa extends JLayeredPane {
 	private List<Entidad> entidades;
@@ -110,10 +111,12 @@ public class Mapa extends JLayeredPane {
 	}
 
 	public boolean youWon() {
+		score.checkUpdate();
 		return (factory == null);
 	}
 
 	public boolean youLost() {
+		score.checkUpdate();
 		boolean murioJugador = false;
 		if (jug.isDead()) {
 			this.remove(jug.getPosicion());
@@ -169,9 +172,11 @@ public class Mapa extends JLayeredPane {
 	}
 
 	public void checkDisparos() {
-		for (Disparo d : disparos)
+		List<Disparo> local = disparos;
+		disparos = new LinkedList<Disparo>();
+		for (Disparo d : local)
 			entidades.add(d);
-		disparos.clear();
+		//disparos.clear();
 	}
 
 	public void checkCollisions() {
@@ -207,6 +212,7 @@ public class Mapa extends JLayeredPane {
 				Explosion e = new Explosion(e1.getPosicion().getX(), e1.getPosicion().getY());
 				explosiones.add(e);
 				this.add(e.getLabel(), 0);
+				GameSound.EXPLOSION.play();
 			}
 		}
 

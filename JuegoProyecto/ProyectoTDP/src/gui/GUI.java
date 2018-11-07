@@ -14,6 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 
 import mapas.Mapa;
+import sonidos.GameSound;
+import sonidos.MusicSound;
 
 public class GUI extends JFrame {
 	protected Mapa mapa;
@@ -73,6 +75,10 @@ public class GUI extends JFrame {
 		panel.setComponentZOrder(salir, 0);
 		panel.add(fondo);
 		
+		/* Inicializo sonidos */
+		MusicSound.init();
+		GameSound.init();
+		MusicSound.MUSICA_INTRO.playLoop();
 		
 		this.setVisible(true);
 		comienzo.addMouseListener(new MouseAdapter() {
@@ -82,7 +88,13 @@ public class GUI extends JFrame {
 			}
 
 		});
-
+		
+		instrucciones.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("hacer");
+			}
+		});
+		
 		salir.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				System.exit(DISPOSE_ON_CLOSE);
@@ -96,6 +108,8 @@ public class GUI extends JFrame {
 		getContentPane().removeAll();
 		getContentPane().repaint();
 		
+		/* Empiezo musica */
+		musicaJuego();
 		
 		ImageIcon imagenCruz = new ImageIcon(this.getClass().getResource("/gui/CruzCerrar.png"));
 		getContentPane().setLayout(null);
@@ -184,6 +198,9 @@ public class GUI extends JFrame {
 		fondo.setSize(1920, 1080);
 		fondo.setIcon(fondoMenu);
 
+		/* Empiezo musica */
+		musicaMenu();
+		
 		/* Meto todo en el panel */
 		Container panel = getContentPane();
 		panel.setLayout(null);
@@ -221,16 +238,12 @@ public class GUI extends JFrame {
 		comienzo.setVerticalAlignment(SwingConstants.TOP);
 		comienzo.setHorizontalAlignment(SwingConstants.CENTER);
 		JLabel perdiste = new JLabel();
-
 		perdiste.setBounds(822, 219, imagenPerdiste.getIconWidth(), imagenPerdiste.getIconHeight());
 		perdiste.setAlignmentX(Component.CENTER_ALIGNMENT);
 		perdiste.setHorizontalAlignment(SwingConstants.CENTER);
-
 		comienzo.setBounds(740, 514, imagenJugarAgain.getIconWidth(), imagenJugarAgain.getIconHeight());
-
 		JLabel salir = new JLabel();
 		salir.setBounds(882, 831, 157, 52);
-
 		comienzo.setIcon(imagenJugarAgain);
 		salir.setIcon(imagenSalir);
 		perdiste.setIcon(imagenPerdiste);
@@ -241,6 +254,9 @@ public class GUI extends JFrame {
 		fondo.setSize(1920, 1080);
 		fondo.setIcon(fondoMenu);
 
+		/* Empiezo musica */
+		musicaMenu();
+		
 		/* Meto todo en el panel */
 		Container panel = getContentPane();
 		panel.setLayout(null);
@@ -266,6 +282,15 @@ public class GUI extends JFrame {
 			}
 		});
 		getContentPane().repaint();
+	}
+	
+	private void musicaMenu() {
+		MusicSound.MUSICA_JUEGO.stop();
+		MusicSound.MUSICA_INTRO.playLoop();
+	}
+	private void musicaJuego() {
+		MusicSound.MUSICA_INTRO.stop();
+		MusicSound.MUSICA_JUEGO.playLoop();
 	}
 
 	public static void main(String[] args) {

@@ -40,7 +40,6 @@ public class IJugador extends Inteligencia {
 		} else if (dir == right) {
 			if (pos.getX() < Mapa.ANCHO - Jugador.ancho)
 				pos.setLocation(pos.getX() + velocidad, pos.getY());
-
 		} else if (dir == up) {
 			if (pos.getY() > 0)
 				pos.setLocation(pos.getX(), pos.getY() - velocidad);

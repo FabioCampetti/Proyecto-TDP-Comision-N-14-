@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 import naves.Entidad;
 import naves.Jugador;
+import sonidos.GameSound;
 
 public class ArmaJugadorEstandar extends Arma {
 	
@@ -17,7 +18,10 @@ public class ArmaJugadorEstandar extends Arma {
 			int val=(int) (Jugador.ancho*0.5);
 			disparos.add(new DisparoJugador(quienDisparo.getPosicion().getX()+val, quienDisparo.getPosicion().getY() ));
 			disparosRestantes--;
-			
+			GameSound.DISPARO.play();
+		}
+		else {
+			GameSound.NO_BALAS.play();
 		}
 		
 		return disparos;

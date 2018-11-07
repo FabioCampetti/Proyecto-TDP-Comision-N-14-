@@ -7,6 +7,7 @@ import inteligencias.IDisparoDiagonalDer;
 import inteligencias.IDisparoDiagonalIzq;
 import naves.Entidad;
 import naves.Jugador;
+import sonidos.GameSound;
 
 public class ArmaJugadorTriple extends Arma {
 	public ArmaJugadorTriple(Entidad e) {
@@ -29,7 +30,10 @@ public class ArmaJugadorTriple extends Arma {
 			d.cambiarInteligencia(new IDisparoDiagonalDer());
 			disparos.add(d);
 			val += Jugador.ancho / 3;
-			
+			GameSound.DISPARO.play();
+		}
+		else {
+			GameSound.NO_BALAS.play();
 		}
 		
 		disparosRestantes--;

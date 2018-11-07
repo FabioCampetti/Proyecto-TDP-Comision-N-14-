@@ -27,10 +27,16 @@ public class Jugador extends Entidad {
 	private Collection<BuffTimer> buffsActivos;
 	private Escudo escudoJugador;
 	private IJugador IA;
-
-	private ImageIcon frontIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorFront.gif"));
-	private ImageIcon leftIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorLeft.gif"));
-	private ImageIcon rightIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorRight.gif"));
+	
+	private ImageIcon frontIcon,leftIcon,rightIcon;
+	
+	private final ImageIcon frontIconNormal = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorFront.gif"));
+	private final ImageIcon leftIconNormal = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorLeft.gif"));
+	private final ImageIcon rightIconNormal = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorRight.gif"));	
+	private	final ImageIcon frontIconEscudo = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorFrontEscudo.gif"));
+	private final ImageIcon leftIconEscudo = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorLeftEscudo.gif"));
+	private final ImageIcon rightIconEscudo = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorRightEscudo.gif"));
+	
 
 	public static Jugador getInstance() {
 		if (instancia == null)
@@ -44,6 +50,7 @@ public class Jugador extends Entidad {
 		pos.setBounds(900, 960, ancho, alto);
 		pos.setVisible(true);
 		pos.setIcon(frontIcon);
+		setImagenesDefault();
 		buffsActivos = new LinkedList<BuffTimer>();
 		armaJugador = new ArmaJugadorEstandar(this);
 		daño = 50;
@@ -131,24 +138,24 @@ public class Jugador extends Entidad {
 	}
 
 	public void setImagenesDefault() {
-		frontIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorFront.gif"));
-		leftIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorLeft.gif"));
-		rightIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorRight.gif"));
+		frontIcon =	frontIconNormal;
+		leftIcon = leftIconNormal;
+		rightIcon = rightIconNormal;
 		defaultIcon();
 		pos.repaint();
 	}
 
 	public void setImagenesEscudo() {
-		frontIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorFrontEscudo.gif"));
-		leftIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorLeftEscudo.gif"));
-		rightIcon = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorRightEscudo.gif"));
+		frontIcon =	frontIconEscudo;
+		leftIcon = leftIconEscudo;
+		rightIcon = rightIconEscudo;
 		defaultIcon();
 		pos.repaint();
 	}
 	
 	public void slow() {
 		this.guardarVelocidad();
-		velocidad/=1.75;
+		velocidad*=0.25;
 	}
 	
 	public void speedUp() {

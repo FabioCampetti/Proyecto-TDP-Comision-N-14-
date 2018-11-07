@@ -5,6 +5,7 @@ import java.util.LinkedList;
 
 import naves.Entidad;
 import naves.Jugador;
+import sonidos.GameSound;
 
 public class ArmaSuperMisil extends Arma {
 
@@ -19,6 +20,10 @@ public class ArmaSuperMisil extends Arma {
 			int val=(int) (Jugador.ancho*0.5);
 			disparos.add(new DisparoSuperMisil(quienDisparo.getPosicion().getX()+val, quienDisparo.getPosicion().getY() ));
 			disparosRestantes--;
+			GameSound.DISPARO_LASER.play();
+		}
+		else {
+			GameSound.NO_BALAS.play();
 		}
 		return disparos;
 	}

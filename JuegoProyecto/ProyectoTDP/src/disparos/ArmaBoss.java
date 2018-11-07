@@ -24,7 +24,7 @@ public class ArmaBoss extends Arma {
 		int myY = quienDisparo.getPosicion().getY() + val;
 		Collection<Disparo> res = new LinkedList<Disparo>();
 		Random rand = new Random();
-		int voyADisparar = rand.nextInt(500);
+		int voyADisparar = rand.nextInt(250);
 		if (voyADisparar < 3) {
 			for (int i = 0; i < 3; i++) {
 				res.add(new DisparoEnemigo(myX, myY));

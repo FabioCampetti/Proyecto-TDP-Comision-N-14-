@@ -13,7 +13,7 @@ public class IBoss extends Inteligencia {
 	private boolean goDown = true;
 	private float aceleracion;
 	public IBoss() {
-		timeDown = 200;
+		timeDown = 100;
 		aceleracion=1;
 	}
 

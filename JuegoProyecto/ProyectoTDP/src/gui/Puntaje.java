@@ -17,7 +17,7 @@ public class Puntaje {
 	private JProgressBar barraVida;
 	private int puntaje;
 	private int puntajeMaximo;
-	private File almacenamiento = new File("PuntajeMaximo.txt");
+	//private File almacenamiento = new File("PuntajeMaximo.txt");
 
 	public Puntaje(int vida) {
 
@@ -59,7 +59,7 @@ public class Puntaje {
 
 	private void iniciarMaximo() {
 		try {
-			BufferedReader br = new BufferedReader(new FileReader(almacenamiento));
+			BufferedReader br = new BufferedReader(new FileReader("PuntajeMaximo.txt"));
 			String st = "";
 
 			st = br.readLine();
@@ -80,7 +80,7 @@ public class Puntaje {
 			puntajeMaximo = puntaje;
 			try {
 				String st = Integer.toString(puntajeMaximo);
-				FileWriter fr = new FileWriter(almacenamiento, false);
+				FileWriter fr = new FileWriter("PuntajeMaximo.txt");
 				fr.write(st);
 				fr.close();
 			} catch (IOException e) {

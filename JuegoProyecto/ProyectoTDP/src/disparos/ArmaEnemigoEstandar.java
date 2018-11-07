@@ -6,6 +6,7 @@ import java.util.Random;
 
 import naves.EnemigoArmado;
 import naves.Entidad;
+import sonidos.GameSound;
 
 public class ArmaEnemigoEstandar extends Arma {
 
@@ -20,7 +21,7 @@ public class ArmaEnemigoEstandar extends Arma {
 		int voyADisparar = rand.nextInt(1000);
 		if (voyADisparar<3) {
 			res.add(new DisparoEnemigo(quienDisparo.getPosicion().getX()+val , quienDisparo.getPosicion().getY()+val ));
-			
+			GameSound.DISPARO_ENEMIGO.play();
 		}
 		return res;
 	} 
