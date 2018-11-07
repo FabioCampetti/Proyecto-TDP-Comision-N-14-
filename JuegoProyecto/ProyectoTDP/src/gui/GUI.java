@@ -11,6 +11,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
 import mapas.Mapa;
@@ -91,7 +92,8 @@ public class GUI extends JFrame {
 		
 		instrucciones.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				System.out.println("hacer");
+				String comoJugar = new String("<html>El movimiento del jugador se realiza con las flechitas.<br>'P',pausa y despausa el juego.<br>'R',recarga los disparos del jugador.<br>'Barra espaciadora',para disparar.");
+			    JOptionPane.showMessageDialog(null,comoJugar,"Como jugar",JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		
