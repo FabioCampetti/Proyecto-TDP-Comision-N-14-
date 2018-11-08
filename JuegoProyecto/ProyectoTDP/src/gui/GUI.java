@@ -28,7 +28,9 @@ public class GUI extends JFrame {
 	private ImageIcon imagenPerdiste = new ImageIcon(this.getClass().getResource("/gui/GameOver.png"));
 	private ImageIcon imagenGanaste = new ImageIcon(this.getClass().getResource("/gui/YouWon.png"));
 	private ImageIcon imagenJugarAgain = new ImageIcon(this.getClass().getResource("/gui/JugarDeNuevo.png"));
-
+	private ImageIcon imagenCruz = new ImageIcon(this.getClass().getResource("/gui/CruzCerrar.png"));
+	private ImageIcon menuComoJugar = new ImageIcon(this.getClass().getResource("/gui/fondoComoJugar.png"));
+	
 	/**
 	 * Inicializacion de GUI con listeners para las flechitas.
 	 * 
@@ -48,13 +50,29 @@ public class GUI extends JFrame {
 		comienzo.setVerticalAlignment(SwingConstants.TOP);
 		comienzo.setHorizontalAlignment(SwingConstants.CENTER);
 		comienzo.setBounds(872, 219, 175, 52);
+		
 		JLabel instrucciones = new JLabel();
 		instrucciones.setAlignmentX(Component.CENTER_ALIGNMENT);
 		instrucciones.setHorizontalAlignment(SwingConstants.CENTER);
 		instrucciones.setBounds(784, 514, 352, 52);
+		
 		JLabel salir = new JLabel();
 		salir.setBounds(882, 831, 157, 52);
-
+		
+		
+		JLabel comoJugar = new JLabel();
+		comoJugar.setVerticalAlignment(SwingConstants.TOP);
+		comoJugar.setHorizontalAlignment(SwingConstants.CENTER);
+		comoJugar.setBounds(250,50,menuComoJugar.getIconWidth(),menuComoJugar.getIconHeight());
+		comoJugar.setVisible(false);
+		
+		JLabel cerrarComoJugar = new JLabel();
+		cerrarComoJugar.setBounds(1875, 39, imagenCruz.getIconWidth(), imagenCruz.getIconHeight());
+		cerrarComoJugar.setVisible(false);
+		
+		
+		cerrarComoJugar.setIcon(imagenCruz);
+		comoJugar.setIcon(menuComoJugar);
 		comienzo.setIcon(imagenJugar);
 		salir.setIcon(imagenSalir);
 		instrucciones.setIcon(imagenComoJugar);
@@ -64,16 +82,29 @@ public class GUI extends JFrame {
 		fondo.setLocation(0, 0);
 		fondo.setSize(1920, 1080);
 		fondo.setIcon(fondoMenu);
+		
+
+
 
 		/* Creacion del panel y se le agrega el fondo */
 		Container panel = getContentPane();
 		panel.setLayout(null);
+		
 		panel.add(comienzo);
 		panel.setComponentZOrder(comienzo, 0);
+		
 		panel.add(instrucciones);
 		panel.setComponentZOrder(instrucciones, 0);
+		
 		panel.add(salir);
 		panel.setComponentZOrder(salir, 0);
+
+		panel.add(comoJugar);
+		panel.setComponentZOrder(comoJugar,0);
+		
+		panel.add(cerrarComoJugar);
+		panel.add(cerrarComoJugar,0);
+		
 		panel.add(fondo);
 		
 		/* Inicializo sonidos */
@@ -82,6 +113,7 @@ public class GUI extends JFrame {
 		MusicSound.MUSICA_INTRO.playLoop();
 		
 		this.setVisible(true);
+		
 		comienzo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
@@ -92,8 +124,21 @@ public class GUI extends JFrame {
 		
 		instrucciones.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				String comoJugar = new String("<html>El movimiento del jugador se realiza con las flechitas.<br>'P',pausa y despausa el juego.<br>'R',recarga los disparos del jugador.<br>'Barra espaciadora',para disparar.");
-			    JOptionPane.showMessageDialog(null,comoJugar,"Como jugar",JOptionPane.INFORMATION_MESSAGE);
+				salir.setVisible(false);
+				comienzo.setVisible(false);
+				instrucciones.setVisible(false);
+				comoJugar.setVisible(true);
+				cerrarComoJugar.setVisible(true);
+			}
+		});
+		
+		cerrarComoJugar.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				salir.setVisible(true);
+				comienzo.setVisible(true);
+				instrucciones.setVisible(true);
+				comoJugar.setVisible(false);
+				cerrarComoJugar.setVisible(false);
 			}
 		});
 		
@@ -104,6 +149,7 @@ public class GUI extends JFrame {
 		});
 	}
 
+	
 	public void jugar() {
 		/* Limpio la GUI */
 		
@@ -113,7 +159,6 @@ public class GUI extends JFrame {
 		/* Empiezo musica */
 		musicaJuego();
 		
-		ImageIcon imagenCruz = new ImageIcon(this.getClass().getResource("/gui/CruzCerrar.png"));
 		getContentPane().setLayout(null);
 		JLabel labelCerrar = new JLabel("");
 
