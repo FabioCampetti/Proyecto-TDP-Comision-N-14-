@@ -2,7 +2,6 @@ package gui;
 
 import java.awt.Color;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -17,7 +16,6 @@ public class Puntaje {
 	private JProgressBar barraVida;
 	private int puntaje;
 	private int puntajeMaximo;
-	//private File almacenamiento = new File("PuntajeMaximo.txt");
 
 	public Puntaje(int vida) {
 

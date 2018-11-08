@@ -21,6 +21,9 @@ public class IKamikazeAleatorio extends Inteligencia {
 	public void mover(Entidad e) {
 		JLabel pos = e.getPosicion();
 		int velocidad = e.getVelocidad();
+		
+		/* Mueve al kamikaze aleatoriamente, por un cierto tiempo. */
+		
 		if (cantMovimientosSiguientes == 0) {
 			Random r = new Random();
 			dir = r.nextInt(4);
@@ -32,7 +35,6 @@ public class IKamikazeAleatorio extends Inteligencia {
 				pos.setLocation(pos.getX(), pos.getY() - velocidad);
 			break;
 		case 1: // Abajo
-			// int posY = (pos.getY() + velocidad) % Mapa.ALTO;
 			int posY = (pos.getY() + velocidad);
 			if (posY + Kamikaze.alto >= Mapa.ALTO)
 				posY = 0;

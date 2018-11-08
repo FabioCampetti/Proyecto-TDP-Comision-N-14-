@@ -5,6 +5,8 @@ import java.awt.Point;
 import javax.swing.JLabel;
 
 public class MovParametrico {
+	/* Da diferentes tipos de movimientos paramétricos, representado por métodos.*/
+	
 	public static Point dondeMoverElipse(JLabel pos, float t) {
 		Point a= new Point();
 		a.x=(int) (5*Math.cos(t)) +pos.getX();

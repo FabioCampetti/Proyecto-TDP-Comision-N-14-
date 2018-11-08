@@ -24,7 +24,7 @@ public class Mapa extends JLayeredPane {
 	private Jugador jug;
 	public static final int ANCHO = 1920;
 	public static final int ALTO = 1080;
-	private ImageIcon background = new ImageIcon(this.getClass().getResource("/Mapas/Fondo2.jpg"));
+	private ImageIcon background = new ImageIcon(this.getClass().getResource("/mapas/Fondo2.jpg"));
 	private EnemiesFactory factory;
 	private Puntaje score;
 
@@ -71,7 +71,9 @@ public class Mapa extends JLayeredPane {
 		this.add(score.getLabelMaximo(), 0);
 		this.add(score.getLabelDisparos(), 0);
 	}
-
+	/**
+	 * Inicia el nivel, colocando los enemigos y obstáculos correspondientes.
+	 */
 	private void startLevel() {
 		int xInicial = 100;
 		int yInicial = (ALTO / 2) + 100;
@@ -103,6 +105,9 @@ public class Mapa extends JLayeredPane {
 		}
 	}
 
+	/**
+	 * Avanza al siguiente nivel.
+	 */
 	private void nextLevel() {
 		factory = factory.getNextFactory();
 		if (factory != null) {
@@ -110,11 +115,19 @@ public class Mapa extends JLayeredPane {
 		}
 	}
 
+	/**
+	 * Chequea si el jugador gano el juego.
+	 * @return true si se gano el juego, false caso contrario
+	 */
 	public boolean youWon() {
 		score.checkUpdate();
 		return (factory == null);
 	}
 
+	/**
+	 * Chequea si el jugador perdio el juego.
+	 * @return true si perdio el juego, false caso contrario.
+	 */
 	public boolean youLost() {
 		score.checkUpdate();
 		boolean murioJugador = false;
@@ -124,15 +137,25 @@ public class Mapa extends JLayeredPane {
 		}
 		return murioJugador;
 	}
-
+	
+	/**
+	 * Agrega el siguiente movimiento que el jugador deberá realizar.
+	 * @param dir la dirección a donde se moverá el jugador.
+	 */
 	public void movePlayer(int dir) {
 		jug.mover(dir);
 	}
 
+	/**
+	 * Le pone al jugador el icono default, es decir el de la vista frontal.
+	 */
 	public void setDefaultPlayerIcon() {
 		jug.defaultIcon();
 	}
 
+	/**
+	 * Mueve todas las entidades en el mapa, también al jugador.
+	 */
 	public void moveEntidades() {
 		for (Entidad e : entidades) {
 			e.mover();
@@ -140,6 +163,9 @@ public class Mapa extends JLayeredPane {
 		jug.mover();
 	}
 
+	/**
+	 * Hace disparar a las entidades que correspondan.
+	 */
 	public void dispararEntidades() {
 		for (Entidad e : entidades) {
 			Collection<Disparo> disp = e.disparar();
@@ -150,6 +176,9 @@ public class Mapa extends JLayeredPane {
 		}
 	}
 
+	/**
+	 * Produce un disparo del jugador.
+	 */
 	public void disparoPlayer() {
 		Collection<Disparo> aux = jug.disparar();
 		this.updateRestantes(jug.disparosRestantes());
@@ -159,26 +188,44 @@ public class Mapa extends JLayeredPane {
 		}
 	}
 
+	/**
+	 * Actualiza el puntaje con el puntaje de una entidad que fue destruida.
+	 * @param e la entidad que se destruyó.
+	 */
 	private void updateScore(Entidad e) {
 		score.actualizarPuntaje(e.getScore());
 	}
 
+	/**
+	 * Actualiza la cantidad de disparos restantes.
+	 * @param restantes
+	 */
 	private void updateRestantes(int restantes) {
 		score.actualizarRestantes(restantes);
 	}
-
+	
+	/**
+	 * Actualiza la vida del jugador gráficamente.
+	 */
 	public void updateVida() {
 		score.actualizarVida(jug.getVida());
 	}
 
+	/**
+	 * Chequea si se deben agregar disparos al mapa.
+	 */
 	public void checkDisparos() {
 		List<Disparo> local = disparos;
 		disparos = new LinkedList<Disparo>();
 		for (Disparo d : local)
 			entidades.add(d);
-		//disparos.clear();
 	}
-
+	
+	/**
+	 * Chequea las colisiones entre entidades, así como las entidades y el jugador.
+	 * De ser necesario elimina a las entidades que mueren.
+	 * Si se eliminaron todas las entidades, se continua al siguiente nivel.
+	 */
 	public void checkCollisions() {
 
 		if (entidades.isEmpty()) {
@@ -225,6 +272,9 @@ public class Mapa extends JLayeredPane {
 		this.repaint();
 	}
 
+	/**
+	 * Chequea si se deben agregar explosiones gráficas.
+	 */
 	public void checkExplosiones() {
 		for (Explosion e : explosiones) {
 			e.tick();
@@ -234,29 +284,49 @@ public class Mapa extends JLayeredPane {
 		}
 	}
 
+	/**
+	 * Actualiza los buffs del jugador
+	 */
 	public void updateBuffs() {
 		jug.updateBuffs(this);
 	}
-
+	
+	/**
+	 * Getter del puntaje.
+	 * @return puntaje actual.
+	 */
 	public int getScore() {
 		return score.getPuntaje();
 	}
 
+	/**
+	 * Recarga los disparos del jugador.
+	 */
 	public void recargar() {
 		jug.recargar();
 		this.updateRestantes(jug.disparosRestantes());
 	}
 
+	/**
+	 * Getter del jugador
+	 * @return el jugador.
+	 */
 	public Jugador getJugador() {
 		return jug;
 	}
 
+	/**
+	 * Congela todas las entidades del mapa.
+	 */
 	public void congelar() {
 		for (Entidad e : entidades) {
 			e.congelar();
 		}
 	}
-
+	
+	/**
+	 * Descongela todas las entidades del mapa.
+	 */
 	public void descongelar() {
 		for (Entidad e : entidades) {
 			e.descongelar();

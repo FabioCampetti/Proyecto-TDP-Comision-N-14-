@@ -21,9 +21,7 @@ public class IJugador extends Inteligencia {
 		sigMovs = new LinkedList<Integer>();
 	}
 
-	@Override
 	public void mover(Entidad e) {
-		// TODO Auto-generated method stub
 		int dir, velocidad;
 		JLabel pos = e.getPosicion();
 
@@ -51,10 +49,6 @@ public class IJugador extends Inteligencia {
 
 	public void addMove(int dir) {
 		sigMovs.add(dir);
-	}
-
-	private void emptyMoves() {
-		sigMovs.clear();
 	}
 
 	public boolean noMoves() {

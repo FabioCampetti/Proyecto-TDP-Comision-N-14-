@@ -3,9 +3,10 @@ package mapas;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+
 public class Explosion {
 	private int timeLeft;
-	private ImageIcon imagenExplosion=new ImageIcon(this.getClass().getResource("/Mapas/Explosion.gif"));;
+	private ImageIcon imagenExplosion=new ImageIcon(this.getClass().getResource("/mapas/Explosion.gif"));;
 	private JLabel labelExplosion;
 	
 	public Explosion (int x, int y) {

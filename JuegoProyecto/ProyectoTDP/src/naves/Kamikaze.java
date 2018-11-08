@@ -12,59 +12,63 @@ import inteligencias.IKamikazeDirigido;
 
 public class Kamikaze extends Enemigo {
 	public static final int ancho = 92;
-	public static final int alto= 92;
-	
-	private ImageIcon foto = new ImageIcon(this.getClass().getResource("/Naves/ImagenEnemigo1FF.png"));
+	public static final int alto = 92;
+
+	private ImageIcon foto = new ImageIcon(this.getClass().getResource("/naves/ImagenEnemigo1FF.png"));
 	private JLabel posJugador;
-	
+
 	public Kamikaze(JLabel p) {
 		super();
-		velocidad=5;
-		pos.setBounds(50,50,ancho,alto);
+		velocidad = 5;
+		pos.setBounds(50, 50, ancho, alto);
 		pos.setVisible(true);
 		pos.setIcon(foto);
-		daño=10;
+		daño = 10;
 		myCollider = new KamikazeCollider(daño);
-		posJugador=p;
-		
-		
-		Random r=new Random();
-		int res=r.nextInt(10);
-		if(res<7) {
+		posJugador = p;
+
+		Random r = new Random();
+		int res = r.nextInt(10);
+		if (res < 7) {
 			convertirAleatorio();
 			score = 30;
-		}
-		else {
+		} else {
 			convertirDirigido();
 			score = 40;
-		}	
+		}
 	}
+
 	public void mover() {
 		IA.mover(this);
 	}
-	
+
 	private void convertirAleatorio() {
 		IA = new IKamikazeAleatorio();
 	}
+
 	private void convertirDirigido() {
 		IA = new IKamikazeDirigido(posJugador);
 	}
+
 	public void colision(Entidad e) {
 		e.aceptar(myCollider);
 	}
+
 	public void aceptar(DefaultCollider c) {
 		c.collideEnemigo(this);
 	}
+
 	public int getScore() {
 		return score;
 	}
+
 	public void recibirDaño(int daño) {
-		vida-=daño;
-		if (vida<50) {
-			Random rand=new Random();
+		vida -= daño;
+		if (vida < 50) {
+			Random rand = new Random();
 			int cambioInteligencia = rand.nextInt(10);
-			if (cambioInteligencia<7)
-				IA=new IKamikazeAleatorio();
+			if (cambioInteligencia < 7)
+				IA = new IKamikazeAleatorio();
 		}
 	}
 }

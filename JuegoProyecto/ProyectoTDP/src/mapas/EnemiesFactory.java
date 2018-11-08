@@ -13,9 +13,7 @@ public abstract class EnemiesFactory {
 	protected int kamikazeAmount;
 	protected int obstaclesAmount;
 	protected JLabel posJugador;
-	/**
-	 * Todos los niveles comenzarán con 30 enemigos de distinto tipos.
-	 */
+	
 	/**
 	 * Chequea si la factory ya terminó de crear todos sus enemigos.
 	 * @return verdadero si termino de crear todos los enemigos, falso en caso contrario

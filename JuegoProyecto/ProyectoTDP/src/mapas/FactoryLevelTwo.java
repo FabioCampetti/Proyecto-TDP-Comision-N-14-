@@ -19,11 +19,11 @@ public class FactoryLevelTwo extends EnemiesFactory {
 		size = 45;
 		posJugador = p;
 	}
-	
+
 	public EnemiesFactory getNextFactory() {
 		return new FactoryLevelThree(posJugador);
 	}
-	
+
 	public Enemigo createEnemy() {
 		if (armadoAmount != 0) {
 			size--;
@@ -39,20 +39,19 @@ public class FactoryLevelTwo extends EnemiesFactory {
 		else
 			return null;
 	}
-	
+
 	public Obstaculo createObstacle() {
-		Random ran=new Random();
-		int a=ran.nextInt(3);
-		if (obstaclesAmount!=0) {
+		Random ran = new Random();
+		int a = ran.nextInt(3);
+		if (obstaclesAmount != 0) {
 			size--;
 			obstaclesAmount--;
-			if (a<1) {
+			if (a < 1) {
 				return new ObstaculoJugador();
-			}
-			else {
+			} else {
 				return new ObstaculoTodos();
 			}
-		}
-		else return null;
+		} else
+			return null;
 	}
 }

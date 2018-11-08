@@ -19,7 +19,6 @@ public class IBoss extends Inteligencia {
 
 	@Override
 	public void mover(Entidad e) {
-		// TODO Auto-generated method stub
 		JLabel pos = e.getPosicion();
 		if (timeDown == 1) {
 			aceleracion=1;

@@ -20,17 +20,6 @@ public class IEnemigoBasico extends Inteligencia {
 			return new IEnemigoBasico();
 		return instancia;
 	}
-	/*
-	 * public void mover(Entidad e) { JLabel pos = e.getPosicion(); int velocidad =
-	 * e.getVelocidad(); if (mover < 15) { if (pos.getX() < Mapa.ANCHO -
-	 * EnemigoArmado.ancho) pos.setLocation(pos.getX() + velocidad, pos.getY());
-	 * mover++; if (mover == 15) mover = 30; }
-	 * 
-	 * if (mover > 15) { if (pos.getX() > 25) pos.setLocation(pos.getX() -
-	 * velocidad, pos.getY()); mover--; if (mover == 15) mover = 0; }
-	 * 
-	 * }
-	 */
 
 	public void mover(Entidad e) {
 		JLabel pos = e.getPosicion();

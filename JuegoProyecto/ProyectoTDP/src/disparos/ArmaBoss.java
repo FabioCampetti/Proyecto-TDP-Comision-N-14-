@@ -17,7 +17,6 @@ public class ArmaBoss extends Arma {
 		posJugador = p;
 	}
 
-	@Override
 	public Collection<Disparo> disparar() {
 		int val = (int) (EnemigoBoss.ancho * 0.5);
 		int myX = quienDisparo.getPosicion().getX();
@@ -39,10 +38,8 @@ public class ArmaBoss extends Arma {
 		return res;
 	}
 
-	@Override
 	public void recargar() {
-		// TODO Auto-generated method stub
-
+		// El boss tiene disparos ilimitados, no recarga.
 	}
 
 }

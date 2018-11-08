@@ -16,23 +16,17 @@ public class FactoryLevelThree extends EnemiesFactory {
 		posJugador=pos;
 	}
 	
-	@Override
 	public EnemiesFactory getNextFactory() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public Enemigo createEnemy() {
-		// TODO Auto-generated method stub
 		armadoAmount--;
 		size--;
 		return new EnemigoBoss(posJugador);
 	}
 
-	@Override
 	public Obstaculo createObstacle() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

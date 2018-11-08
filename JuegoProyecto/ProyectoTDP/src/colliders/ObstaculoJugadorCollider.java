@@ -8,7 +8,6 @@ public class ObstaculoJugadorCollider extends DefaultCollider {
 		super(daño);
 	}
 	public void collideDisparoJugador(DisparoJugador d) {
-		//Hay que modelar que le sucede al obstaculo cuando recibe un disparo de jugador.
 		d.morir();
 	}
 	public void collideJugador(Jugador j) {

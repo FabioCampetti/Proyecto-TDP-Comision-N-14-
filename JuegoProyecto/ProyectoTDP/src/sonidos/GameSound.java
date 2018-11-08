@@ -51,8 +51,6 @@ public enum GameSound {
 		currentClip++;
 	}
 
-	
-
 	public static void init() {
 		values();
 	}

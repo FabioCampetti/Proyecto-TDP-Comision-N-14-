@@ -30,12 +30,15 @@ public class Jugador extends Entidad {
 	
 	private ImageIcon frontIcon,leftIcon,rightIcon;
 	
-	private final ImageIcon frontIconNormal = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorFront.gif"));
-	private final ImageIcon leftIconNormal = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorLeft.gif"));
-	private final ImageIcon rightIconNormal = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorRight.gif"));	
-	private	final ImageIcon frontIconEscudo = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorFrontEscudo.gif"));
-	private final ImageIcon leftIconEscudo = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorLeftEscudo.gif"));
-	private final ImageIcon rightIconEscudo = new ImageIcon(this.getClass().getResource("/Naves/NaveJugadorRightEscudo.gif"));
+	//Imagenes del jugador normal
+	private final ImageIcon frontIconNormal = new ImageIcon(this.getClass().getResource("/naves/NaveJugadorFront.gif"));
+	private final ImageIcon leftIconNormal = new ImageIcon(this.getClass().getResource("/naves/NaveJugadorLeft.gif"));
+	private final ImageIcon rightIconNormal = new ImageIcon(this.getClass().getResource("/naves/NaveJugadorRight.gif"));	
+	
+	//Imagenes del jugador con escudo
+	private	final ImageIcon frontIconEscudo = new ImageIcon(this.getClass().getResource("/naves/NaveJugadorFrontEscudo.gif"));
+	private final ImageIcon leftIconEscudo = new ImageIcon(this.getClass().getResource("/naves/NaveJugadorLeftEscudo.gif"));
+	private final ImageIcon rightIconEscudo = new ImageIcon(this.getClass().getResource("/naves/NaveJugadorRightEscudo.gif"));
 	
 
 	public static Jugador getInstance() {

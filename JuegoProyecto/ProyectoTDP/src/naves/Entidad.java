@@ -57,9 +57,7 @@ public abstract class Entidad {
 	public JLabel getPosicion() {
 		return pos;
 	}
-	/**
-	 * Caso para el jugador / obsctaculos.
-	 */
+	
 	public  int getScore() {
 		return 0;
 	}

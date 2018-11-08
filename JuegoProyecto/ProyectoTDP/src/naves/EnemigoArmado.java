@@ -15,57 +15,57 @@ import inteligencias.IEnemigoBasico;
 import inteligencias.IKamikazeAleatorio;
 
 public class EnemigoArmado extends Enemigo {
-	
+
 	public static final int ancho = 100;
-	public static final int alto= 88;
-	private ImageIcon foto = new ImageIcon(this.getClass().getResource("/Naves/ImagenEnemigoArmado.png"));
+	public static final int alto = 88;
+	private ImageIcon foto = new ImageIcon(this.getClass().getResource("/naves/ImagenEnemigoArmado.png"));
 	private Arma armaEnemigo;
-	
+
 	public EnemigoArmado() {
 		super();
-		velocidad=7;
-		pos.setBounds(50,50,ancho,alto);
+		velocidad = 7;
+		pos.setBounds(50, 50, ancho, alto);
 		pos.setVisible(true);
 		pos.setIcon(foto);
-		IA=IEnemigoBasico.getInstance();
+		IA = IEnemigoBasico.getInstance();
 		score = 75;
-		daño=15;
+		daño = 15;
 		myCollider = new EnemigoCollider(daño);
 		armaEnemigo = new ArmaEnemigoEstandar(this);
 	}
-	
+
 	public void mover() {
 		IA.mover(this);
 	}
-	
+
 	public void colision(Entidad e) {
 		e.aceptar(myCollider);
 	}
-	
+
 	public void aceptar(DefaultCollider c) {
 		c.collideEnemigo(this);
 	}
+
 	public int getScore() {
 		return score;
 	}
-	
+
 	public Collection<Disparo> disparar() {
-		Collection<Disparo> res=new LinkedList<Disparo>();
+		Collection<Disparo> res = new LinkedList<Disparo>();
 		if (!isFrozen()) {
-		 res=armaEnemigo.disparar();
-		 }
+			res = armaEnemigo.disparar();
+		}
 		return res;
 	}
-	
+
 	public void recibirDaño(int daño) {
-		vida-=daño;
-		if (vida<40) {
-			Random rand=new Random();
+		vida -= daño;
+		if (vida < 40) {
+			Random rand = new Random();
 			int cambioInteligencia = rand.nextInt(5);
-			if (cambioInteligencia<1)
-				IA=new IKamikazeAleatorio();
+			if (cambioInteligencia < 1)
+				IA = new IKamikazeAleatorio();
 		}
 	}
-	
-	
+
 }

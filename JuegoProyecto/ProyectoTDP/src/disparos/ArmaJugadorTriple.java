@@ -30,6 +30,7 @@ public class ArmaJugadorTriple extends Arma {
 			d.cambiarInteligencia(new IDisparoDiagonalDer());
 			disparos.add(d);
 			val += Jugador.ancho / 3;
+			
 			GameSound.DISPARO.play();
 		}
 		else {

@@ -16,7 +16,7 @@ public class EnemigoBoss extends Enemigo {
 	private JLabel posJugador;
 	public static final int ancho = 262;
 	public static final int alto = 299;
-	private ImageIcon foto = new ImageIcon(this.getClass().getResource("/Naves/Boss.png"));
+	private ImageIcon foto = new ImageIcon(this.getClass().getResource("/naves/Boss.png"));
 	private Arma armaEnemigo;
 
 	public EnemigoBoss(JLabel p) {

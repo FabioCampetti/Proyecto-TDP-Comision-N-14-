@@ -24,7 +24,7 @@ public class GUI extends JFrame {
 	private ImageIcon imagenJugar = new ImageIcon(this.getClass().getResource("/gui/Jugar.png"));
 	private ImageIcon imagenSalir = new ImageIcon(this.getClass().getResource("/gui/Salir.png"));
 	private ImageIcon imagenComoJugar = new ImageIcon(this.getClass().getResource("/gui/ComoJugar.png"));
-	private ImageIcon fondoMenu = new ImageIcon(this.getClass().getResource("/gui/FondoMenu.jpg"));
+	private ImageIcon fondoMenu = new ImageIcon(this.getClass().getResource("/gui/fondoMenu.jpg"));
 	private ImageIcon imagenPerdiste = new ImageIcon(this.getClass().getResource("/gui/GameOver.png"));
 	private ImageIcon imagenGanaste = new ImageIcon(this.getClass().getResource("/gui/YouWon.png"));
 	private ImageIcon imagenJugarAgain = new ImageIcon(this.getClass().getResource("/gui/JugarDeNuevo.png"));
