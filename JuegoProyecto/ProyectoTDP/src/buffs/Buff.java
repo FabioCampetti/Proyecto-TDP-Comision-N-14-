@@ -25,5 +25,5 @@ public abstract class Buff extends Entidad {
 	}
 	
 	public void congelar() {}	
-	public void descongelar() {}
+	public void descongelar() {}ç
 }
