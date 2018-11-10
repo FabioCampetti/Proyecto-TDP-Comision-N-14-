@@ -9,6 +9,7 @@ public class BuffTimerArma extends BuffTimer {
 		timeLeft=60;
 	}
 	
+	@Override
 	public void terminarBuff(Mapa m) {
 		m.getJugador().cambiarArma(new ArmaJugadorEstandar(m.getJugador()));
 	}

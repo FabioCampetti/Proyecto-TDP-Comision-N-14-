@@ -8,6 +8,7 @@ public class BuffTimerCongelarPlayer extends BuffTimer {
 		timeLeft = 100;
 	}
 
+	@Override
 	public void updateBuff(Mapa m) {
 		if(timeLeft == 100)
 			m.getJugador().slow();
@@ -20,6 +21,7 @@ public class BuffTimerCongelarPlayer extends BuffTimer {
 		
 	}
 	
+	@Override
 	public void terminarBuff(Mapa m) {
 		m.getJugador().speedUp();
 	}

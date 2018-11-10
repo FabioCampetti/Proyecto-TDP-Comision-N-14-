@@ -27,6 +27,7 @@ public class DisparoEnemigoDirigido extends DisparoEnemigo {
 		e.aceptar(myCollider);
 	}
 
+	@Override
 	public void aceptar(DefaultCollider c) {
 		c.collideDisparoEnemigo(this);
 	}

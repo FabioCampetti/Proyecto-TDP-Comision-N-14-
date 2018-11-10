@@ -15,6 +15,7 @@ public class ArmaJugadorTriple extends Arma {
 		disparosRestantes = 10;
 	}
 
+	@Override
 	public Collection<Disparo> disparar() {
 		Collection<Disparo> disparos = new LinkedList<Disparo>();
 		int val = 10;
@@ -41,6 +42,7 @@ public class ArmaJugadorTriple extends Arma {
 		return disparos;
 	}
 
+	@Override
 	public void recargar() {
 		disparosRestantes = 10;
 	}

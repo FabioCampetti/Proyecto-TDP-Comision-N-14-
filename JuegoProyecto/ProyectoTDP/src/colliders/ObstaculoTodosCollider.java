@@ -10,16 +10,20 @@ public class ObstaculoTodosCollider extends DefaultCollider {
 		super(daño);
 	}
 	
+	@Override
 	public void collideEnemigo(Enemigo e) {
 		e.recibirDaño(daño);
 	}
 	
+	@Override
 	public void collideDisparoJugador(DisparoJugador d) {
 		d.morir();
 	}
+	@Override
 	public void collideDisparoEnemigo(DisparoEnemigo d) {
 		d.morir();
 	}
+	@Override
 	public void collideJugador(Jugador j) {
 		j.recibirDaño(daño);
 	}

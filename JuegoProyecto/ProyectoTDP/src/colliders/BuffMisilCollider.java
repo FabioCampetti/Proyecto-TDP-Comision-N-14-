@@ -11,6 +11,7 @@ public class BuffMisilCollider extends DefaultCollider {
 		super(0);
 	}
 	
+	@Override
 	public void collideJugador(Jugador j) {
 		j.cambiarArma(new ArmaSuperMisil(j));
 		j.addBuff(new BuffTimerArma());

@@ -21,6 +21,7 @@ public class IEnemigoBasico extends Inteligencia {
 		return instancia;
 	}
 
+	@Override
 	public void mover(Entidad e) {
 		JLabel pos = e.getPosicion();
 		if (!e.isFrozen()) {

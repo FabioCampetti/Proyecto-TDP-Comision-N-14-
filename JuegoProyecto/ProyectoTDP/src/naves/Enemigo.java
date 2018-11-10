@@ -13,6 +13,7 @@ public abstract class Enemigo extends Entidad{
 	protected Inteligencia IA;
 	protected int score;
 	
+	@Override
 	public Buff lanzaBuff() {
 		Random r = new Random();
 		Buff buffNuevo=null;
@@ -22,6 +23,7 @@ public abstract class Enemigo extends Entidad{
 		}
 		return buffNuevo;
 	}
+	@Override
 	public boolean explota() {
 		return true;
 	}

@@ -27,18 +27,22 @@ public class DisparoSuperMisil extends Disparo {
 		myInteligencia = new IDisparoSuperMisil();
 	}
 
+	@Override
 	public void mover() {
 		myInteligencia.mover(this);
 	}
 
+	@Override
 	public void colision(Entidad e) {
 		e.aceptar(myCollider);
 	}
 
+	@Override
 	public void aceptar(DefaultCollider c) {
 		c.collideSuperMisil(this);
 	}
 
+	@Override
 	public void congelar() {
 	};
 

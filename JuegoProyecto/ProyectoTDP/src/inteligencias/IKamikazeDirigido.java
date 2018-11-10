@@ -15,6 +15,7 @@ public class IKamikazeDirigido extends Inteligencia {
 		pos_player = p;
 	}
 
+	@Override
 	public void mover(Entidad e) {
 		JLabel pos = e.getPosicion();
 		int xJug, 

@@ -12,6 +12,7 @@ public class ArmaJugadorEstandar extends Arma {
 		quienDisparo=e;
 		disparosRestantes=10;
 	}
+	@Override
 	public Collection<Disparo> disparar() {
 		Collection<Disparo> disparos=new LinkedList<Disparo>();
 		if (disparosRestantes>0) {
@@ -26,6 +27,7 @@ public class ArmaJugadorEstandar extends Arma {
 		
 		return disparos;
 	}
+	@Override
 	public void recargar() {
 		disparosRestantes=10;
 	}

@@ -16,16 +16,19 @@ public class FactoryLevelThree extends EnemiesFactory {
 		posJugador=pos;
 	}
 	
+	@Override
 	public EnemiesFactory getNextFactory() {
 		return null;
 	}
 
+	@Override
 	public Enemigo createEnemy() {
 		armadoAmount--;
 		size--;
 		return new EnemigoBoss(posJugador);
 	}
 
+	@Override
 	public Obstaculo createObstacle() {
 		return null;
 	}

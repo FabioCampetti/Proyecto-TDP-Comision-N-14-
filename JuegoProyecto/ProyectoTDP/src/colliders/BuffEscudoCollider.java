@@ -11,6 +11,7 @@ public class BuffEscudoCollider extends DefaultCollider {
 		super(daño);
 	}
 	
+	@Override
 	public void collideJugador(Jugador j) {
 		j.setEscudo(new EscudoIndestructible());
 		j.addBuff(new BuffTimerEscudo());

@@ -20,15 +20,18 @@ public class DisparoEnemigo extends Disparo{
 		daño = 15;
 		myCollider=new DisparoEnemigoCollider(daño);
 	}
+	@Override
 	public void mover() {
 		pos.setLocation(pos.getX(), pos.getY() + velocidad);
 		if (pos.getY() > Mapa.ALTO)
 			this.morir();
 	}
 	
+	@Override
 	public void colision(Entidad e) {
 		e.aceptar(myCollider);
 	}
+	@Override
 	public void aceptar(DefaultCollider c) {
 		c.collideDisparoEnemigo(this);
 	}

@@ -1,7 +1,8 @@
 package sonidos;
 
 
-import java.io.*;
+import java.io.IOException;
+
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;

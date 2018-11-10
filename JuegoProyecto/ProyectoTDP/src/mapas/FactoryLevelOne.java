@@ -24,10 +24,12 @@ public class FactoryLevelOne extends EnemiesFactory {
 		posJugador = p;
 	}
 	
+	@Override
 	public EnemiesFactory getNextFactory() {
 		return new FactoryLevelTwo(posJugador);
 	}
 	
+	@Override
 	public Enemigo createEnemy() {
 		if(armadoAmount!=0) {
 			size--;
@@ -44,6 +46,7 @@ public class FactoryLevelOne extends EnemiesFactory {
 			return null;
 	}
 	
+	@Override
 	public Obstaculo createObstacle() {
 		Random ran=new Random();
 		int a=ran.nextInt(40);

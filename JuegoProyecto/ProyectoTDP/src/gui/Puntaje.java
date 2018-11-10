@@ -8,6 +8,7 @@ import java.io.IOException;
 
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
+import javax.swing.SwingConstants;
 
 import mapas.Mapa;
 
@@ -38,7 +39,7 @@ public class Puntaje {
 		/** Inicialización barra que mantendra la vida del jugador
 		 * 	Se inserta en la punta izquierda de la pantalla.
 		 *  */
-		barraVida = new JProgressBar(JProgressBar.HORIZONTAL, 0, 100);
+		barraVida = new JProgressBar(SwingConstants.HORIZONTAL, 0, 100);
 		barraVida.setForeground(Color.RED);
 		barraVida.setBounds(10,10, 200, 25);
 		barraVida.setValue(vida);

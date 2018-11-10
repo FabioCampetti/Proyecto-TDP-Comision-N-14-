@@ -8,6 +8,7 @@ public class BuffTimerCongelar extends BuffTimer {
 		timeLeft=70;
 	}
 	
+	@Override
 	public void updateBuff(Mapa m) {
 		if(timeLeft == 70)
 			m.congelar();
@@ -18,6 +19,7 @@ public class BuffTimerCongelar extends BuffTimer {
 		}
 	}
 	
+	@Override
 	public void terminarBuff(Mapa m) {
 		m.descongelar();
 	}

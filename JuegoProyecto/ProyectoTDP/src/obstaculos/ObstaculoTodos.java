@@ -19,13 +19,16 @@ public class ObstaculoTodos extends Obstaculo {
 		myCollider = new ObstaculoTodosCollider(daño);
 	}
 
+	@Override
 	public void mover() {
 	}
 
+	@Override
 	public void colision(Entidad e) {
 		e.aceptar(myCollider);
 	}
 
+	@Override
 	public void aceptar(DefaultCollider c) {
 		c.collideObstaculoTodos(this);
 	}

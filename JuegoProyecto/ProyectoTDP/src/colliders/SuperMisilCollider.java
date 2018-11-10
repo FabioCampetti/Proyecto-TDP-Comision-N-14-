@@ -11,18 +11,22 @@ public class SuperMisilCollider extends DefaultCollider {
 		super(daño);
 	}
 	
+	@Override
 	public void collideEnemigo(Enemigo e) {
 		e.recibirDaño(daño);
 	}
 	
+	@Override
 	public void collideDisparoEnemigo(DisparoEnemigo d) {
 		d.morir();
 	}
 
+	@Override
 	public void collideObstaculoTodos(ObstaculoTodos o) {
 		o.recibirDaño(daño);
 	}
 	
+	@Override
 	public void collideObstaculoJugador(ObstaculoJugador o) {
 		o.recibirDaño(daño);
 	}

@@ -11,7 +11,6 @@ import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
 import mapas.Mapa;
@@ -123,6 +122,7 @@ public class GUI extends JFrame {
 		});
 		
 		instrucciones.addMouseListener(new MouseAdapter() {
+			@Override
 			public void mouseClicked(MouseEvent e) {
 				salir.setVisible(false);
 				comienzo.setVisible(false);
@@ -133,6 +133,7 @@ public class GUI extends JFrame {
 		});
 		
 		cerrarComoJugar.addMouseListener(new MouseAdapter() {
+			@Override
 			public void mouseClicked(MouseEvent e) {
 				salir.setVisible(true);
 				comienzo.setVisible(true);
@@ -143,6 +144,7 @@ public class GUI extends JFrame {
 		});
 		
 		salir.addMouseListener(new MouseAdapter() {
+			@Override
 			public void mouseClicked(MouseEvent e) {
 				System.exit(DISPOSE_ON_CLOSE);
 			}
@@ -163,6 +165,7 @@ public class GUI extends JFrame {
 		JLabel labelCerrar = new JLabel("");
 
 		labelCerrar.addMouseListener(new MouseAdapter() {
+			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				System.exit(DISPOSE_ON_CLOSE);
 			}
@@ -184,6 +187,7 @@ public class GUI extends JFrame {
 		}
 		
 		this.addKeyListener(new KeyListener() {
+			@Override
 			public void keyPressed(KeyEvent e) {
 				int aux = e.getKeyCode();
 				if (aux == KeyEvent.VK_SPACE) {
@@ -201,10 +205,12 @@ public class GUI extends JFrame {
 				}
 			}
 
+			@Override
 			public void keyReleased(KeyEvent e) {
 				mapa.setDefaultPlayerIcon();
 			}
 
+			@Override
 			public void keyTyped(KeyEvent e) {
 				// No tiene uso
 			}
@@ -268,6 +274,7 @@ public class GUI extends JFrame {
 		});
 
 		salir.addMouseListener(new MouseAdapter() {
+			@Override
 			public void mouseClicked(MouseEvent e) {
 				System.exit(DISPOSE_ON_CLOSE);
 			}
@@ -324,6 +331,7 @@ public class GUI extends JFrame {
 		});
 
 		salir.addMouseListener(new MouseAdapter() {
+			@Override
 			public void mouseClicked(MouseEvent e) {
 				System.exit(DISPOSE_ON_CLOSE);
 			}
@@ -342,6 +350,7 @@ public class GUI extends JFrame {
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					GUI g= new GUI();

@@ -9,6 +9,7 @@ public class BuffCongelarCollider extends DefaultCollider {
 		super(daño);
 	}
 
+	@Override
 	public void collideJugador(Jugador j) {
 		j.addBuff(new BuffTimerCongelar());
 		GameSound.POWER_UP.play();

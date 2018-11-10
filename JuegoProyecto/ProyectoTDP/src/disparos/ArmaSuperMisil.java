@@ -14,6 +14,7 @@ public class ArmaSuperMisil extends Arma {
 		disparosRestantes = 3;
 	}
 	
+	@Override
 	public Collection<Disparo> disparar() {
 		Collection<Disparo> disparos=new LinkedList<Disparo>();
 		if (disparosRestantes>0) {
@@ -28,6 +29,7 @@ public class ArmaSuperMisil extends Arma {
 		return disparos;
 	}
 	
+	@Override
 	public void recargar() {
 		disparosRestantes = 3;
 	}

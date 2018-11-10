@@ -9,10 +9,12 @@ public class BossCollider extends DefaultCollider {
 		super(daño);
 	}
 
+	@Override
 	public void collideJugador(Jugador j) {
 		j.recibirDaño(daño);
 	}
 
+	@Override
 	public void collideDisparoJugador(DisparoJugador d) {
 		d.morir();
 	}

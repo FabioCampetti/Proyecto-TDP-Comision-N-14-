@@ -11,6 +11,7 @@ public class BuffArmaCollider extends DefaultCollider {
 		super(0);
 	}
 
+	@Override
 	public void collideJugador(Jugador j) {
 		j.cambiarArma(new ArmaJugadorTriple(j));
 		j.addBuff(new BuffTimerArma());

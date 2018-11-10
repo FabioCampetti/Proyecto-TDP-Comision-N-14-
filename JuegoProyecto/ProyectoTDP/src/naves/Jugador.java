@@ -73,6 +73,7 @@ public class Jugador extends Entidad {
 		}
 	}
 
+	@Override
 	public void mover() {
 		IA.mover(this);
 	}
@@ -90,6 +91,7 @@ public class Jugador extends Entidad {
 		}
 	}
 
+	@Override
 	public Collection<Disparo> disparar() {
 		Collection<Disparo> res = new LinkedList<Disparo>();
 		if (!isDead()) {
@@ -98,16 +100,19 @@ public class Jugador extends Entidad {
 		return res;
 	}
 
+	@Override
 	public void morir() {
 		vida = 0;
 	}
 
+	@Override
 	public void recibirDaño(int daño) {
 		int dañoFinal;
 		dañoFinal = escudoJugador.recibirDaño(daño);
 		vida -= dañoFinal;
 	}
 
+	@Override
 	public void colision(Entidad e) {
 		e.aceptar(myCollider);
 	}
@@ -120,6 +125,7 @@ public class Jugador extends Entidad {
 		buffsActivos.add(b);
 	}
 
+	@Override
 	public void aceptar(DefaultCollider c) {
 		c.collideJugador(this);
 	}
