@@ -23,18 +23,22 @@ public class DisparoJugador extends Disparo {
 		myInteligencia = new IDisparoEstandar();
 	}
 
+	@Override
 	public void mover() {
 		myInteligencia.mover(this);
 	}
 
+	@Override
 	public void colision(Entidad e) {
 		e.aceptar(myCollider);
 	}
 
+	@Override
 	public void aceptar(DefaultCollider c) {
 		c.collideDisparoJugador(this);
 	}
 
+	@Override
 	public void congelar() {
 	};
 }

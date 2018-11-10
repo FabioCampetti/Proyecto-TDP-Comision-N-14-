@@ -14,6 +14,7 @@ public class ContadorTiempo extends Thread {
 		running = true;
 	}
 
+	@Override
 	public void run() {
 		boolean finishThread = false;
 		while (!finishThread) {

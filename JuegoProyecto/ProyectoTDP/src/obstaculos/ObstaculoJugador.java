@@ -17,6 +17,7 @@ public class ObstaculoJugador extends Obstaculo {
 		daño=20;
 		myCollider = new ObstaculoJugadorCollider(daño);
 	}
+	@Override
 	public void mover() {}
 	@Override
 	public void colision(Entidad e) {

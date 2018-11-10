@@ -6,6 +6,7 @@ import naves.Entidad;
 
 public class IDisparoEstandar extends Inteligencia {
 
+	@Override
 	public void mover(Entidad e) {
 		JLabel pos = e.getPosicion();
 		int velocidad = e.getVelocidad();

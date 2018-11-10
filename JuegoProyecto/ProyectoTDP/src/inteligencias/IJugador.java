@@ -21,6 +21,7 @@ public class IJugador extends Inteligencia {
 		sigMovs = new LinkedList<Integer>();
 	}
 
+	@Override
 	public void mover(Entidad e) {
 		int dir, velocidad;
 		JLabel pos = e.getPosicion();

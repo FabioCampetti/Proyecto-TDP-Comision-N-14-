@@ -35,23 +35,28 @@ public class EnemigoBoss extends Enemigo {
 
 	}
 
+	@Override
 	public Collection<Disparo> disparar() {
 		Collection<Disparo> res = armaEnemigo.disparar();
 		return res;
 	}
 
+	@Override
 	public void mover() {
 		IA.mover(this);
 	}
 
+	@Override
 	public void colision(Entidad e) {
 		e.aceptar(myCollider);
 	}
 
+	@Override
 	public void aceptar(DefaultCollider c) {
 		c.collideBoss(this);
 	}
 
+	@Override
 	public int getScore() {
 		return score;
 	}

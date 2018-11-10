@@ -9,12 +9,15 @@ public class DisparoEnemigoCollider extends DefaultCollider {
 	public DisparoEnemigoCollider(int daño) {
 		super(daño);
 	}
+	@Override
 	public void collideObstaculoTodos(ObstaculoTodos o) {
 		o.recibirDaño(daño);
 	}
+	@Override
 	public void collideJugador(Jugador j) {
 		j.recibirDaño(daño);
 	}
+	@Override
 	public void collideDisparoJugador(DisparoJugador d) {
 		d.morir();
 	}

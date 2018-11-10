@@ -14,6 +14,7 @@ public class ArmaEnemigoEstandar extends Arma {
 		quienDisparo=e;
 	}
 	
+	@Override
 	public Collection<Disparo> disparar() {
 		int val=(int) (EnemigoArmado.ancho*0.5);
 		Collection<Disparo> res= new LinkedList<Disparo>();

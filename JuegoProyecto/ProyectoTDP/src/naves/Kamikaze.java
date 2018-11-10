@@ -38,6 +38,7 @@ public class Kamikaze extends Enemigo {
 		}
 	}
 
+	@Override
 	public void mover() {
 		IA.mover(this);
 	}
@@ -50,18 +51,22 @@ public class Kamikaze extends Enemigo {
 		IA = new IKamikazeDirigido(posJugador);
 	}
 
+	@Override
 	public void colision(Entidad e) {
 		e.aceptar(myCollider);
 	}
 
+	@Override
 	public void aceptar(DefaultCollider c) {
 		c.collideEnemigo(this);
 	}
 
+	@Override
 	public int getScore() {
 		return score;
 	}
 
+	@Override
 	public void recibirDaño(int daño) {
 		vida -= daño;
 		if (vida < 50) {

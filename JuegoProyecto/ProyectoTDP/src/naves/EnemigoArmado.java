@@ -34,22 +34,27 @@ public class EnemigoArmado extends Enemigo {
 		armaEnemigo = new ArmaEnemigoEstandar(this);
 	}
 
+	@Override
 	public void mover() {
 		IA.mover(this);
 	}
 
+	@Override
 	public void colision(Entidad e) {
 		e.aceptar(myCollider);
 	}
 
+	@Override
 	public void aceptar(DefaultCollider c) {
 		c.collideEnemigo(this);
 	}
 
+	@Override
 	public int getScore() {
 		return score;
 	}
 
+	@Override
 	public Collection<Disparo> disparar() {
 		Collection<Disparo> res = new LinkedList<Disparo>();
 		if (!isFrozen()) {
@@ -58,6 +63,7 @@ public class EnemigoArmado extends Enemigo {
 		return res;
 	}
 
+	@Override
 	public void recibirDaño(int daño) {
 		vida -= daño;
 		if (vida < 40) {

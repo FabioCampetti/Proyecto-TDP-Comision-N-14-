@@ -9,6 +9,7 @@ public class BuffVidaCollider extends DefaultCollider {
 	public BuffVidaCollider() {
 		super(0);
 	}
+	@Override
 	public void collideJugador(Jugador j) {
 		j.addBuff(new BuffTimerVida());
 		GameSound.POWER_UP.play();

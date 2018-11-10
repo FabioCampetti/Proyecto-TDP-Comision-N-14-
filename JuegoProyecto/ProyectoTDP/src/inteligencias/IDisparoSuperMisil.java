@@ -8,6 +8,7 @@ import naves.Entidad;
 public class IDisparoSuperMisil extends Inteligencia {
 	private float aceleracion = 1;
 
+	@Override
 	public void mover(Entidad e) {
 
 		JLabel pos = e.getPosicion();

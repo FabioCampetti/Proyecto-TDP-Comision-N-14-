@@ -18,6 +18,7 @@ public class IKamikazeAleatorio extends Inteligencia {
 		dir = 0;
 	}
 
+	@Override
 	public void mover(Entidad e) {
 		JLabel pos = e.getPosicion();
 		int velocidad = e.getVelocidad();
